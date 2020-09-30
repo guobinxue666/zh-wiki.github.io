@@ -17,7 +17,7 @@
 <meta property="og:description" content="VirtualBox 修复’modprobe vboxdrv’ 报错 问题发生背景  Linux 内核版本升级之后，virtualbox 的驱动没有更新成功。  解决方法  更新整个系统 12sudo apt updatesudo apt upgrade  重新安装对应内核版本的头文件,和virtualbox的驱动 1sudo apt install --reinstall linux-heade">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-29T15:23:46.000Z">
-<meta property="article:modified_time" content="2020-09-30T09:19:15.703Z">
+<meta property="article:modified_time" content="2020-09-30T09:59:13.713Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta name="twitter:card" content="summary">
     
@@ -349,7 +349,7 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#VirtualBox-%E4%BF%AE%E5%A4%8D%E2%80%99modprobe-vboxdrv%E2%80%99-%E6%8A%A5%E9%94%99"><span class="toc-number">1.</span> <span class="toc-text">VirtualBox 修复’modprobe vboxdrv’ 报错</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#VirtualBox-%E4%BF%AE%E5%A4%8D%E2%80%99modprobe-vboxdrv%E2%80%99-%E6%8A%A5%E9%94%99"><span class="toc-number">1.</span> <span class="toc-text">VirtualBox 修复’modprobe vboxdrv’ 报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E5%A4%9A%E7%89%88%E6%9C%AC%E7%9A%84gcc"><span class="toc-number">2.</span> <span class="toc-text">支持多版本的gcc</span></a></li></ol>
                 </div>
             
         
@@ -370,10 +370,34 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe vboxdrv</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
 
 
-
 </li>
 </ol>
 </li>
+</ol>
+<ol start="3">
+<li><p>注意事项</p>
+<p>更新驱动的时候，会重新编译驱动，所以要选择对应的gcc编译器，太老的估计会凉。</p>
+</li>
+</ol>
+<h2 id="支持多版本的gcc"><a href="#支持多版本的gcc" class="headerlink" title="支持多版本的gcc"></a>支持多版本的gcc</h2><ol>
+<li><p>系统安装ok后默认gcc 版本是 v-7.x。我们先搞一个低版本的gcc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-4.8</span><br><span class="line">sudo apt-get install g++-4.8</span><br><span class="line">sudo ln -sf /usr/bin/g++-4.8 /usr/bin/g++</span><br><span class="line">sudo ln -sf /usr/bin/gcc-4.8 /usr/bin/gcc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>管理多个版本的gcc</p>
+<ol>
+<li><p>查看存在几个版本的gcc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l /usr/bin/gcc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分别为gcc和g++添加管理组</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40</span><br><span class="line">sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 40</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>能添加就能删除,从管理组中删除</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --remove gcc /usr/bin/gcc-4.8</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>设置ok使用以下指令选择gcc的版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config gcc</span><br><span class="line">sudo update-alternatives --config g++</span><br></pre></td></tr></table></figure></li>
 </ol>
 
             </div>
