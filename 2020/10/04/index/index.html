@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang=zh>
 <head>
     <meta charset="utf-8">
     
@@ -9,17 +9,18 @@
         <meta name="keywords" content="Welcome Zh-Wiki Site" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:type" content="article">
+    <meta property="og:type" content="article">
 <meta property="og:title" content="Welcome Zh-Wiki Site">
 <meta property="og:url" content="http://example.com/2020/10/04/index/index.html">
 <meta property="og:site_name" content="Zh-Wiki">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-03T20:25:57.652Z">
-<meta property="article:modified_time" content="2020-10-03T20:25:57.652Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2020/10/04/images/banner.jpg">
+<meta property="og:image" content="http://example.com/2020/10/04/images/banner.jpg">
+<meta property="article:published_time" content="2020-10-03T20:39:37.450Z">
+<meta property="article:modified_time" content="2020-10-03T20:39:37.450Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/10/04/images/banner.jpg">
     
 
     
@@ -96,14 +97,14 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -115,11 +116,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -151,7 +152,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
     </div>
 
                 </td>
@@ -168,7 +169,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>分类</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -182,9 +183,36 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            test
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/test/test/">test</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             技术研发
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/">技术研发</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Android Camera Driver
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            高通 Camera
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/">高通 Camx 架构解析一</a></li>  <li class="file"><a href="/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture request 代码流程</a></li>  <li class="file"><a href="/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%BA%8C/">高通 Camx 架构解析二</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -193,7 +221,16 @@
                             &nbsp;
                             生活学习
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/">生活学习</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            English 积累
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/%E6%BB%B4%E6%B0%B4%E7%A9%BF%E7%9F%B3-%E8%8B%B1%E8%AF%AD/">滴水穿石-英语</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -202,7 +239,25 @@
                             &nbsp;
                             程序语言
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/">程序语言</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            UML
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/UML/">UML</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            c++
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/c++/">c++</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -220,7 +275,7 @@
                             &nbsp;
                             计算机基础知识
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">计算机基础知识</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/">Ubuntu 开发环境的搭建</a></li>  </ul> 
                     </li> 
                      <li class="file active"><a href="/2020/10/04/index/">Welcome Zh-Wiki Site</a></li>  </ul> 
     </div>
@@ -306,7 +361,7 @@
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2020/10/04/index/">
-            <time datetime="2020-10-03T20:25:57.652Z" itemprop="datePublished">2020-10-04</time>
+            <time datetime="2020-10-03T20:39:37.450Z" itemprop="datePublished">2020-10-04</time>
         </a>
     </div>
 
@@ -344,19 +399,9 @@
             
         
         
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+             <img src="../images/banner.jpg" style="zoom: 200%;" />
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p><img src="../images/banner.jpg" alt="avatar"></p>
 
             </div>
         
@@ -370,9 +415,9 @@
 <nav id="article-nav">
     
     
-        <a href="/2020/09/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">计算机基础知识</div>
+        <a href="/2020/09/29/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Ubuntu 开发环境的搭建</div>
         </a>
     
 </nav>
@@ -393,22 +438,7 @@
 </script>     
 </section>
         </div>
-        <footer id="footer">
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            Zhoujunwei &copy; 2020 
-            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
-            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
-            
-                <br>
-                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
-                &nbsp;|&nbsp;
-                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
-            
-        </div>
-    </div>
-</footer>
-
+        
         
 
     
