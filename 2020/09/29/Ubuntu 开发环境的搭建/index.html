@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang=zh>
 <head>
     <meta charset="utf-8">
     
@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://example.com/2020/09/29/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="Zh-Wiki">
 <meta property="og:description" content="VirtualBox 修复’modprobe vboxdrv’ 报错 问题发生背景  Linux 内核版本升级之后，virtualbox 的驱动没有更新成功。  解决方法  更新整个系统 12sudo apt updatesudo apt upgrade  重新安装对应内核版本的头文件,和virtualbox的驱动 1sudo apt install --reinstall linux-heade">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-29T15:23:46.000Z">
 <meta property="article:modified_time" content="2020-09-30T09:59:13.713Z">
 <meta property="article:author" content="Zhoujunwei">
@@ -96,14 +96,14 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -115,11 +115,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -151,7 +151,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
     </div>
 
                 </td>
@@ -168,7 +168,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>分类</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -184,7 +184,25 @@
                             &nbsp;
                             技术研发
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/">技术研发</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Android Camera Driver
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            高通 Camera
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture request 代码流程</a></li>  <li class="file"><a href="/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/">高通 Camx 架构解析一</a></li>  <li class="file"><a href="/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%BA%8C/">高通 Camx 架构解析二</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -193,7 +211,16 @@
                             &nbsp;
                             生活学习
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/">生活学习</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            English 积累
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/%E6%BB%B4%E6%B0%B4%E7%A9%BF%E7%9F%B3-%E8%8B%B1%E8%AF%AD/">滴水穿石-英语</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -202,7 +229,25 @@
                             &nbsp;
                             程序语言
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/">程序语言</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            UML
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/UML/">UML</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            c++
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/c++/">c++</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -348,7 +393,7 @@
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catalogue</strong>
+                <strong class="toc-title">文章目录</strong>
                     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#VirtualBox-%E4%BF%AE%E5%A4%8D%E2%80%99modprobe-vboxdrv%E2%80%99-%E6%8A%A5%E9%94%99"><span class="toc-number">1.</span> <span class="toc-text">VirtualBox 修复’modprobe vboxdrv’ 报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E5%A4%9A%E7%89%88%E6%9C%AC%E7%9A%84gcc"><span class="toc-number">2.</span> <span class="toc-text">支持多版本的gcc</span></a></li></ol>
                 </div>
             
@@ -413,7 +458,7 @@
     
     
         <a href="/2020/09/29/%E8%89%BA%E6%9C%AF/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">下一篇</strong>
             <div class="article-nav-title">艺术</div>
         </a>
     
@@ -435,22 +480,7 @@
 </script>     
 </section>
         </div>
-        <footer id="footer">
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            Zhoujunwei &copy; 2020 
-            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
-            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
-            
-                <br>
-                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
-                &nbsp;|&nbsp;
-                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
-            
-        </div>
-    </div>
-</footer>
-
+        
         
 
     
