@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-03T16:29:40.080Z</updated>
+  <updated>2020-10-03T20:25:57.652Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -20,15 +20,15 @@
     <title>Welcome Zh-Wiki Site</title>
     <link href="http://example.com/2020/10/04/index/"/>
     <id>http://example.com/2020/10/04/index/</id>
-    <published>2020-10-03T16:29:40.080Z</published>
-    <updated>2020-10-03T16:29:40.080Z</updated>
+    <published>2020-10-03T20:25:57.652Z</published>
+    <updated>2020-10-03T20:25:57.652Z</updated>
     
-    <content type="html"><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a><img src="../images/banner.jpg" style="zoom: 200%;" /></h2>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;img src=&quot;../images/banner.jpg&quot; style=&quot;zoom: 200%;&quot; /&gt;&lt;/h2&gt;</summary>
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
       
     
     
@@ -37,19 +37,12 @@
   </entry>
   
   <entry>
-    <title>Ubuntu 开发环境的搭建</title>
-    <link href="http://example.com/2020/09/29/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
-    <id>http://example.com/2020/09/29/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</id>
+    <title>计算机基础知识</title>
+    <link href="http://example.com/2020/09/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <id>http://example.com/2020/09/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</id>
     <published>2020-09-29T15:23:46.000Z</published>
-    <updated>2020-09-30T09:59:13.713Z</updated>
+    <updated>2020-10-03T20:02:05.977Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="VirtualBox-修复’modprobe-vboxdrv’-报错"><a href="#VirtualBox-修复’modprobe-vboxdrv’-报错" class="headerlink" title="VirtualBox 修复’modprobe vboxdrv’ 报错"></a>VirtualBox 修复’modprobe vboxdrv’ 报错</h2><ol><li><p>问题发生背景 </p><p>Linux 内核版本升级之后，virtualbox 的驱动没有更新成功。</p></li><li><p>解决方法</p><ol><li><p>更新整个系统</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure></li><li><p>重新安装对应内核版本的头文件,和virtualbox的驱动</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install --reinstall linux-headers-$(uname -r) virtualbox-dkms dkms</span><br></pre></td></tr></table></figure></li><li><p>加载驱动重启</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe vboxdrv</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></li></ol></li></ol><ol start="3"><li><p>注意事项</p><p>更新驱动的时候，会重新编译驱动，所以要选择对应的gcc编译器，太老的估计会凉。</p></li></ol><h2 id="支持多版本的gcc"><a href="#支持多版本的gcc" class="headerlink" title="支持多版本的gcc"></a>支持多版本的gcc</h2><ol><li><p>系统安装ok后默认gcc 版本是 v-7.x。我们先搞一个低版本的gcc</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-4.8</span><br><span class="line">sudo apt-get install g++-4.8</span><br><span class="line">sudo ln -sf /usr/bin/g++-4.8 /usr/bin/g++</span><br><span class="line">sudo ln -sf /usr/bin/gcc-4.8 /usr/bin/gcc</span><br></pre></td></tr></table></figure></li><li><p>管理多个版本的gcc</p><ol><li><p>查看存在几个版本的gcc</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l /usr/bin/gcc</span><br></pre></td></tr></table></figure></li><li><p>分别为gcc和g++添加管理组</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40</span><br><span class="line">sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 40</span><br></pre></td></tr></table></figure></li><li><p>能添加就能删除,从管理组中删除</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --remove gcc /usr/bin/gcc-4.8</span><br></pre></td></tr></table></figure></li></ol></li><li><p>设置ok使用以下指令选择gcc的版本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config gcc</span><br><span class="line">sudo update-alternatives --config g++</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;VirtualBox-修复’modprobe-vboxdrv’-报错&quot;&gt;&lt;a href=&quot;#VirtualBox-修复’modprobe-vboxdrv’-报错&quot; class=&quot;headerlink&quot; title=&quot;VirtualBox 修复’modprobe v</summary>
-      
     
     
     
@@ -74,117 +67,57 @@
   </entry>
   
   <entry>
-    <title>UML</title>
-    <link href="http://example.com/2020/09/29/UML/"/>
-    <id>http://example.com/2020/09/29/UML/</id>
+    <title>程序语言</title>
+    <link href="http://example.com/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
+    <id>http://example.com/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/</id>
     <published>2020-09-29T15:23:24.000Z</published>
-    <updated>2020-10-01T06:12:04.705Z</updated>
+    <updated>2020-10-03T20:02:05.977Z</updated>
     
     
     
     
     <category term="程序语言" scheme="http://example.com/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
     
-    <category term="UML" scheme="http://example.com/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/UML/"/>
-    
     
   </entry>
   
   <entry>
-    <title>c++</title>
-    <link href="http://example.com/2020/09/29/c++/"/>
-    <id>http://example.com/2020/09/29/c++/</id>
-    <published>2020-09-29T15:23:24.000Z</published>
-    <updated>2020-10-01T06:12:04.705Z</updated>
-    
-    
-    
-    
-    <category term="程序语言" scheme="http://example.com/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
-    
-    <category term="c++" scheme="http://example.com/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/c/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>滴水穿石-英语</title>
-    <link href="http://example.com/2020/09/29/%E6%BB%B4%E6%B0%B4%E7%A9%BF%E7%9F%B3-%E8%8B%B1%E8%AF%AD/"/>
-    <id>http://example.com/2020/09/29/%E6%BB%B4%E6%B0%B4%E7%A9%BF%E7%9F%B3-%E8%8B%B1%E8%AF%AD/</id>
+    <title>生活学习</title>
+    <link href="http://example.com/2020/09/29/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://example.com/2020/09/29/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/</id>
     <published>2020-09-29T15:23:18.000Z</published>
-    <updated>2020-10-01T06:12:04.705Z</updated>
+    <updated>2020-10-03T20:02:05.957Z</updated>
     
     
     
     
     <category term="生活学习" scheme="http://example.com/categories/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="English 积累" scheme="http://example.com/categories/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/English-%E7%A7%AF%E7%B4%AF/"/>
-    
     
   </entry>
   
   <entry>
-    <title>高通 Camx capture request 代码流程</title>
-    <link href="http://example.com/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/"/>
-    <id>http://example.com/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/</id>
+    <title>技术研发</title>
+    <link href="http://example.com/2020/09/29/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
+    <id>http://example.com/2020/09/29/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/</id>
     <published>2020-09-29T15:23:09.000Z</published>
-    <updated>2020-10-02T13:28:03.220Z</updated>
+    <updated>2020-10-03T20:02:05.957Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="预览和拍照的代码流程"><a href="#预览和拍照的代码流程" class="headerlink" title="预览和拍照的代码流程"></a>预览和拍照的代码流程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">chi_override_process_request() <span class="comment">//chxextensioninterface.cpp </span></span><br><span class="line">OverrideProcessRequest()   <span class="comment">//chxextensionmodule.cpp </span></span><br><span class="line">    ProcessCaptureRequest()<span class="comment">//chxusecase.cpp</span></span><br><span class="line">    ExecuteCaptureRequest() <span class="comment">//chxadvancedcamerausecase.cpp</span></span><br><span class="line">    result = pFeature-&gt;ExecuteProcessRequest(pRequest); <span class="comment">//会调到chifeature2wrapper.cpp:494 ExecuteProcessRequest()</span></span><br><span class="line">    ExecuteProcessRequest() <span class="comment">//chifeature2wrapper.cpp</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>该文章主要是技术研发总结</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;预览和拍照的代码流程&quot;&gt;&lt;a href=&quot;#预览和拍照的代码流程&quot; class=&quot;headerlink&quot; title=&quot;预览和拍照的代码流程&quot;&gt;&lt;/a&gt;预览和拍照的代码流程&lt;/h3&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;</summary>
+    <summary type="html">&lt;p&gt;该文章主要是技术研发总结&lt;/p&gt;
+</summary>
       
     
     
     
     <category term="技术研发" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
     
-    <category term="Android Camera Driver" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android-Camera-Driver/"/>
     
-    <category term="高通 Camera" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android-Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>高通 Camx 架构解析一</title>
-    <link href="http://example.com/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/"/>
-    <id>http://example.com/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/</id>
-    <published>2020-09-29T15:23:09.000Z</published>
-    <updated>2020-10-01T06:12:04.705Z</updated>
-    
-    
-    
-    
-    <category term="技术研发" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
-    
-    <category term="Android Camera Driver" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android-Camera-Driver/"/>
-    
-    <category term="高通 Camera" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android-Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>高通 Camx 架构解析二</title>
-    <link href="http://example.com/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%BA%8C/"/>
-    <id>http://example.com/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%BA%8C/</id>
-    <published>2020-09-29T15:23:09.000Z</published>
-    <updated>2020-10-01T06:12:04.709Z</updated>
-    
-    
-    
-    
-    <category term="技术研发" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
-    
-    <category term="Android Camera Driver" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android-Camera-Driver/"/>
-    
-    <category term="高通 Camera" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android-Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
-    
+    <category term="研发" scheme="http://example.com/tags/%E7%A0%94%E5%8F%91/"/>
     
   </entry>
   
