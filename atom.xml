@@ -6,7 +6,7 @@
   <link href="https://zh-wiki.github.io/atom.xml" rel="self"/>
   
   <link href="https://zh-wiki.github.io/"/>
-  <updated>2020-10-03T20:39:37.450Z</updated>
+  <updated>2020-10-05T08:27:35.037Z</updated>
   <id>https://zh-wiki.github.io/</id>
   
   <author>
@@ -18,20 +18,17 @@
   
   <entry>
     <title>Welcome Zh-Wiki Site</title>
-    <link href="https://zh-wiki.github.io/2020/10/04/index/"/>
-    <id>https://zh-wiki.github.io/2020/10/04/index/</id>
-    <published>2020-10-03T20:39:37.450Z</published>
-    <updated>2020-10-03T20:39:37.450Z</updated>
+    <link href="https://zh-wiki.github.io/2020/10/05/index/"/>
+    <id>https://zh-wiki.github.io/2020/10/05/index/</id>
+    <published>2020-10-05T08:27:35.037Z</published>
+    <updated>2020-10-05T08:27:35.037Z</updated>
     
-    <content type="html"><![CDATA[ <img src="../images/banner.jpg" style="zoom: 200%;" /><p><img src="../images/banner.jpg" alt="avatar"></p>]]></content>
+    <content type="html"><![CDATA[<img src="/2020/10/05/index/index.jpg" alt="维基百科" style="zoom:200%;">]]></content>
     
     
       
       
-    <summary type="html"> &lt;img src=&quot;../images/banner.jpg&quot; style=&quot;zoom: 200%;&quot; /&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/banner.jpg&quot; alt=&quot;avatar&quot;&gt;&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;img src=&quot;/2020/10/05/index/index.jpg&quot; alt=&quot;维基百科&quot; style=&quot;zoom:200%;&quot;&gt;</summary>
       
     
     
@@ -40,33 +37,26 @@
   </entry>
   
   <entry>
-    <title>Ubuntu 开发环境的搭建</title>
-    <link href="https://zh-wiki.github.io/2020/09/29/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zh-wiki.github.io/2020/09/29/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</id>
-    <published>2020-09-29T15:23:46.000Z</published>
-    <updated>2020-10-03T20:32:58.995Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="VirtualBox-修复’modprobe-vboxdrv’-报错"><a href="#VirtualBox-修复’modprobe-vboxdrv’-报错" class="headerlink" title="VirtualBox 修复’modprobe vboxdrv’ 报错"></a>VirtualBox 修复’modprobe vboxdrv’ 报错</h2><ol><li><p>问题发生背景 </p><p>Linux 内核版本升级之后，virtualbox 的驱动没有更新成功。</p></li><li><p>解决方法</p><ol><li><p>更新整个系统</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure></li><li><p>重新安装对应内核版本的头文件,和virtualbox的驱动</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install --reinstall linux-headers-$(uname -r) virtualbox-dkms dkms</span><br></pre></td></tr></table></figure></li><li><p>加载驱动重启</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe vboxdrv</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></li></ol></li></ol><ol start="3"><li><p>注意事项</p><p>更新驱动的时候，会重新编译驱动，所以要选择对应的gcc编译器，太老的估计会凉。</p></li></ol><h2 id="支持多版本的gcc"><a href="#支持多版本的gcc" class="headerlink" title="支持多版本的gcc"></a>支持多版本的gcc</h2><ol><li><p>系统安装ok后默认gcc 版本是 v-7.x。我们先搞一个低版本的gcc</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-4.8</span><br><span class="line">sudo apt-get install g++-4.8</span><br><span class="line">sudo ln -sf /usr/bin/g++-4.8 /usr/bin/g++</span><br><span class="line">sudo ln -sf /usr/bin/gcc-4.8 /usr/bin/gcc</span><br></pre></td></tr></table></figure></li><li><p>管理多个版本的gcc</p><ol><li><p>查看存在几个版本的gcc</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l /usr/bin/gcc</span><br></pre></td></tr></table></figure></li><li><p>分别为gcc和g++添加管理组</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40</span><br><span class="line">sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 40</span><br></pre></td></tr></table></figure></li><li><p>能添加就能删除,从管理组中删除</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --remove gcc /usr/bin/gcc-4.8</span><br></pre></td></tr></table></figure></li></ol></li><li><p>设置ok使用以下指令选择gcc的版本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config gcc</span><br><span class="line">sudo update-alternatives --config g++</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;VirtualBox-修复’modprobe-vboxdrv’-报错&quot;&gt;&lt;a href=&quot;#VirtualBox-修复’modprobe-vboxdrv’-报错&quot; class=&quot;headerlink&quot; title=&quot;VirtualBox 修复’modprobe v</summary>
-      
+    <title>生活学习</title>
+    <link href="https://zh-wiki.github.io/2020/10/04/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://zh-wiki.github.io/2020/10/04/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/</id>
+    <published>2020-10-04T08:22:36.000Z</published>
+    <updated>2020-10-05T08:27:35.037Z</updated>
     
     
     
-    <category term="计算机基础知识" scheme="https://zh-wiki.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    <category term="生活学习" scheme="https://zh-wiki.github.io/categories/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>艺术</title>
-    <link href="https://zh-wiki.github.io/2020/09/29/%E8%89%BA%E6%9C%AF/"/>
-    <id>https://zh-wiki.github.io/2020/09/29/%E8%89%BA%E6%9C%AF/</id>
-    <published>2020-09-29T15:23:28.000Z</published>
-    <updated>2020-09-29T15:25:05.046Z</updated>
+    <link href="https://zh-wiki.github.io/2020/10/04/%E8%89%BA%E6%9C%AF/%E8%89%BA%E6%9C%AF/"/>
+    <id>https://zh-wiki.github.io/2020/10/04/%E8%89%BA%E6%9C%AF/%E8%89%BA%E6%9C%AF/</id>
+    <published>2020-10-04T08:22:36.000Z</published>
+    <updated>2020-10-05T08:27:35.037Z</updated>
     
     
     
@@ -77,11 +67,28 @@
   </entry>
   
   <entry>
-    <title>UML</title>
-    <link href="https://zh-wiki.github.io/2020/09/29/UML/"/>
-    <id>https://zh-wiki.github.io/2020/09/29/UML/</id>
+    <title>c++</title>
+    <link href="https://zh-wiki.github.io/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/C++/c++/"/>
+    <id>https://zh-wiki.github.io/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/C++/c++/</id>
     <published>2020-09-29T15:23:24.000Z</published>
-    <updated>2020-10-03T20:32:58.975Z</updated>
+    <updated>2020-10-05T08:27:35.037Z</updated>
+    
+    
+    
+    
+    <category term="程序语言" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="C++" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>UML</title>
+    <link href="https://zh-wiki.github.io/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/UML/UML/"/>
+    <id>https://zh-wiki.github.io/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/UML/UML/</id>
+    <published>2020-09-29T15:23:24.000Z</published>
+    <updated>2020-10-05T08:27:35.037Z</updated>
     
     
     
@@ -94,70 +101,11 @@
   </entry>
   
   <entry>
-    <title>c++</title>
-    <link href="https://zh-wiki.github.io/2020/09/29/c++/"/>
-    <id>https://zh-wiki.github.io/2020/09/29/c++/</id>
-    <published>2020-09-29T15:23:24.000Z</published>
-    <updated>2020-10-03T20:32:58.995Z</updated>
-    
-    
-    
-    
-    <category term="程序语言" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
-    
-    <category term="c++" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/c/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>vivi</title>
-    <link href="https://zh-wiki.github.io/2020/09/29/test/vivi/"/>
-    <id>https://zh-wiki.github.io/2020/09/29/test/vivi/</id>
-    <published>2020-09-29T15:23:24.000Z</published>
-    <updated>2020-10-03T21:23:49.988Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="./vivi.jpg" alt="avatar"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;./vivi.jpg&quot; alt=&quot;avatar&quot;&gt;&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="test" scheme="https://zh-wiki.github.io/categories/test/"/>
-    
-    
-    <category term="vivi" scheme="https://zh-wiki.github.io/tags/vivi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>滴水穿石-英语</title>
-    <link href="https://zh-wiki.github.io/2020/09/29/%E6%BB%B4%E6%B0%B4%E7%A9%BF%E7%9F%B3-%E8%8B%B1%E8%AF%AD/"/>
-    <id>https://zh-wiki.github.io/2020/09/29/%E6%BB%B4%E6%B0%B4%E7%A9%BF%E7%9F%B3-%E8%8B%B1%E8%AF%AD/</id>
-    <published>2020-09-29T15:23:18.000Z</published>
-    <updated>2020-10-03T20:32:59.011Z</updated>
-    
-    
-    
-    
-    <category term="生活学习" scheme="https://zh-wiki.github.io/categories/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="English 积累" scheme="https://zh-wiki.github.io/categories/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/English-%E7%A7%AF%E7%B4%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>高通 Camx capture request 代码流程</title>
-    <link href="https://zh-wiki.github.io/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/"/>
-    <id>https://zh-wiki.github.io/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/</id>
-    <published>2020-09-29T15:23:09.000Z</published>
-    <updated>2020-10-03T20:32:59.015Z</updated>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/</id>
+    <published>2019-12-31T16:00:02.000Z</published>
+    <updated>2020-10-05T08:45:09.587Z</updated>
     
     <content type="html"><![CDATA[<h3 id="预览和拍照的代码流程"><a href="#预览和拍照的代码流程" class="headerlink" title="预览和拍照的代码流程"></a>预览和拍照的代码流程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">chi_override_process_request() <span class="comment">//chxextensioninterface.cpp </span></span><br><span class="line">OverrideProcessRequest()   <span class="comment">//chxextensionmodule.cpp </span></span><br><span class="line">    ProcessCaptureRequest()<span class="comment">//chxusecase.cpp</span></span><br><span class="line">    ExecuteCaptureRequest() <span class="comment">//chxadvancedcamerausecase.cpp</span></span><br><span class="line">    result = pFeature-&gt;ExecuteProcessRequest(pRequest); <span class="comment">//会调到chifeature2wrapper.cpp:494 ExecuteProcessRequest()</span></span><br><span class="line">    ExecuteProcessRequest() <span class="comment">//chifeature2wrapper.cpp</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>]]></content>
     
@@ -179,11 +127,35 @@
   </entry>
   
   <entry>
-    <title>高通 Camx 架构解析一</title>
-    <link href="https://zh-wiki.github.io/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/"/>
-    <id>https://zh-wiki.github.io/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/</id>
-    <published>2020-09-29T15:23:09.000Z</published>
-    <updated>2020-10-03T20:32:59.019Z</updated>
+    <title>Hexo 博客搭建</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Hexo%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Hexo%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</id>
+    <published>2019-12-31T16:00:01.000Z</published>
+    <updated>2020-10-05T09:02:31.970Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="同步本地图片与网络图片"><a href="#同步本地图片与网络图片" class="headerlink" title="同步本地图片与网络图片"></a>同步本地图片与网络图片</h2><ol><li><p>安装插件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure></li><li><p>配置Typora</p><p>![image-20201005165456541](./Hexo 博客搭建/image-20201005165456541.png)</p></li><li><p>编译</p><p>有以下log说明配置成功</p><p>![image-20201005165756877](./Hexo 博客搭建/image-20201005165756877.png)</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;同步本地图片与网络图片&quot;&gt;&lt;a href=&quot;#同步本地图片与网络图片&quot; class=&quot;headerlink&quot; title=&quot;同步本地图片与网络图片&quot;&gt;&lt;/a&gt;同步本地图片与网络图片&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;安装插件&lt;/p&gt;
+&lt;figure class=&quot;h</summary>
+      
+    
+    
+    
+    <category term="计算机基础知识" scheme="https://zh-wiki.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>高通 Camx 架构解析二</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%BA%8C/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%BA%8C/</id>
+    <published>2019-12-31T16:00:01.000Z</published>
+    <updated>2020-10-05T08:45:01.195Z</updated>
     
     
     
@@ -198,11 +170,33 @@
   </entry>
   
   <entry>
-    <title>高通 Camx 架构解析二</title>
-    <link href="https://zh-wiki.github.io/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%BA%8C/"/>
-    <id>https://zh-wiki.github.io/2020/09/29/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%BA%8C/</id>
-    <published>2020-09-29T15:23:09.000Z</published>
-    <updated>2020-10-03T20:32:59.023Z</updated>
+    <title>Ubuntu 开发环境的搭建</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</id>
+    <published>2019-12-31T16:00:00.000Z</published>
+    <updated>2020-10-05T08:44:31.427Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="VirtualBox-修复’modprobe-vboxdrv’-报错"><a href="#VirtualBox-修复’modprobe-vboxdrv’-报错" class="headerlink" title="VirtualBox 修复’modprobe vboxdrv’ 报错"></a>VirtualBox 修复’modprobe vboxdrv’ 报错</h2><ol><li><p>问题发生背景 </p><p>Linux 内核版本升级之后，virtualbox 的驱动没有更新成功。</p></li><li><p>解决方法</p><ol><li><p>更新整个系统</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure></li><li><p>重新安装对应内核版本的头文件,和virtualbox的驱动</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install --reinstall linux-headers-$(uname -r) virtualbox-dkms dkms</span><br></pre></td></tr></table></figure></li><li><p>加载驱动重启</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe vboxdrv</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></li></ol></li></ol><ol start="3"><li><p>注意事项</p><p>更新驱动的时候，会重新编译驱动，所以要选择对应的gcc编译器，太老的估计会凉。</p></li></ol><h2 id="支持多版本的gcc"><a href="#支持多版本的gcc" class="headerlink" title="支持多版本的gcc"></a>支持多版本的gcc</h2><ol><li><p>系统安装ok后默认gcc 版本是 v-7.x。我们先搞一个低版本的gcc</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-4.8</span><br><span class="line">sudo apt-get install g++-4.8</span><br><span class="line">sudo ln -sf /usr/bin/g++-4.8 /usr/bin/g++</span><br><span class="line">sudo ln -sf /usr/bin/gcc-4.8 /usr/bin/gcc</span><br></pre></td></tr></table></figure></li><li><p>管理多个版本的gcc</p><ol><li><p>查看存在几个版本的gcc</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l /usr/bin/gcc</span><br></pre></td></tr></table></figure></li><li><p>分别为gcc和g++添加管理组</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40</span><br><span class="line">sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 40</span><br></pre></td></tr></table></figure></li><li><p>能添加就能删除,从管理组中删除</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --remove gcc /usr/bin/gcc-4.8</span><br></pre></td></tr></table></figure></li></ol></li><li><p>设置ok使用以下指令选择gcc的版本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config gcc</span><br><span class="line">sudo update-alternatives --config g++</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;VirtualBox-修复’modprobe-vboxdrv’-报错&quot;&gt;&lt;a href=&quot;#VirtualBox-修复’modprobe-vboxdrv’-报错&quot; class=&quot;headerlink&quot; title=&quot;VirtualBox 修复’modprobe v</summary>
+      
+    
+    
+    
+    <category term="计算机基础知识" scheme="https://zh-wiki.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>高通 Camx 架构解析一</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/</id>
+    <published>2019-12-31T16:00:00.000Z</published>
+    <updated>2020-10-05T08:44:50.335Z</updated>
     
     
     
