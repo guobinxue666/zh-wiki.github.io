@@ -37,21 +37,6 @@
   </entry>
   
   <entry>
-    <title>艺术</title>
-    <link href="https://zh-wiki.github.io/2020/10/04/%E8%89%BA%E6%9C%AF/%E8%89%BA%E6%9C%AF/"/>
-    <id>https://zh-wiki.github.io/2020/10/04/%E8%89%BA%E6%9C%AF/%E8%89%BA%E6%9C%AF/</id>
-    <published>2020-10-04T08:22:36.000Z</published>
-    <updated>2020-10-05T08:27:35.037Z</updated>
-    
-    
-    
-    
-    <category term="艺术" scheme="https://zh-wiki.github.io/categories/%E8%89%BA%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>生活学习</title>
     <link href="https://zh-wiki.github.io/2020/10/04/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/"/>
     <id>https://zh-wiki.github.io/2020/10/04/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/</id>
@@ -67,18 +52,16 @@
   </entry>
   
   <entry>
-    <title>UML</title>
-    <link href="https://zh-wiki.github.io/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/UML/UML/"/>
-    <id>https://zh-wiki.github.io/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/UML/UML/</id>
-    <published>2020-09-29T15:23:24.000Z</published>
+    <title>艺术</title>
+    <link href="https://zh-wiki.github.io/2020/10/04/%E8%89%BA%E6%9C%AF/%E8%89%BA%E6%9C%AF/"/>
+    <id>https://zh-wiki.github.io/2020/10/04/%E8%89%BA%E6%9C%AF/%E8%89%BA%E6%9C%AF/</id>
+    <published>2020-10-04T08:22:36.000Z</published>
     <updated>2020-10-05T08:27:35.037Z</updated>
     
     
     
     
-    <category term="程序语言" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
-    
-    <category term="UML" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/UML/"/>
+    <category term="艺术" scheme="https://zh-wiki.github.io/categories/%E8%89%BA%E6%9C%AF/"/>
     
     
   </entry>
@@ -96,6 +79,23 @@
     <category term="程序语言" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
     
     <category term="C++" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>UML</title>
+    <link href="https://zh-wiki.github.io/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/UML/UML/"/>
+    <id>https://zh-wiki.github.io/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/UML/UML/</id>
+    <published>2020-09-29T15:23:24.000Z</published>
+    <updated>2020-10-05T08:27:35.037Z</updated>
+    
+    
+    
+    
+    <category term="程序语言" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="UML" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/UML/"/>
     
     
   </entry>
@@ -172,6 +172,25 @@
   </entry>
   
   <entry>
+    <title>高通 Camx Camx open camera</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/</id>
+    <published>2019-12-31T16:00:03.000Z</published>
+    <updated>2020-10-13T12:47:13.185Z</updated>
+    
+    
+    
+    
+    <category term="技术研发" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
+    
+    <category term="Camera Driver" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/"/>
+    
+    <category term="高通 Camera" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Arch Linux 开发环境的搭建</title>
     <link href="https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Arch%20Linux%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
     <id>https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Arch%20Linux%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</id>
@@ -189,25 +208,6 @@
     
     
     <category term="计算机基础知识" scheme="https://zh-wiki.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>高通 Camx Camx open camera</title>
-    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/"/>
-    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/</id>
-    <published>2019-12-31T16:00:03.000Z</published>
-    <updated>2020-10-13T12:47:13.185Z</updated>
-    
-    
-    
-    
-    <category term="技术研发" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
-    
-    <category term="Camera Driver" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/"/>
-    
-    <category term="高通 Camera" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
     
     
   </entry>
@@ -325,6 +325,59 @@
   </entry>
   
   <entry>
+    <title>Android 研发总结</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20%E7%A0%94%E5%8F%91%E6%80%BB%E7%BB%93/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20%E7%A0%94%E5%8F%91%E6%80%BB%E7%BB%93/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</id>
+    <published>2019-12-31T16:00:00.000Z</published>
+    <updated>2020-10-14T09:02:50.791Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="如何编译-selinux"><a href="#如何编译-selinux" class="headerlink" title="如何编译 selinux"></a>如何编译 selinux</h3><ol><li>编译命令</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make selinux_policy</span><br></pre></td></tr></table></figure><ol start="2"><li><p>生成的文件</p><p>patch : out/target/product/lime/vendor/etc/selinux</p></li></ol><h3 id="如何将最近指定时间-45min-内生成的文件-push-到-指定-的路径"><a href="#如何将最近指定时间-45min-内生成的文件-push-到-指定-的路径" class="headerlink" title="如何将最近指定时间(45min)内生成的文件 push 到 指定 的路径"></a>如何将最近指定时间(45min)内生成的文件 push 到 指定 的路径</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -mmin -45 -<span class="built_in">type</span> f|grep -v SHARED_LIBRARIES|grep -v STATIC_LIBRARIES|grep -Ei <span class="string">&quot;so|bin&quot;</span>|grep -v symbols|xargs -t -I <span class="string">&#x27;&#123;&#125;&#x27;</span> adb push &#123;&#125; /vendor/lib64/&#123;&#125;</span><br></pre></td></tr></table></figure><h3 id="如何在安卓中自定义-log"><a href="#如何在安卓中自定义-log" class="headerlink" title="如何在安卓中自定义 log"></a>如何在安卓中自定义 log</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;android/log.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GC02M1B_DBG(fmt, args...) __android_log_print(ANDROID_LOG_ERROR, <span class="meta-string">&quot;GC02M1B&quot;</span>,fmt, ##args)</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;如何编译-selinux&quot;&gt;&lt;a href=&quot;#如何编译-selinux&quot; class=&quot;headerlink&quot; title=&quot;如何编译 selinux&quot;&gt;&lt;/a&gt;如何编译 selinux&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;编译命令&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure </summary>
+      
+    
+    
+    
+    <category term="技术研发" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
+    
+    <category term="Android 研发总结" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android-%E7%A0%94%E5%8F%91%E6%80%BB%E7%BB%93/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>高通 Camx 架构解析一</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/</id>
+    <published>2019-12-31T16:00:00.000Z</published>
+    <updated>2020-10-14T09:50:39.538Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Camera-Server"><a href="#Camera-Server" class="headerlink" title="Camera Server"></a>Camera Server</h3><p>Camera Server 是一个独立的进程，对上通过AIDL来完成 Camera Framework 的一些请求；对下通过HIDL 将上层发下来的请求提交给 Camera Provider。</p><p>Camera Server 对 Camera Framework 而言属于 服务端</p><p>Camera Server 对 Camera Provider 而言属于 客户端</p><p><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/image-20201014172140989.png" alt="Camera Server"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Camera-Server&quot;&gt;&lt;a href=&quot;#Camera-Server&quot; class=&quot;headerlink&quot; title=&quot;Camera Server&quot;&gt;&lt;/a&gt;Camera Server&lt;/h3&gt;&lt;p&gt;Camera Server 是一个独立的进程，对上通</summary>
+      
+    
+    
+    
+    <category term="技术研发" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
+    
+    <category term="Camera Driver" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/"/>
+    
+    <category term="高通 Camera" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>MarkDown 常用语法</title>
     <link href="https://zh-wiki.github.io/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/"/>
     <id>https://zh-wiki.github.io/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</id>
@@ -344,25 +397,6 @@
     <category term="程序语言" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
     
     <category term="MarkDown" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>高通 Camx 架构解析一</title>
-    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/"/>
-    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/</id>
-    <published>2019-12-31T16:00:00.000Z</published>
-    <updated>2020-10-05T08:44:50.335Z</updated>
-    
-    
-    
-    
-    <category term="技术研发" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
-    
-    <category term="Camera Driver" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/"/>
-    
-    <category term="高通 Camera" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
     
     
   </entry>
