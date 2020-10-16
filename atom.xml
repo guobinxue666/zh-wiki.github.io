@@ -37,21 +37,6 @@
   </entry>
   
   <entry>
-    <title>生活学习</title>
-    <link href="https://zh-wiki.github.io/2020/10/04/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://zh-wiki.github.io/2020/10/04/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/</id>
-    <published>2020-10-04T08:22:36.000Z</published>
-    <updated>2020-10-05T08:27:35.037Z</updated>
-    
-    
-    
-    
-    <category term="生活学习" scheme="https://zh-wiki.github.io/categories/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>艺术</title>
     <link href="https://zh-wiki.github.io/2020/10/04/%E8%89%BA%E6%9C%AF/%E8%89%BA%E6%9C%AF/"/>
     <id>https://zh-wiki.github.io/2020/10/04/%E8%89%BA%E6%9C%AF/%E8%89%BA%E6%9C%AF/</id>
@@ -67,18 +52,16 @@
   </entry>
   
   <entry>
-    <title>c++</title>
-    <link href="https://zh-wiki.github.io/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/C++/c++/"/>
-    <id>https://zh-wiki.github.io/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/C++/c++/</id>
-    <published>2020-09-29T15:23:24.000Z</published>
+    <title>生活学习</title>
+    <link href="https://zh-wiki.github.io/2020/10/04/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://zh-wiki.github.io/2020/10/04/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/</id>
+    <published>2020-10-04T08:22:36.000Z</published>
     <updated>2020-10-05T08:27:35.037Z</updated>
     
     
     
     
-    <category term="程序语言" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
-    
-    <category term="C++" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/C/"/>
+    <category term="生活学习" scheme="https://zh-wiki.github.io/categories/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
@@ -96,6 +79,23 @@
     <category term="程序语言" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
     
     <category term="UML" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/UML/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>c++</title>
+    <link href="https://zh-wiki.github.io/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/C++/c++/"/>
+    <id>https://zh-wiki.github.io/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/C++/c++/</id>
+    <published>2020-09-29T15:23:24.000Z</published>
+    <updated>2020-10-05T08:27:35.037Z</updated>
+    
+    
+    
+    
+    <category term="程序语言" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="C++" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/C/"/>
     
     
   </entry>
@@ -213,29 +213,6 @@
   </entry>
   
   <entry>
-    <title>Centos 开发环境的搭建</title>
-    <link href="https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Centos%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Centos%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</id>
-    <published>2019-12-31T16:00:02.000Z</published>
-    <updated>2020-10-09T00:59:08.825Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="同一网段外部浏览器不能访问Tomcat"><a href="#同一网段外部浏览器不能访问Tomcat" class="headerlink" title="同一网段外部浏览器不能访问Tomcat"></a>同一网段外部浏览器不能访问Tomcat</h2><ol><li><p>问题产生背景和原因</p><p>背景：服务器已经安装好tomcat, 服务器主机通过 <strong>ip+8080</strong> 的方式可以进行访问, 但是其他在同一网段下的客户端机器通过同样方式不能访问.</p><p>原因：服务器未将 8080 端口进行开放</p></li><li><p>解决方法</p><p>1)查看防火墙状态</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --state</span><br></pre></td></tr></table></figure><p>2)添加需要开放的端口</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-port=8080/tcp</span><br></pre></td></tr></table></figure><p>3)加载配置使其生效</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure><p>4)查看配置是否生效</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --list-ports</span><br></pre></td></tr></table></figure><p>5)重新访问 Tomcat <strong>(IP+8080)</strong> </p></li></ol><h2 id="防火墙的相关操作"><a href="#防火墙的相关操作" class="headerlink" title="防火墙的相关操作"></a>防火墙的相关操作</h2><ol><li><p>开启防火墙的命令  </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld.service</span><br></pre></td></tr></table></figure></li><li><p>关闭防火墙的命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure></li><li><p>开机自动启动</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> firewalld.service</span><br></pre></td></tr></table></figure></li><li><p>关闭开机自动启动</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> firewalld.service</span><br></pre></td></tr></table></figure></li><li><p>查看防火墙状态</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;同一网段外部浏览器不能访问Tomcat&quot;&gt;&lt;a href=&quot;#同一网段外部浏览器不能访问Tomcat&quot; class=&quot;headerlink&quot; title=&quot;同一网段外部浏览器不能访问Tomcat&quot;&gt;&lt;/a&gt;同一网段外部浏览器不能访问Tomcat&lt;/h2&gt;&lt;ol&gt;
-</summary>
-      
-    
-    
-    
-    <category term="计算机基础知识" scheme="https://zh-wiki.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>高通 Camx Bring up</title>
     <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20Bring%20Up/"/>
     <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20Bring%20Up/</id>
@@ -257,6 +234,29 @@
     <category term="Camera Driver" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/"/>
     
     <category term="高通 Camera" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Centos 开发环境的搭建</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Centos%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Centos%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</id>
+    <published>2019-12-31T16:00:02.000Z</published>
+    <updated>2020-10-09T00:59:08.825Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="同一网段外部浏览器不能访问Tomcat"><a href="#同一网段外部浏览器不能访问Tomcat" class="headerlink" title="同一网段外部浏览器不能访问Tomcat"></a>同一网段外部浏览器不能访问Tomcat</h2><ol><li><p>问题产生背景和原因</p><p>背景：服务器已经安装好tomcat, 服务器主机通过 <strong>ip+8080</strong> 的方式可以进行访问, 但是其他在同一网段下的客户端机器通过同样方式不能访问.</p><p>原因：服务器未将 8080 端口进行开放</p></li><li><p>解决方法</p><p>1)查看防火墙状态</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --state</span><br></pre></td></tr></table></figure><p>2)添加需要开放的端口</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-port=8080/tcp</span><br></pre></td></tr></table></figure><p>3)加载配置使其生效</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure><p>4)查看配置是否生效</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --list-ports</span><br></pre></td></tr></table></figure><p>5)重新访问 Tomcat <strong>(IP+8080)</strong> </p></li></ol><h2 id="防火墙的相关操作"><a href="#防火墙的相关操作" class="headerlink" title="防火墙的相关操作"></a>防火墙的相关操作</h2><ol><li><p>开启防火墙的命令  </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld.service</span><br></pre></td></tr></table></figure></li><li><p>关闭防火墙的命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure></li><li><p>开机自动启动</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> firewalld.service</span><br></pre></td></tr></table></figure></li><li><p>关闭开机自动启动</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> firewalld.service</span><br></pre></td></tr></table></figure></li><li><p>查看防火墙状态</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;同一网段外部浏览器不能访问Tomcat&quot;&gt;&lt;a href=&quot;#同一网段外部浏览器不能访问Tomcat&quot; class=&quot;headerlink&quot; title=&quot;同一网段外部浏览器不能访问Tomcat&quot;&gt;&lt;/a&gt;同一网段外部浏览器不能访问Tomcat&lt;/h2&gt;&lt;ol&gt;
+</summary>
+      
+    
+    
+    
+    <category term="计算机基础知识" scheme="https://zh-wiki.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     
     
   </entry>
@@ -325,6 +325,54 @@
   </entry>
   
   <entry>
+    <title>MarkDown 常用语法</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</id>
+    <published>2019-12-31T16:00:00.000Z</published>
+    <updated>2020-10-12T05:02:36.880Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="MarkDown-插入音频"><a href="#MarkDown-插入音频" class="headerlink" title="MarkDown 插入音频"></a>MarkDown 插入音频</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">&quot;音频地址&quot;</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br></pre></td></tr></table></figure><p>示例</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="1200" height="86" src="//music.163.com/outchain/player?type=2&id=1473143206&auto=1&height=66"></iframe><h2 id="MarkDown-插入视频"><a href="#MarkDown-插入视频" class="headerlink" title="MarkDown 插入视频"></a>MarkDown 插入视频</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">height</span>=<span class="string">498</span> <span class="attr">width</span>=<span class="string">510</span> <span class="attr">src</span>=<span class="string">&quot;视频地址&quot;</span> <span class="attr">frameborder</span>=<span class="string">0</span> <span class="attr">allowfullscreen</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br></pre></td></tr></table></figure><p>示例</p><iframe height="498" width="1200" src="https://www.bilibili.com/video/BV1Mg4y1v7Zf?from=search&seid=7230009895184526059" frameborder="0" allowfullscreen></iframe>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;MarkDown-插入音频&quot;&gt;&lt;a href=&quot;#MarkDown-插入音频&quot; class=&quot;headerlink&quot; title=&quot;MarkDown 插入音频&quot;&gt;&lt;/a&gt;MarkDown 插入音频&lt;/h2&gt;&lt;figure class=&quot;highlight mark</summary>
+      
+    
+    
+    
+    <category term="程序语言" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="MarkDown" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ADB 常用命令</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/ADB%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/ADB%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2019-12-31T16:00:00.000Z</published>
+    <updated>2020-10-16T06:58:31.762Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="高通平台-Camera-相关"><a href="#高通平台-Camera-相关" class="headerlink" title="高通平台 Camera 相关"></a>高通平台 Camera 相关</h2><h3 id="高通-Camx-杀死-camera-进程"><a href="#高通-Camx-杀死-camera-进程" class="headerlink" title="高通 Camx 杀死 camera 进程"></a>高通 Camx 杀死 camera 进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell ps -A|grep camera |awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>|xargs adb shell <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure><p>由命令引发的知识:</p><ol><li><p>awk 命令的介绍</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span></span><br></pre></td></tr></table></figure><p>这个命令会把 <strong>ps -A | grep camera</strong> 得出的进程id 输出到终端 （$2 是第二字段也就是 进程id）</p><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/ADB%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/image-20201016145122015.png" alt="例图" style="zoom:200%;">    </li><li><p>xargs 命令介绍</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xargs adb shell <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure><p>这个命令会把 awk 获取到的线程id 当做参数传递给 <strong>kill -9</strong> 这个命令</p></li></ol><h3 id="高通-Camx-dump-metadata"><a href="#高通-Camx-dump-metadata" class="headerlink" title="高通 Camx dump metadata"></a>高通 Camx dump metadata</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys media.camera &gt;meta.log   </span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;高通平台-Camera-相关&quot;&gt;&lt;a href=&quot;#高通平台-Camera-相关&quot; class=&quot;headerlink&quot; title=&quot;高通平台 Camera 相关&quot;&gt;&lt;/a&gt;高通平台 Camera 相关&lt;/h2&gt;&lt;h3 id=&quot;高通-Camx-杀死-camera</summary>
+      
+    
+    
+    
+    <category term="技术研发" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
+    
+    <category term="Linux 命令" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux-%E5%91%BD%E4%BB%A4/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Android 研发总结</title>
     <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20%E7%A0%94%E5%8F%91%E6%80%BB%E7%BB%93/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
     <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20%E7%A0%94%E5%8F%91%E6%80%BB%E7%BB%93/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</id>
@@ -373,30 +421,6 @@
     <category term="Camera Driver" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/"/>
     
     <category term="高通 Camera" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MarkDown 常用语法</title>
-    <link href="https://zh-wiki.github.io/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/"/>
-    <id>https://zh-wiki.github.io/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</id>
-    <published>2019-12-31T16:00:00.000Z</published>
-    <updated>2020-10-12T05:02:36.880Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="MarkDown-插入音频"><a href="#MarkDown-插入音频" class="headerlink" title="MarkDown 插入音频"></a>MarkDown 插入音频</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">&quot;音频地址&quot;</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br></pre></td></tr></table></figure><p>示例</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="1200" height="86" src="//music.163.com/outchain/player?type=2&id=1473143206&auto=1&height=66"></iframe><h2 id="MarkDown-插入视频"><a href="#MarkDown-插入视频" class="headerlink" title="MarkDown 插入视频"></a>MarkDown 插入视频</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">height</span>=<span class="string">498</span> <span class="attr">width</span>=<span class="string">510</span> <span class="attr">src</span>=<span class="string">&quot;视频地址&quot;</span> <span class="attr">frameborder</span>=<span class="string">0</span> <span class="attr">allowfullscreen</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br></pre></td></tr></table></figure><p>示例</p><iframe height="498" width="1200" src="https://www.bilibili.com/video/BV1Mg4y1v7Zf?from=search&seid=7230009895184526059" frameborder="0" allowfullscreen></iframe>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;MarkDown-插入音频&quot;&gt;&lt;a href=&quot;#MarkDown-插入音频&quot; class=&quot;headerlink&quot; title=&quot;MarkDown 插入音频&quot;&gt;&lt;/a&gt;MarkDown 插入音频&lt;/h2&gt;&lt;figure class=&quot;highlight mark</summary>
-      
-    
-    
-    
-    <category term="程序语言" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
-    
-    <category term="MarkDown" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/"/>
     
     
   </entry>
