@@ -101,11 +101,37 @@
   </entry>
   
   <entry>
+    <title>高通 Camx Bring up</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20Bring%20Up/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20Bring%20Up/</id>
+    <published>2019-12-31T16:00:30.000Z</published>
+    <updated>2020-10-21T11:14:06.216Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Dump-EEprom-Data"><a href="#Dump-EEprom-Data" class="headerlink" title="Dump EEprom Data"></a>Dump EEprom Data</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell <span class="string">&quot;echo dumpSensorEEPROMData=1 &gt;&gt; /vendor/etc/camera/camxoverridesettings.txt&quot;</span></span><br></pre></td></tr></table></figure><p>数据存放位置： <strong>/data/vendor/camera/xxx_kbuffer_OTP.txt</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Dump-EEprom-Data&quot;&gt;&lt;a href=&quot;#Dump-EEprom-Data&quot; class=&quot;headerlink&quot; title=&quot;Dump EEprom Data&quot;&gt;&lt;/a&gt;Dump EEprom Data&lt;/h3&gt;&lt;figure class=&quot;hi</summary>
+      
+    
+    
+    
+    <category term="技术研发" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
+    
+    <category term="Camera Driver" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/"/>
+    
+    <category term="高通 Camera" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>高通 Camx capture result 代码流程</title>
     <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20result%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/"/>
     <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20result%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/</id>
     <published>2019-12-31T16:00:06.000Z</published>
-    <updated>2020-10-13T12:42:24.816Z</updated>
+    <updated>2020-10-20T08:38:25.493Z</updated>
     
     <content type="html"><![CDATA[<h3 id="预览和拍照的-result-代码流程"><a href="#预览和拍照的-result-代码流程" class="headerlink" title="预览和拍照的 result 代码流程"></a>预览和拍照的 result 代码流程</h3>]]></content>
     
@@ -131,7 +157,7 @@
     <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/"/>
     <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/</id>
     <published>2019-12-31T16:00:05.000Z</published>
-    <updated>2020-10-13T12:42:21.164Z</updated>
+    <updated>2020-10-20T08:38:20.453Z</updated>
     
     <content type="html"><![CDATA[<h3 id="预览和拍照的-request-代码流程"><a href="#预览和拍照的-request-代码流程" class="headerlink" title="预览和拍照的 request 代码流程"></a>预览和拍照的 request 代码流程</h3><h4 id="主体框架图"><a href="#主体框架图" class="headerlink" title="主体框架图"></a>主体框架图</h4><p><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/image-20201012225025652.png" alt="process capture request"></p><h4 id="详细代码调用流程"><a href="#详细代码调用流程" class="headerlink" title="详细代码调用流程"></a>详细代码调用流程</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">chi_override_process_request() <span class="comment">//chxextensioninterface.cpp </span></span><br><span class="line">OverrideProcessRequest()   <span class="comment">//chxextensionmodule.cpp </span></span><br><span class="line">    ProcessCaptureRequest()<span class="comment">//chxusecase.cpp</span></span><br><span class="line">    ExecuteCaptureRequest() <span class="comment">//chxadvancedcamerausecase.cpp</span></span><br><span class="line">    result = pFeature-&gt;ExecuteProcessRequest(pRequest); <span class="comment">//会调到chifeature2wrapper.cpp:494 ExecuteProcessRequest()</span></span><br><span class="line">    ExecuteProcessRequest() <span class="comment">//chifeature2wrapper.cpp 开始进入算法的领域</span></span><br><span class="line">                    SubmitRequestToSession() <span class="comment">//经过一系类调用会走到 chifeature2base.cpp </span></span><br><span class="line">                     result = ExtensionModule::GetInstance()-&gt;ActivatePipeline() </span><br><span class="line">                     OnSubmitRequestToSession()</span><br><span class="line">                    ProcessFeatureMessage()</span><br><span class="line">                    ProcessMessageCb() <span class="comment">//通过回调又重新回到 chifeature2wrapper.cpp </span></span><br><span class="line">                    result = pFeature2Wrapper-&gt;m_pUsecaseBase-&gt;SubmitRequest(&amp;submitRequest); <span class="comment">//将 request 下到 camx session 中  </span></span><br></pre></td></tr></table></figure><p>CHI feature 通过 usecase 提交 request 到 session, 套路还是一样的（chxextensionmodule.cpp 通过这条链路转到Camx）</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = pSession-&gt;ProcessCaptureRequest(pRequest); <span class="comment">//camxchicontext.cpp feature submit request 会调到这里从这里开始步入 session</span></span><br><span class="line"><span class="function">CamxResult <span class="title">Session::ProcessCaptureRequest</span><span class="params">()</span></span>; <span class="comment">//camxsession.cpp </span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -157,26 +183,7 @@
     <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20config%20stream%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/"/>
     <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20config%20stream%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/</id>
     <published>2019-12-31T16:00:04.000Z</published>
-    <updated>2020-10-13T12:42:15.464Z</updated>
-    
-    
-    
-    
-    <category term="技术研发" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
-    
-    <category term="Camera Driver" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/"/>
-    
-    <category term="高通 Camera" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>高通 Camx Camx open camera</title>
-    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/"/>
-    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/</id>
-    <published>2019-12-31T16:00:03.000Z</published>
-    <updated>2020-10-13T12:47:13.185Z</updated>
+    <updated>2020-10-20T08:38:13.017Z</updated>
     
     
     
@@ -195,9 +202,9 @@
     <link href="https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Arch%20Linux%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
     <id>https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Arch%20Linux%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</id>
     <published>2019-12-31T16:00:03.000Z</published>
-    <updated>2020-10-13T12:39:57.900Z</updated>
+    <updated>2020-10-20T06:24:34.591Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Arch-Linux-系统安装"><a href="#Arch-Linux-系统安装" class="headerlink" title="Arch Linux 系统安装"></a>Arch Linux 系统安装</h2><p>主要进行分区，系统的安装，图形服务和必要驱动的安装</p><h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><ol><li><p>查看当前分区信息</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure></li><li><p>设置分区</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cfdisk /dev/sda</span><br></pre></td></tr></table></figure><p>1)首先选择分区类型</p><p>​    MBR 选择 dos    </p><p>​    GPT  选择 gpt </p><p> 2)MBR启动一般分为2个分区</p><p>​    主分区   （选择为boot标志）</p><p>​    交换分区（内存的2倍）</p></li><li><p>格式化分区</p><p>格式化主分区</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sda1</span><br></pre></td></tr></table></figure><p>格式化交换分区</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkswap /dev/sda2</span><br></pre></td></tr></table></figure><p>启动交换分区</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon /dev/sda2</span><br></pre></td></tr></table></figure></li><li><p>挂载分区</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sda1 /mnt</span><br></pre></td></tr></table></figure></li></ol><h3 id="编辑镜像源"><a href="#编辑镜像源" class="headerlink" title="编辑镜像源"></a>编辑镜像源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure><p>将中国的源放在文件的开头</p><h3 id="安装系统基本组件"><a href="#安装系统基本组件" class="headerlink" title="安装系统基本组件"></a>安装系统基本组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base linus linux-firmware</span><br></pre></td></tr></table></figure><h3 id="安装基本开发工具包"><a href="#安装基本开发工具包" class="headerlink" title="安装基本开发工具包"></a>安装基本开发工具包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br><span class="line">pacman -S base-devel</span><br></pre></td></tr></table></figure><h3 id="安装-sudo"><a href="#安装-sudo" class="headerlink" title="安装 sudo"></a>安装 sudo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br><span class="line">pacman -S sudo vi vim</span><br><span class="line">visudo</span><br></pre></td></tr></table></figure><p>删除这一行注释 <strong>%wheel ALL = (ALL) ALL</strong></p><h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br><span class="line">useradd -G wheel -m 用户名</span><br></pre></td></tr></table></figure><h3 id="安装-Grub"><a href="#安装-Grub" class="headerlink" title="安装 Grub"></a>安装 Grub</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br><span class="line">pacman -S grub</span><br><span class="line">grub-install --target=i386-pc /dev/sda</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure><h3 id="生成-fstab"><a href="#生成-fstab" class="headerlink" title="生成 fstab"></a>生成 fstab</h3><p>该配置不需要 arch-chroot </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab /mnt &gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure><h3 id="安装-Xorg-图形管理"><a href="#安装-Xorg-图形管理" class="headerlink" title="安装 Xorg 图形管理"></a>安装 Xorg 图形管理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt xorg-server xorg-xinit xorg-apps</span><br></pre></td></tr></table></figure><h3 id="安装网络组件"><a href="#安装网络组件" class="headerlink" title="安装网络组件"></a>安装网络组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt dhcpcd wpa_supplicant networkmanager</span><br><span class="line">arch-chroot /mnt</span><br><span class="line">systemctl <span class="built_in">enable</span> dhcpcd</span><br><span class="line">systemctl <span class="built_in">enable</span> wpa_supplicant</span><br><span class="line">systemctl <span class="built_in">enable</span> networkmanager</span><br></pre></td></tr></table></figure><h3 id="安装显卡驱动"><a href="#安装显卡驱动" class="headerlink" title="安装显卡驱动"></a>安装显卡驱动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lspci | grep VGA//查看显卡是什么型号</span><br><span class="line">pacman -S xf86-video-intel  //intel 显卡驱动</span><br></pre></td></tr></table></figure><h3 id="安装音频组件"><a href="#安装音频组件" class="headerlink" title="安装音频组件"></a>安装音频组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt alsa-utils pulseaudio</span><br><span class="line">pacstrap /mnt pulseaudio-alsa</span><br></pre></td></tr></table></figure><hr><h2 id="Arch-Linux-桌面环境安装"><a href="#Arch-Linux-桌面环境安装" class="headerlink" title="Arch Linux 桌面环境安装"></a>Arch Linux 桌面环境安装</h2><h3 id="窗口管理器-dwm"><a href="#窗口管理器-dwm" class="headerlink" title="窗口管理器 dwm"></a>窗口管理器 dwm</h3><ol><li><p>安装终端内置浏览器 <strong>w3m</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S w3m</span><br></pre></td></tr></table></figure></li><li><p>下载 <strong>dwm</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w3m suckless.org</span><br></pre></td></tr></table></figure></li><li><p>安装</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make clean install</span><br></pre></td></tr></table></figure></li><li><p>运行dwm</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.xinitrc</span><br><span class="line">startx</span><br></pre></td></tr></table></figure><p>在 <strong>.xinitrc</strong> 中 加入 <strong>exec dwm</strong> </p><h3 id="窗口管理器-i3"><a href="#窗口管理器-i3" class="headerlink" title="窗口管理器 i3"></a>窗口管理器 i3</h3></li></ol><h2 id="Arch-Linux-基础配置"><a href="#Arch-Linux-基础配置" class="headerlink" title="Arch Linux 基础配置"></a>Arch Linux 基础配置</h2><h3 id="安装中文字体"><a href="#安装中文字体" class="headerlink" title="安装中文字体"></a>安装中文字体</h3>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji</span><br><span class="line">sudo vim /etc/locale.gen</span><br></pre></td></tr></table></figure><p>取消 <strong>/etc/locale.gen</strong> 中 以下 的注释</p><ul><li><p>en_US.UTF-8 UTF-8</p></li><li><p>zh_CN.UTF-8 UTF-8</p></li><li><p>zh_TW.UTF-8 UTF-8</p></li></ul><p>生成 locale</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo locale-gen</span><br></pre></td></tr></table></figure><h3 id="设置-archlinuxcn"><a href="#设置-archlinuxcn" class="headerlink" title="设置 archlinuxcn"></a>设置 archlinuxcn</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/pacman.conf</span><br><span class="line">sudo pacman -Sy</span><br><span class="line">sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure><p>在文件的末尾插入</p><p>[archlinuxcn]</p><p>Server = <a href="https://mirrors.ustc.edu.cn/archlinuxcn/$arch">https://mirrors.ustc.edu.cn/archlinuxcn/$arch</a></p><h3 id="安装-Chrome"><a href="#安装-Chrome" class="headerlink" title="安装 Chrome"></a>安装 Chrome</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S google-chrome</span><br></pre></td></tr></table></figure><h3 id="安装中文输入法"><a href="#安装中文输入法" class="headerlink" title="安装中文输入法"></a>安装中文输入法</h3><ol><li><p>安装输入法以及配置工具</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx fcitx-im kcm-fcitx fcitx-qt5 fcitx-gtk2 fcitx-gtk3 fcitx-configtool</span><br></pre></td></tr></table></figure></li><li><p>配置输入法</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.xprofile</span><br></pre></td></tr></table></figure><p>输入以下内容</p><p>export GTK_IM_MODULE=fcitx<br>export QT_IM_MODULE=fcitx<br>export XMODIFIERS=”@im=fcitx”</p></li></ol><h3 id="SSH-的安装与配置"><a href="#SSH-的安装与配置" class="headerlink" title="SSH 的安装与配置"></a>SSH 的安装与配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy openssh</span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;xxxxx@xxxxx.com&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="Arch-Linux-系统安装"><a href="#Arch-Linux-系统安装" class="headerlink" title="Arch Linux 系统安装"></a>Arch Linux 系统安装</h2><p>主要进行分区，系统的安装，图形服务和必要驱动的安装</p><h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><ol><li><p>查看当前分区信息</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure></li><li><p>设置分区</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cfdisk /dev/sda</span><br></pre></td></tr></table></figure><p>1)首先选择分区类型</p><p>​    MBR 选择 dos    </p><p>​    GPT  选择 gpt </p><p> 2)MBR启动一般分为2个分区</p><p>​    主分区   （选择为boot标志）</p><p>​    交换分区（内存的2倍）</p></li><li><p>格式化分区</p><p>格式化主分区</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sda1</span><br></pre></td></tr></table></figure><p>格式化交换分区</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkswap /dev/sda2</span><br></pre></td></tr></table></figure><p>启动交换分区</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon /dev/sda2</span><br></pre></td></tr></table></figure></li><li><p>挂载分区</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sda1 /mnt</span><br></pre></td></tr></table></figure></li></ol><h3 id="编辑镜像源"><a href="#编辑镜像源" class="headerlink" title="编辑镜像源"></a>编辑镜像源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure><p>将中国的源放在文件的开头</p><h3 id="安装系统基本组件"><a href="#安装系统基本组件" class="headerlink" title="安装系统基本组件"></a>安装系统基本组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base linus linux-firmware</span><br></pre></td></tr></table></figure><h3 id="安装基本开发工具包"><a href="#安装基本开发工具包" class="headerlink" title="安装基本开发工具包"></a>安装基本开发工具包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br><span class="line">pacman -S base-devel</span><br></pre></td></tr></table></figure><h3 id="安装-sudo"><a href="#安装-sudo" class="headerlink" title="安装 sudo"></a>安装 sudo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br><span class="line">pacman -S sudo vi vim</span><br><span class="line">visudo</span><br></pre></td></tr></table></figure><p>删除这一行注释 <strong>%wheel ALL = (ALL) ALL</strong></p><h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br><span class="line">useradd -G wheel -m 用户名</span><br></pre></td></tr></table></figure><h3 id="安装-Grub"><a href="#安装-Grub" class="headerlink" title="安装 Grub"></a>安装 Grub</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br><span class="line">pacman -S grub</span><br><span class="line">grub-install --target=i386-pc /dev/sda</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure><h3 id="生成-fstab"><a href="#生成-fstab" class="headerlink" title="生成 fstab"></a>生成 fstab</h3><p>该配置不需要 arch-chroot </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab /mnt &gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure><h3 id="安装-Xorg-图形管理"><a href="#安装-Xorg-图形管理" class="headerlink" title="安装 Xorg 图形管理"></a>安装 Xorg 图形管理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt xorg-server xorg-xinit xorg-apps</span><br></pre></td></tr></table></figure><h3 id="安装网络组件"><a href="#安装网络组件" class="headerlink" title="安装网络组件"></a>安装网络组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt dhcpcd wpa_supplicant networkmanager</span><br><span class="line">arch-chroot /mnt</span><br><span class="line">systemctl <span class="built_in">enable</span> dhcpcd</span><br><span class="line">systemctl <span class="built_in">enable</span> wpa_supplicant</span><br><span class="line">systemctl <span class="built_in">enable</span> networkmanager</span><br></pre></td></tr></table></figure><h3 id="安装显卡驱动"><a href="#安装显卡驱动" class="headerlink" title="安装显卡驱动"></a>安装显卡驱动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lspci | grep VGA//查看显卡是什么型号</span><br><span class="line">pacman -S xf86-video-intel  //intel 显卡驱动</span><br></pre></td></tr></table></figure><h3 id="安装音频组件"><a href="#安装音频组件" class="headerlink" title="安装音频组件"></a>安装音频组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt alsa-utils pulseaudio</span><br><span class="line">pacstrap /mnt pulseaudio-alsa</span><br></pre></td></tr></table></figure><hr><h2 id="Arch-Linux-桌面环境安装"><a href="#Arch-Linux-桌面环境安装" class="headerlink" title="Arch Linux 桌面环境安装"></a>Arch Linux 桌面环境安装</h2><h3 id="窗口管理器-dwm"><a href="#窗口管理器-dwm" class="headerlink" title="窗口管理器 dwm"></a>窗口管理器 dwm</h3><ol><li><p>安装终端内置浏览器 <strong>w3m</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S w3m</span><br></pre></td></tr></table></figure></li><li><p>下载 <strong>dwm</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w3m suckless.org</span><br></pre></td></tr></table></figure></li><li><p>安装</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make clean install</span><br></pre></td></tr></table></figure></li><li><p>运行dwm</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.xinitrc</span><br><span class="line">startx</span><br></pre></td></tr></table></figure><p>在 <strong>.xinitrc</strong> 中 加入 <strong>exec dwm</strong> </p><h3 id="窗口管理器-i3"><a href="#窗口管理器-i3" class="headerlink" title="窗口管理器 i3"></a>窗口管理器 i3</h3></li></ol><h2 id="Arch-Linux-基础配置"><a href="#Arch-Linux-基础配置" class="headerlink" title="Arch Linux 基础配置"></a>Arch Linux 基础配置</h2><h3 id="安装中文字体"><a href="#安装中文字体" class="headerlink" title="安装中文字体"></a>安装中文字体</h3>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji</span><br><span class="line">sudo vim /etc/locale.gen</span><br></pre></td></tr></table></figure><p>取消 <strong>/etc/locale.gen</strong> 中 以下 的注释</p><ul><li><p>en_US.UTF-8 UTF-8</p></li><li><p>zh_CN.UTF-8 UTF-8</p></li><li><p>zh_TW.UTF-8 UTF-8</p></li></ul><p>生成 locale</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo locale-gen</span><br></pre></td></tr></table></figure><h3 id="设置-archlinuxcn"><a href="#设置-archlinuxcn" class="headerlink" title="设置 archlinuxcn"></a>设置 archlinuxcn</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/pacman.conf</span><br><span class="line">sudo pacman -Sy</span><br><span class="line">sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure><p>在文件的末尾插入</p><p>[archlinuxcn]</p><p>Server = <a href="https://mirrors.ustc.edu.cn/archlinuxcn/$arch">https://mirrors.ustc.edu.cn/archlinuxcn/$arch</a></p><h3 id="安装-Chrome"><a href="#安装-Chrome" class="headerlink" title="安装 Chrome"></a>安装 Chrome</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S google-chrome</span><br></pre></td></tr></table></figure><h3 id="安装中文输入法"><a href="#安装中文输入法" class="headerlink" title="安装中文输入法"></a>安装中文输入法</h3><ol><li><p>安装输入法以及配置工具</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx fcitx-im kcm-fcitx fcitx-qt5 fcitx-gtk2 fcitx-gtk3 fcitx-configtool</span><br></pre></td></tr></table></figure></li><li><p>配置输入法</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.xprofile</span><br></pre></td></tr></table></figure><p>输入以下内容</p><p>export GTK_IM_MODULE=fcitx<br>export QT_IM_MODULE=fcitx<br>export XMODIFIERS=”@im=fcitx”</p></li></ol><h3 id="SSH-的安装与配置"><a href="#SSH-的安装与配置" class="headerlink" title="SSH 的安装与配置"></a>SSH 的安装与配置</h3><ol><li><p>安装ssh</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy openssh</span><br></pre></td></tr></table></figure></li><li><p>生成密钥</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;xxxxx@xxxxx.com&quot;</span></span><br></pre></td></tr></table></figure></li><li><p>通过 SSH 远程连接问题</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure><p>在文件的末尾加以下配置</p><p>LoginGraceTime 120<br>PermitRootLogin yes<br>StrictModes yes</p></li></ol>]]></content>
     
     
       
@@ -213,19 +220,12 @@
   </entry>
   
   <entry>
-    <title>高通 Camx Bring up</title>
-    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20Bring%20Up/"/>
-    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20Bring%20Up/</id>
-    <published>2019-12-31T16:00:02.000Z</published>
-    <updated>2020-10-13T12:39:57.892Z</updated>
+    <title>高通 Camx Camx open camera</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/</id>
+    <published>2019-12-31T16:00:03.000Z</published>
+    <updated>2020-10-20T08:38:03.357Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Dump-EEprom-Data"><a href="#Dump-EEprom-Data" class="headerlink" title="Dump EEprom Data"></a>Dump EEprom Data</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell <span class="string">&quot;echo dumpSensorEEPROMData=1 &gt;&gt; /vendor/etc/camera/camxoverridesettings.txt&quot;</span></span><br></pre></td></tr></table></figure><p>数据存放位置： <strong>/data/vendor/camera/xxx_kbuffer_OTP.txt</strong></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;Dump-EEprom-Data&quot;&gt;&lt;a href=&quot;#Dump-EEprom-Data&quot; class=&quot;headerlink&quot; title=&quot;Dump EEprom Data&quot;&gt;&lt;/a&gt;Dump EEprom Data&lt;/h3&gt;&lt;figure class=&quot;hi</summary>
-      
     
     
     
@@ -262,6 +262,58 @@
   </entry>
   
   <entry>
+    <title>高通 Camx init 流程</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20init%20%E6%B5%81%E7%A8%8B/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20init%20%E6%B5%81%E7%A8%8B/</id>
+    <published>2019-12-31T16:00:02.000Z</published>
+    <updated>2020-10-20T08:40:59.337Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="主体流程图"><a href="#主体流程图" class="headerlink" title="主体流程图"></a>主体流程图</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;主体流程图&quot;&gt;&lt;a href=&quot;#主体流程图&quot; class=&quot;headerlink&quot; title=&quot;主体流程图&quot;&gt;&lt;/a&gt;主体流程图&lt;/h3&gt;</summary>
+      
+    
+    
+    
+    <category term="技术研发" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
+    
+    <category term="Camera Driver" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/"/>
+    
+    <category term="高通 Camera" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>高通 Camx camera provider</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20camera%20provider/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20camera%20provider/</id>
+    <published>2019-12-31T16:00:01.000Z</published>
+    <updated>2020-10-21T11:33:20.841Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Camera-Provider"><a href="#Camera-Provider" class="headerlink" title="Camera Provider"></a>Camera Provider</h3><h4 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h4><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20camera%20provider/image-20201021102734471.png" alt="camera provider" style="zoom:80%;"><p>通过图片可以看出Camera Provider 分为两部分</p><ul><li>通过 <strong>HIDL</strong> 与Camera Service 跨进程通信</li><li>通过 <strong>dlopen</strong> 方式加载一系列动态库 （Camera HAL3结构的so），在高通Camera 是指 camx-chi 架构</li></ul><h4 id="Provider-init-代码流程"><a href="#Provider-init-代码流程" class="headerlink" title="Provider init 代码流程"></a>Provider init 代码流程</h4><p><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20camera%20provider/image-20201021143242020.png" alt="init 代码流程"></p><p>在系统初始化的时候，系统会去运行”<a href="mailto:&#97;&#x6e;&#x64;&#114;&#111;&#105;&#100;&#x2e;&#104;&#97;&#x72;&#100;&#119;&#x61;&#114;&#x65;&#x2e;&#x63;&#x61;&#x6d;&#x65;&#x72;&#x61;&#46;&#x70;&#x72;&#111;&#x76;&#x69;&#100;&#x65;&#114;&#x40;&#x32;&#46;&#x34;&#45;&#115;&#101;&#114;&#x76;&#105;&#x63;&#101;&#x5f;&#x36;&#52;">&#97;&#x6e;&#x64;&#114;&#111;&#105;&#100;&#x2e;&#104;&#97;&#x72;&#100;&#119;&#x61;&#114;&#x65;&#x2e;&#x63;&#x61;&#x6d;&#x65;&#x72;&#x61;&#46;&#x70;&#x72;&#111;&#x76;&#x69;&#100;&#x65;&#114;&#x40;&#x32;&#46;&#x34;&#45;&#115;&#101;&#114;&#x76;&#105;&#x63;&#101;&#x5f;&#x36;&#52;</a>“程序启动Provider进程，并加入HW Service Manager中接受统一管理。在改过程中实例化一个 LegacyCameraProviderImpl_2_4 对象，通过 hw_get_module 标准方法 获取HAL 模块。这边指的是 <strong>camera.qcom.so</strong> 。</p><ol><li><p>LegacyCameraProviderImpl_2_4::initialize() 函数详解</p> <details> <summary>LegacyCameraProviderImpl_2_4::initialize()</summary> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// hardware/interfaces/camera/provider/2.4/default/LegacyCameraProviderImpl_2_4.cpp</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">LegacyCameraProviderImpl_2_4::initialize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">camera_module_t</span> *rawModule;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">//获取 camera.qcom.so 可以理解为和 camxhal3entry.cpp 建立联系</span></span><br><span class="line">    <span class="keyword">int</span> err = hw_get_module(CAMERA_HARDWARE_MODULE_ID, (<span class="keyword">const</span> <span class="keyword">hw_module_t</span> **)&amp;rawModule); </span><br><span class="line"> </span><br><span class="line">    <span class="comment">//将 camera.qcom.so 获取的句柄保存在 mModule 对象中 ，该函数定义在 CameraModule.cpp </span></span><br><span class="line">    mModule = <span class="keyword">new</span> CameraModule(rawModule);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//我们可以跟进去看看 init() 非常明显 实际就是进行 camx 的初始化，camxhal3entry.cpp  &#123; CAMX:: init()&#125; </span></span><br><span class="line"> err = mModule-&gt;init();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置回调函数，用于接受camx-chi的数据和事件</span></span><br><span class="line"> err = mModule-&gt;setCallbacks(<span class="keyword">this</span>);</span><br><span class="line">    </span><br><span class="line">    mNumberOfLegacyCameras = mModule-&gt;getNumberOfCameras();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// mInitFailed</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> </details><p>init 函数结束之后，Camera Provider进程便一直便存在于系统中,监听着来自Camera Service的调用。</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Camera-Provider&quot;&gt;&lt;a href=&quot;#Camera-Provider&quot; class=&quot;headerlink&quot; title=&quot;Camera Provider&quot;&gt;&lt;/a&gt;Camera Provider&lt;/h3&gt;&lt;h4 id=&quot;概览&quot;&gt;&lt;a href=&quot;</summary>
+      
+    
+    
+    
+    <category term="技术研发" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
+    
+    <category term="Camera Driver" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/"/>
+    
+    <category term="高通 Camera" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hexo 博客搭建</title>
     <link href="https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Hexo%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     <id>https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Hexo%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</id>
@@ -279,71 +331,6 @@
     
     
     <category term="计算机基础知识" scheme="https://zh-wiki.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>高通 Camx 架构解析二</title>
-    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%BA%8C/"/>
-    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%BA%8C/</id>
-    <published>2019-12-31T16:00:01.000Z</published>
-    <updated>2020-10-05T08:45:01.195Z</updated>
-    
-    
-    
-    
-    <category term="技术研发" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/"/>
-    
-    <category term="Camera Driver" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/"/>
-    
-    <category term="高通 Camera" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu 开发环境的搭建</title>
-    <link href="https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</id>
-    <published>2019-12-31T16:00:00.000Z</published>
-    <updated>2020-10-05T10:40:36.637Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="VirtualBox-修复’modprobe-vboxdrv’-报错"><a href="#VirtualBox-修复’modprobe-vboxdrv’-报错" class="headerlink" title="VirtualBox 修复’modprobe vboxdrv’ 报错"></a>VirtualBox 修复’modprobe vboxdrv’ 报错</h2><ol><li><p>问题发生背景 </p><p>Linux 内核版本升级之后，virtualbox 的驱动没有更新成功。</p></li><li><p>解决方法</p><ol><li><p>更新整个系统</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure></li><li><p>重新安装对应内核版本的头文件,和virtualbox的驱动</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install --reinstall linux-headers-$(uname -r) virtualbox-dkms dkms</span><br></pre></td></tr></table></figure></li><li><p>加载驱动重启</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe vboxdrv</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></li></ol></li></ol><ol start="3"><li><p>注意事项</p><p>更新驱动的时候，会重新编译驱动，所以要选择对应的gcc编译器，太老的估计会凉。</p></li></ol><h2 id="支持多版本的gcc"><a href="#支持多版本的gcc" class="headerlink" title="支持多版本的gcc"></a>支持多版本的gcc</h2><ol><li><p>系统安装ok后默认gcc 版本是 v-7.x。我们先搞一个低版本的gcc</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-4.8</span><br><span class="line">sudo apt-get install g++-4.8</span><br><span class="line">sudo ln -sf /usr/bin/g++-4.8 /usr/bin/g++</span><br><span class="line">sudo ln -sf /usr/bin/gcc-4.8 /usr/bin/gcc</span><br></pre></td></tr></table></figure></li><li><p>管理多个版本的gcc</p><ol><li><p>查看存在几个版本的gcc</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l /usr/bin/gcc</span><br></pre></td></tr></table></figure></li><li><p>分别为gcc和g++添加管理组</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40</span><br><span class="line">sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 40</span><br></pre></td></tr></table></figure></li><li><p>能添加就能删除,从管理组中删除</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --remove gcc /usr/bin/gcc-4.8</span><br></pre></td></tr></table></figure></li></ol></li><li><p>设置ok使用以下指令选择gcc的版本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config gcc</span><br><span class="line">sudo update-alternatives --config g++</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;VirtualBox-修复’modprobe-vboxdrv’-报错&quot;&gt;&lt;a href=&quot;#VirtualBox-修复’modprobe-vboxdrv’-报错&quot; class=&quot;headerlink&quot; title=&quot;VirtualBox 修复’modprobe v</summary>
-      
-    
-    
-    
-    <category term="计算机基础知识" scheme="https://zh-wiki.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MarkDown 常用语法</title>
-    <link href="https://zh-wiki.github.io/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/"/>
-    <id>https://zh-wiki.github.io/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</id>
-    <published>2019-12-31T16:00:00.000Z</published>
-    <updated>2020-10-12T05:02:36.880Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="MarkDown-插入音频"><a href="#MarkDown-插入音频" class="headerlink" title="MarkDown 插入音频"></a>MarkDown 插入音频</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">&quot;音频地址&quot;</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br></pre></td></tr></table></figure><p>示例</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="1200" height="86" src="//music.163.com/outchain/player?type=2&id=1473143206&auto=1&height=66"></iframe><h2 id="MarkDown-插入视频"><a href="#MarkDown-插入视频" class="headerlink" title="MarkDown 插入视频"></a>MarkDown 插入视频</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">height</span>=<span class="string">498</span> <span class="attr">width</span>=<span class="string">510</span> <span class="attr">src</span>=<span class="string">&quot;视频地址&quot;</span> <span class="attr">frameborder</span>=<span class="string">0</span> <span class="attr">allowfullscreen</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br></pre></td></tr></table></figure><p>示例</p><iframe height="498" width="1200" src="https://www.bilibili.com/video/BV1Mg4y1v7Zf?from=search&seid=7230009895184526059" frameborder="0" allowfullscreen></iframe>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;MarkDown-插入音频&quot;&gt;&lt;a href=&quot;#MarkDown-插入音频&quot; class=&quot;headerlink&quot; title=&quot;MarkDown 插入音频&quot;&gt;&lt;/a&gt;MarkDown 插入音频&lt;/h2&gt;&lt;figure class=&quot;highlight mark</summary>
-      
-    
-    
-    
-    <category term="程序语言" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
-    
-    <category term="MarkDown" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/"/>
     
     
   </entry>
@@ -400,13 +387,13 @@
   </entry>
   
   <entry>
-    <title>高通 Camx 架构解析一</title>
-    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/"/>
-    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/</id>
+    <title>高通 Camx camera server</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20camera%20server/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20camera%20server/</id>
     <published>2019-12-31T16:00:00.000Z</published>
-    <updated>2020-10-14T09:50:39.538Z</updated>
+    <updated>2020-10-21T11:34:38.094Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Camera-Server"><a href="#Camera-Server" class="headerlink" title="Camera Server"></a>Camera Server</h3><p>Camera Server 是一个独立的进程，对上通过AIDL来完成 Camera Framework 的一些请求；对下通过HIDL 将上层发下来的请求提交给 Camera Provider。</p><p>Camera Server 对 Camera Framework 而言属于 服务端</p><p>Camera Server 对 Camera Provider 而言属于 客户端</p><p><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E4%B8%80/image-20201014172140989.png" alt="Camera Server"></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="Camera-Server"><a href="#Camera-Server" class="headerlink" title="Camera Server"></a>Camera Server</h3><p>Camera Server 是一个独立的进程，对上通过AIDL来完成 Camera Framework 的一些请求；对下通过HIDL 将上层发下来的请求提交给 Camera Provider。</p><p>Camera Server 对 Camera Framework 而言属于 服务端</p><p>Camera Server 对 Camera Provider 而言属于 客户端</p>]]></content>
     
     
       
@@ -421,6 +408,52 @@
     <category term="Camera Driver" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/"/>
     
     <category term="高通 Camera" scheme="https://zh-wiki.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camera/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 开发环境的搭建</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</id>
+    <published>2019-12-31T16:00:00.000Z</published>
+    <updated>2020-10-05T10:40:36.637Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="VirtualBox-修复’modprobe-vboxdrv’-报错"><a href="#VirtualBox-修复’modprobe-vboxdrv’-报错" class="headerlink" title="VirtualBox 修复’modprobe vboxdrv’ 报错"></a>VirtualBox 修复’modprobe vboxdrv’ 报错</h2><ol><li><p>问题发生背景 </p><p>Linux 内核版本升级之后，virtualbox 的驱动没有更新成功。</p></li><li><p>解决方法</p><ol><li><p>更新整个系统</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure></li><li><p>重新安装对应内核版本的头文件,和virtualbox的驱动</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install --reinstall linux-headers-$(uname -r) virtualbox-dkms dkms</span><br></pre></td></tr></table></figure></li><li><p>加载驱动重启</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe vboxdrv</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></li></ol></li></ol><ol start="3"><li><p>注意事项</p><p>更新驱动的时候，会重新编译驱动，所以要选择对应的gcc编译器，太老的估计会凉。</p></li></ol><h2 id="支持多版本的gcc"><a href="#支持多版本的gcc" class="headerlink" title="支持多版本的gcc"></a>支持多版本的gcc</h2><ol><li><p>系统安装ok后默认gcc 版本是 v-7.x。我们先搞一个低版本的gcc</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-4.8</span><br><span class="line">sudo apt-get install g++-4.8</span><br><span class="line">sudo ln -sf /usr/bin/g++-4.8 /usr/bin/g++</span><br><span class="line">sudo ln -sf /usr/bin/gcc-4.8 /usr/bin/gcc</span><br></pre></td></tr></table></figure></li><li><p>管理多个版本的gcc</p><ol><li><p>查看存在几个版本的gcc</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l /usr/bin/gcc</span><br></pre></td></tr></table></figure></li><li><p>分别为gcc和g++添加管理组</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40</span><br><span class="line">sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 40</span><br></pre></td></tr></table></figure></li><li><p>能添加就能删除,从管理组中删除</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --remove gcc /usr/bin/gcc-4.8</span><br></pre></td></tr></table></figure></li></ol></li><li><p>设置ok使用以下指令选择gcc的版本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config gcc</span><br><span class="line">sudo update-alternatives --config g++</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;VirtualBox-修复’modprobe-vboxdrv’-报错&quot;&gt;&lt;a href=&quot;#VirtualBox-修复’modprobe-vboxdrv’-报错&quot; class=&quot;headerlink&quot; title=&quot;VirtualBox 修复’modprobe v</summary>
+      
+    
+    
+    
+    <category term="计算机基础知识" scheme="https://zh-wiki.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MarkDown 常用语法</title>
+    <link href="https://zh-wiki.github.io/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/"/>
+    <id>https://zh-wiki.github.io/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</id>
+    <published>2019-12-31T16:00:00.000Z</published>
+    <updated>2020-10-12T05:02:36.880Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="MarkDown-插入音频"><a href="#MarkDown-插入音频" class="headerlink" title="MarkDown 插入音频"></a>MarkDown 插入音频</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">&quot;音频地址&quot;</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br></pre></td></tr></table></figure><p>示例</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="1200" height="86" src="//music.163.com/outchain/player?type=2&id=1473143206&auto=1&height=66"></iframe><h2 id="MarkDown-插入视频"><a href="#MarkDown-插入视频" class="headerlink" title="MarkDown 插入视频"></a>MarkDown 插入视频</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">height</span>=<span class="string">498</span> <span class="attr">width</span>=<span class="string">510</span> <span class="attr">src</span>=<span class="string">&quot;视频地址&quot;</span> <span class="attr">frameborder</span>=<span class="string">0</span> <span class="attr">allowfullscreen</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br></pre></td></tr></table></figure><p>示例</p><iframe height="498" width="1200" src="https://www.bilibili.com/video/BV1Mg4y1v7Zf?from=search&seid=7230009895184526059" frameborder="0" allowfullscreen></iframe>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;MarkDown-插入音频&quot;&gt;&lt;a href=&quot;#MarkDown-插入音频&quot; class=&quot;headerlink&quot; title=&quot;MarkDown 插入音频&quot;&gt;&lt;/a&gt;MarkDown 插入音频&lt;/h2&gt;&lt;figure class=&quot;highlight mark</summary>
+      
+    
+    
+    
+    <category term="程序语言" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="MarkDown" scheme="https://zh-wiki.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/"/>
     
     
   </entry>
