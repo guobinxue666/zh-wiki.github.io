@@ -6,20 +6,22 @@
     <title>ADB 常用命令 | Zh-Wiki</title>
     
     
-        <meta name="keywords" content="ADB 常用命令" />
+        <meta name="keywords" content="计算机指令" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="高通平台 Camera 相关高通 Camx 杀死 camera 进程1adb shell ps -A|grep camera |awk &amp;#x27;&amp;#123;print $2&amp;#125;&amp;#x27;|xargs adb shell kill -9  由命令引发的知识:  awk 命令的介绍 1awk &amp;#x27;&amp;#123;print $2&amp;#125;&amp;#x27;  这个命令会把 ps -A |">
+    <meta name="description" content="通用命令检测usb设备1adb wait-for-usb-device  属性相关123adb shell setprop 属性名adb shell getpropadb shell getprop | grep -i xxx  安装与卸载apk123adb install xxx.apkadb uninstall com.xxx.xxxadb shell pm list packages | g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ADB 常用命令">
 <meta property="og:url" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/ADB%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Zh-Wiki">
-<meta property="og:description" content="高通平台 Camera 相关高通 Camx 杀死 camera 进程1adb shell ps -A|grep camera |awk &amp;#x27;&amp;#123;print $2&amp;#125;&amp;#x27;|xargs adb shell kill -9  由命令引发的知识:  awk 命令的介绍 1awk &amp;#x27;&amp;#123;print $2&amp;#125;&amp;#x27;  这个命令会把 ps -A |">
+<meta property="og:description" content="通用命令检测usb设备1adb wait-for-usb-device  属性相关123adb shell setprop 属性名adb shell getpropadb shell getprop | grep -i xxx  安装与卸载apk123adb install xxx.apkadb uninstall com.xxx.xxxadb shell pm list packages | g">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/ADB%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/image-20201016145122015.png">
+<meta property="og:image" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/ADB%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/20200824114458995.png">
 <meta property="article:published_time" content="2019-12-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-10-23T02:49:14.576Z">
+<meta property="article:modified_time" content="2020-10-23T06:17:22.049Z">
 <meta property="article:author" content="Zhoujunwei">
+<meta property="article:tag" content="计算机指令">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/ADB%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/image-20201016145122015.png">
     
@@ -220,7 +222,7 @@
                             &nbsp;
                             Linux 命令
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/ADB%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">ADB 常用命令</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/ADB%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">ADB 常用命令</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/Git%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Git 常用命令</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/Repo%20%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">Repo 常用命令</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -372,6 +374,11 @@
     </div>
 
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8C%87%E4%BB%A4/" rel="tag">计算机指令</a>
+    </div>
+
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
@@ -414,29 +421,55 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E9%80%9A%E5%B9%B3%E5%8F%B0-Camera-%E7%9B%B8%E5%85%B3"><span class="toc-number">1.</span> <span class="toc-text">高通平台 Camera 相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E9%80%9A-Camx-%E6%9D%80%E6%AD%BB-camera-%E8%BF%9B%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">高通 Camx 杀死 camera 进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E9%80%9A-Camx-dump-metadata"><span class="toc-number">1.2.</span> <span class="toc-text">高通 Camx dump metadata</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">通用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%B5%8Busb%E8%AE%BE%E5%A4%87"><span class="toc-number">1.1.</span> <span class="toc-text">检测usb设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E7%9B%B8%E5%85%B3"><span class="toc-number">1.2.</span> <span class="toc-text">属性相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BDapk"><span class="toc-number">1.3.</span> <span class="toc-text">安装与卸载apk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%B1%8F%E5%B9%95"><span class="toc-number">1.4.</span> <span class="toc-text">设置屏幕</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cam%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">Cam相关指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dump-camera%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF"><span class="toc-number">2.1.</span> <span class="toc-text">dump camera的相关信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bcamera%E4%B8%AA%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">查看camera个数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E6%91%84%E5%83%8F%E5%A4%B4"><span class="toc-number">2.3.</span> <span class="toc-text">打开摄像头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E5%89%8D%E7%BD%AE%E6%91%84%E5%83%8F%E5%A4%B4"><span class="toc-number">2.4.</span> <span class="toc-text">打开前置摄像头</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E9%80%9A%E5%B9%B3%E5%8F%B0-Camera-%E7%9B%B8%E5%85%B3"><span class="toc-number">3.</span> <span class="toc-text">高通平台 Camera 相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E9%AB%98%E9%80%9A%E7%9B%B8%E6%9C%BA%E9%80%89%E6%8B%A9camera-id"><span class="toc-number">3.1.</span> <span class="toc-text">开启高通相机选择camera id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E8%83%BD%E5%A4%9A%E6%91%84%E5%83%8F"><span class="toc-number">3.2.</span> <span class="toc-text">使能多摄像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E6%94%AF%E6%8C%81%E5%A4%9A%E6%91%84%E7%9A%84%E6%9D%83%E9%99%90"><span class="toc-number">3.3.</span> <span class="toc-text">开启支持多摄的权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E9%80%9A-Camx-%E6%9D%80%E6%AD%BB-camera-%E8%BF%9B%E7%A8%8B"><span class="toc-number">3.4.</span> <span class="toc-text">高通 Camx 杀死 camera 进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E9%80%9A-Camx-dump-metadata"><span class="toc-number">3.5.</span> <span class="toc-text">高通 Camx dump metadata</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ADB-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">ADB 常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ADB-%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E6%8A%A5%E4%BB%A5%E4%B8%8B%E9%94%99%E8%AF%AF"><span class="toc-number">4.1.</span> <span class="toc-text">ADB 连接不上报以下错误</span></a></li></ol></li></ol>
                 </div>
             
         
         
-            <h2 id="高通平台-Camera-相关"><a href="#高通平台-Camera-相关" class="headerlink" title="高通平台 Camera 相关"></a>高通平台 Camera 相关</h2><h3 id="高通-Camx-杀死-camera-进程"><a href="#高通-Camx-杀死-camera-进程" class="headerlink" title="高通 Camx 杀死 camera 进程"></a>高通 Camx 杀死 camera 进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell ps -A|grep camera |awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>|xargs adb shell <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
+            <h2 id="通用命令"><a href="#通用命令" class="headerlink" title="通用命令"></a>通用命令</h2><h3 id="检测usb设备"><a href="#检测usb设备" class="headerlink" title="检测usb设备"></a>检测usb设备</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb wait-for-usb-device</span><br></pre></td></tr></table></figure>
 
-<p>由命令引发的知识:</p>
+<h3 id="属性相关"><a href="#属性相关" class="headerlink" title="属性相关"></a>属性相关</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell setprop 属性名</span><br><span class="line">adb shell getprop</span><br><span class="line">adb shell getprop | grep -i xxx</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装与卸载apk"><a href="#安装与卸载apk" class="headerlink" title="安装与卸载apk"></a>安装与卸载apk</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb install xxx.apk</span><br><span class="line">adb uninstall com.xxx.xxx</span><br><span class="line">adb shell pm list packages | grep xxx</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置屏幕"><a href="#设置屏幕" class="headerlink" title="设置屏幕"></a>设置屏幕</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell input keyevent 26</span><br></pre></td></tr></table></figure>
+
+<h2 id="Cam相关指令"><a href="#Cam相关指令" class="headerlink" title="Cam相关指令"></a>Cam相关指令</h2><h3 id="dump-camera的相关信息"><a href="#dump-camera的相关信息" class="headerlink" title="dump camera的相关信息"></a>dump camera的相关信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys media.camera &gt; cam</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看camera个数"><a href="#查看camera个数" class="headerlink" title="查看camera个数"></a>查看camera个数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watch -n 1 -d <span class="string">&quot;adb shell dumpsys media.camera|grep Number&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="打开摄像头"><a href="#打开摄像头" class="headerlink" title="打开摄像头"></a>打开摄像头</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell am start -a android.media.action.STILL_IMAGE_CAMERA</span><br></pre></td></tr></table></figure>
+
+<h3 id="打开前置摄像头"><a href="#打开前置摄像头" class="headerlink" title="打开前置摄像头"></a>打开前置摄像头</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell am start -a android.media.action.IMAGE_CAPTURE --ei android.intent.extras.CAMERA_FACING 1</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="高通平台-Camera-相关"><a href="#高通平台-Camera-相关" class="headerlink" title="高通平台 Camera 相关"></a>高通平台 Camera 相关</h2><h3 id="开启高通相机选择camera-id"><a href="#开启高通相机选择camera-id" class="headerlink" title="开启高通相机选择camera id"></a>开启高通相机选择camera id</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell setprop persist.sys.camera.devoption.debug 100</span><br></pre></td></tr></table></figure>
+
+<h3 id="使能多摄像"><a href="#使能多摄像" class="headerlink" title="使能多摄像"></a>使能多摄像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell setprop persist.vendor.camera.multicam 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="开启支持多摄的权限"><a href="#开启支持多摄的权限" class="headerlink" title="开启支持多摄的权限"></a>开启支持多摄的权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell setprop vendor.camera.aux.packagelist org.codeaurora.snapcam</span><br><span class="line">adb shell setprop persist.vendor.camera.privapp.list org.codeaurora.snapcam</span><br><span class="line">adb shell setprop vendor.camera.aux.packagelist <span class="string">&quot;org.codeaurora.snapcam,com.huaqin.cameraautotest,com.huaqin.factory&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="高通-Camx-杀死-camera-进程"><a href="#高通-Camx-杀死-camera-进程" class="headerlink" title="高通 Camx 杀死 camera 进程"></a>高通 Camx 杀死 camera 进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell ps -A|grep camera |awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>|xargs adb shell <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
+
+<p>命令解释:</p>
 <ol>
-<li><p>awk 命令的介绍</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
-
+<li><p>awk ‘{print $2}’ </p>
 <p>这个命令会把 <strong>ps -A | grep camera</strong> 得出的进程id 输出到终端 （$2 是第二字段也就是 进程id）</p>
 <img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/ADB%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/image-20201016145122015.png" alt="例图" style="zoom:200%;">    
 </li>
-<li><p>xargs 命令介绍</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xargs adb shell <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
-
+<li><p>xargs adb shell kill -9</p>
 <p>这个命令会把 awk 获取到的线程id 当做参数传递给 <strong>kill -9</strong> 这个命令</p>
 </li>
 </ol>
 <h3 id="高通-Camx-dump-metadata"><a href="#高通-Camx-dump-metadata" class="headerlink" title="高通 Camx dump metadata"></a>高通 Camx dump metadata</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys media.camera &gt;meta.log   </span><br></pre></td></tr></table></figure>
 
+<h2 id="ADB-常见问题"><a href="#ADB-常见问题" class="headerlink" title="ADB 常见问题"></a>ADB 常见问题</h2><h3 id="ADB-连接不上报以下错误"><a href="#ADB-连接不上报以下错误" class="headerlink" title="ADB 连接不上报以下错误"></a>ADB 连接不上报以下错误</h3><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/ADB%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/20200824114458995.png" alt="adb devices" style="zoom:200%;">
+
+<p>解决方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/udev/rules.d</span><br><span class="line">sudo vim 51-android.rules</span><br></pre></td></tr></table></figure>
+
+<p>在文件中写入：<br>SUBSYSTEM==”usb”, ENV{DEVTYPE}==”usb_device”, MODE=”0666”</p>
 
             </div>
         
@@ -449,19 +482,19 @@
     
 <nav id="article-nav">
     
-        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20%E7%A0%94%E5%8F%91%E6%80%BB%E7%BB%93/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    Android 研发总结
+                    Ubuntu 开发环境的搭建
                 
             </div>
         </a>
     
     
-        <a href="/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20%E7%A0%94%E5%8F%91%E6%80%BB%E7%BB%93/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">MarkDown 常用语法</div>
+            <div class="article-nav-title">Android 研发总结</div>
         </a>
     
 </nav>
