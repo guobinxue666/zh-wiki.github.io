@@ -3,25 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>高通 Camx capture request 代码流程 | Zh-Wiki</title>
+    <title>高通 Camx Camx open camera | Zh-Wiki</title>
     
     
-        <meta name="keywords" content="高通 Camx capture request 代码流程" />
+        <meta name="keywords" content="高通 Camx Camx open camera" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="预览和拍照的 request 代码流程主体框架图 详细代码调用流程123456789101112chi_override_process_request() &#x2F;&#x2F;chxextensioninterface.cpp 	OverrideProcessRequest()   &#x2F;&#x2F;chxextensionmodule.cpp     	ProcessCaptureRequest()&#x2F;&#x2F;chxusecase">
-<meta property="og:type" content="article">
-<meta property="og:title" content="高通 Camx capture request 代码流程">
-<meta property="og:url" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="高通 Camx Camx open camera">
+<meta property="og:url" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/index.html">
 <meta property="og:site_name" content="Zh-Wiki">
-<meta property="og:description" content="预览和拍照的 request 代码流程主体框架图 详细代码调用流程123456789101112chi_override_process_request() &#x2F;&#x2F;chxextensioninterface.cpp 	OverrideProcessRequest()   &#x2F;&#x2F;chxextensionmodule.cpp     	ProcessCaptureRequest()&#x2F;&#x2F;chxusecase">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/image-20201012225025652.png">
-<meta property="article:published_time" content="2019-12-31T16:00:05.000Z">
-<meta property="article:modified_time" content="2020-10-23T08:57:40.616Z">
+<meta property="article:published_time" content="2019-12-31T16:00:03.000Z">
+<meta property="article:modified_time" content="2020-10-26T05:50:57.079Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/image-20201012225025652.png">
     
 
     
@@ -207,9 +203,9 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
-                            高通 Camera
+                            高通 Camx
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20camera%20server/">高通 Camx camera server</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20camera%20provider/">高通 Camx camera provider</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20init%20%E6%B5%81%E7%A8%8B/">高通 Camx init 流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/">高通 Camx Camx open camera</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20config%20stream%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx config stream 代码流程</a></li>  <li class="file active"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture request 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20result%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture result 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20Bring%20up/">高通 Camx Bring up</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">高通 Camx 问题总结</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20camera%20server/">高通 Camx camera server</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20camera%20provider/">高通 Camx camera provider</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20init%20%E6%B5%81%E7%A8%8B/">高通 Camx init 流程</a></li>  <li class="file active"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/">高通 Camx Camx open camera</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20config%20stream%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx config stream 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture request 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20capture%20result%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture result 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20Bring%20up/">高通 Camx Bring up</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">高通 Camx 问题总结</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -358,7 +354,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-技术研发/Camera Driver/高通 Camera/高通 Camx capture request 代码流程" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-技术研发/Camera Driver/高通 Camx/高通 Camx open camera" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -368,15 +364,15 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/">技术研发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/">Camera Driver</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camera/">高通 Camera</a>
+        <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/">技术研发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/">Camera Driver</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-Camx/">高通 Camx</a>
     </div>
 
                         
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">
-            <time datetime="2019-12-31T16:00:05.000Z" itemprop="datePublished">2020-01-01</time>
+        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/">
+            <time datetime="2019-12-31T16:00:03.000Z" itemprop="datePublished">2020-01-01</time>
         </a>
     </div>
 
@@ -387,13 +383,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/raw/zjw-dev/source/_posts/技术研发/Camera Driver/高通 Camera/高通 Camx capture request 代码流程.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/raw/zjw-dev/source/_posts/技术研发/Camera Driver/高通 Camx/高通 Camx open camera.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/edit/zjw-dev/source/_posts/技术研发/Camera Driver/高通 Camera/高通 Camx capture request 代码流程.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/edit/zjw-dev/source/_posts/技术研发/Camera Driver/高通 Camx/高通 Camx open camera.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/commits/zjw-dev/source/_posts/技术研发/Camera Driver/高通 Camera/高通 Camx capture request 代码流程.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/commits/zjw-dev/source/_posts/技术研发/Camera Driver/高通 Camx/高通 Camx open camera.md'> History </a>
                             </div>
                         
                     </div>
@@ -401,7 +397,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            高通 Camx capture request 代码流程
+            高通 Camx Camx open camera
         </h1>
     
 
@@ -414,18 +410,12 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E8%A7%88%E5%92%8C%E6%8B%8D%E7%85%A7%E7%9A%84-request-%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">预览和拍照的 request 代码流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E4%BD%93%E6%A1%86%E6%9E%B6%E5%9B%BE"><span class="toc-number">1.1.</span> <span class="toc-text">主体框架图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%A6%E7%BB%86%E4%BB%A3%E7%A0%81%E8%B0%83%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">详细代码调用流程</span></a></li></ol></li></ol>
+                    
                 </div>
             
         
         
-            <h3 id="预览和拍照的-request-代码流程"><a href="#预览和拍照的-request-代码流程" class="headerlink" title="预览和拍照的 request 代码流程"></a>预览和拍照的 request 代码流程</h3><h4 id="主体框架图"><a href="#主体框架图" class="headerlink" title="主体框架图"></a>主体框架图</h4><p><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/image-20201012225025652.png" alt="process capture request"></p>
-<h4 id="详细代码调用流程"><a href="#详细代码调用流程" class="headerlink" title="详细代码调用流程"></a>详细代码调用流程</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">chi_override_process_request() <span class="comment">//chxextensioninterface.cpp </span></span><br><span class="line">	OverrideProcessRequest()   <span class="comment">//chxextensionmodule.cpp </span></span><br><span class="line">    	ProcessCaptureRequest()<span class="comment">//chxusecase.cpp</span></span><br><span class="line">    		ExecuteCaptureRequest() <span class="comment">//chxadvancedcamerausecase.cpp</span></span><br><span class="line">    			result = pFeature-&gt;ExecuteProcessRequest(pRequest); <span class="comment">//会调到chifeature2wrapper.cpp:494 ExecuteProcessRequest()</span></span><br><span class="line">    			ExecuteProcessRequest() <span class="comment">//chifeature2wrapper.cpp 开始进入算法的领域</span></span><br><span class="line">                    SubmitRequestToSession() <span class="comment">//经过一系类调用会走到 chifeature2base.cpp </span></span><br><span class="line">                    	 result = ExtensionModule::GetInstance()-&gt;ActivatePipeline() </span><br><span class="line">                    	 OnSubmitRequestToSession()</span><br><span class="line">                    		ProcessFeatureMessage()</span><br><span class="line">                    ProcessMessageCb() <span class="comment">//通过回调又重新回到 chifeature2wrapper.cpp </span></span><br><span class="line">                    	result = pFeature2Wrapper-&gt;m_pUsecaseBase-&gt;SubmitRequest(&amp;submitRequest); <span class="comment">//将 request 下到 camx session 中  	</span></span><br></pre></td></tr></table></figure>
-
-<p>CHI feature 通过 usecase 提交 request 到 session, 套路还是一样的（chxextensionmodule.cpp 通过这条链路转到Camx）</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = pSession-&gt;ProcessCaptureRequest(pRequest); <span class="comment">//camxchicontext.cpp feature submit request 会调到这里从这里开始步入 session</span></span><br><span class="line">	<span class="function">CamxResult <span class="title">Session::ProcessCaptureRequest</span><span class="params">()</span></span>; <span class="comment">//camxsession.cpp </span></span><br></pre></td></tr></table></figure>
-
-
+            
             </div>
         
         <footer class="article-footer">
@@ -437,19 +427,19 @@
     
 <nav id="article-nav">
     
-        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20capture%20result%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Arch%20Linux%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    高通 Camx capture result 代码流程
+                    Arch Linux 开发环境的搭建
                 
             </div>
         </a>
     
     
-        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camera/%E9%AB%98%E9%80%9A%20Camx%20config%20stream%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Centos%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">高通 Camx config stream 代码流程</div>
+            <div class="article-nav-title">Centos 开发环境的搭建</div>
         </a>
     
 </nav>
