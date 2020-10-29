@@ -9,15 +9,15 @@
         <meta name="keywords" content="高通 Camx 问题总结" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="帧率问题人像模式在暗环境，帧率过低，预览卡顿 首先确认一下信息 测试环境有多暗 lux（是否有量变的过程） camera 镜头距离拍摄物多远 sensor 的出帧是否正常 （当时调试双摄帧同步的时候并不是在暗环境下调试的，可能配置需要稍微修改一下）">
+    <meta name="description" content="帧率问题人像模式在暗环境，帧率过低，预览卡顿 首先确认一下信息 测试环境有多暗 lux（是否有量变的过程） camera 镜头距离拍摄物多远     查看sensor 出帧是否正常 开启内核双摄帧同步的log 12adb shell &quot;echo 0x1000018 &gt; .&#x2F;sys&#x2F;module&#x2F;cam_debug_util&#x2F;parameters&#x2F;debug_mdl&quot;adb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高通 Camx 问题总结">
 <meta property="og:url" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Zh-Wiki">
-<meta property="og:description" content="帧率问题人像模式在暗环境，帧率过低，预览卡顿 首先确认一下信息 测试环境有多暗 lux（是否有量变的过程） camera 镜头距离拍摄物多远 sensor 的出帧是否正常 （当时调试双摄帧同步的时候并不是在暗环境下调试的，可能配置需要稍微修改一下）">
+<meta property="og:description" content="帧率问题人像模式在暗环境，帧率过低，预览卡顿 首先确认一下信息 测试环境有多暗 lux（是否有量变的过程） camera 镜头距离拍摄物多远     查看sensor 出帧是否正常 开启内核双摄帧同步的log 12adb shell &quot;echo 0x1000018 &gt; .&#x2F;sys&#x2F;module&#x2F;cam_debug_util&#x2F;parameters&#x2F;debug_mdl&quot;adb">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-31T16:01:00.000Z">
-<meta property="article:modified_time" content="2020-10-29T07:03:26.503Z">
+<meta property="article:modified_time" content="2020-10-29T09:13:55.575Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta name="twitter:card" content="summary">
     
@@ -421,7 +421,35 @@
 <li>首先确认一下信息<ul>
 <li>测试环境有多暗 lux（是否有量变的过程）</li>
 <li>camera 镜头距离拍摄物多远</li>
-<li>sensor 的出帧是否正常 （当时调试双摄帧同步的时候并不是在暗环境下调试的，可能配置需要稍微修改一下）</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>查看sensor 出帧是否正常</p>
+<p>开启内核双摄帧同步的log</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell <span class="string">&quot;echo 0x1000018 &gt; ./sys/module/cam_debug_util/parameters/debug_mdl&quot;</span></span><br><span class="line">adb logcat -b kernel &gt; kmd.log</span><br></pre></td></tr></table></figure>
+
+<p>正常环境log</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Line <span class="number">3662</span>: <span class="number">01</span>-<span class="number">02</span> <span class="number">02</span>:<span class="number">37</span>:<span class="number">40</span><span class="variable">.256</span>     <span class="number">0</span>     <span class="number">0</span> I CAM_DBG : CAM-ISP: <span class="number">__</span>cam_isp_ctx_send_sof_timestamp: <span class="number">666</span>: request id:<span class="number">64</span> frame number:<span class="number">66</span> SOF <span class="keyword">time</span> stamp:<span class="number">0</span>x4ceb8d14a14</span><br><span class="line">Line <span class="number">3679</span>: <span class="number">01</span>-<span class="number">02</span> <span class="number">02</span>:<span class="number">37</span>:<span class="number">40</span><span class="variable">.256</span>     <span class="number">0</span>     <span class="number">0</span> I CAM_DBG : CAM-ISP: <span class="number">__</span>cam_isp_ctx_send_sof_timestamp: <span class="number">666</span>: request id:<span class="number">64</span> frame number:<span class="number">66</span> SOF <span class="keyword">time</span> stamp:<span class="number">0</span>x4ceb8d5cc41</span><br><span class="line">Line <span class="number">4564</span>: <span class="number">01</span>-<span class="number">02</span> <span class="number">02</span>:<span class="number">37</span>:<span class="number">40</span><span class="variable">.289</span>     <span class="number">0</span>     <span class="number">0</span> I CAM_DBG : CAM-ISP: <span class="number">__</span>cam_isp_ctx_send_sof_timestamp: <span class="number">666</span>: request id:<span class="number">65</span> frame number:<span class="number">67</span> SOF <span class="keyword">time</span> stamp:<span class="number">0</span>x4cebacd4843</span><br><span class="line">Line <span class="number">4618</span>: <span class="number">01</span>-<span class="number">02</span> <span class="number">02</span>:<span class="number">37</span>:<span class="number">40</span><span class="variable">.290</span>     <span class="number">0</span>     <span class="number">0</span> I CAM_DBG : CAM-ISP: <span class="number">__</span>cam_isp_ctx_send_sof_timestamp: <span class="number">666</span>: request id:<span class="number">65</span> frame number:<span class="number">67</span> SOF <span class="keyword">time</span> stamp:<span class="number">0</span>x4cebad1caa4</span><br></pre></td></tr></table></figure>
+
+<p>通过上述log，发现 request id 和  frame number 都是成双成对的。分别对应主摄和辅摄的出帧。</p>
+<p>For Example ：request id:65 frame number:67</p>
+<p>Line 4564: 01-02 02:37:40.289 </p>
+<p>Line 4618: 01-02 02:37:40.290 </p>
+<p>通过分析log ，可以看出主摄和辅摄只差1ms，同步OK.</p>
+<p>暗环境下的log</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Line <span class="number">124973</span>: <span class="number">01</span>-<span class="number">02</span> <span class="number">03</span>:<span class="number">00</span>:<span class="number">15</span><span class="variable">.035</span>     <span class="number">0</span>     <span class="number">0</span> I CAM_DBG : CAM-ISP: <span class="number">__</span>cam_isp_ctx_send_sof_timestamp: <span class="number">666</span>: request id:<span class="number">0</span> frame number:<span class="number">193</span> SOF <span class="keyword">time</span> stamp:<span class="number">0</span>x60a27f1067b</span><br><span class="line">Line <span class="number">124990</span>: <span class="number">01</span>-<span class="number">02</span> <span class="number">03</span>:<span class="number">00</span>:<span class="number">15</span><span class="variable">.035</span>     <span class="number">0</span>     <span class="number">0</span> I CAM_DBG : CAM-ISP: <span class="number">__</span>cam_isp_ctx_send_sof_timestamp: <span class="number">666</span>: request id:<span class="number">0</span> frame number:<span class="number">110</span> SOF <span class="keyword">time</span> stamp:<span class="number">0</span>x60a27f5890f</span><br><span class="line"></span><br><span class="line">Line <span class="number">131018</span>: <span class="number">01</span>-<span class="number">02</span> <span class="number">03</span>:<span class="number">00</span>:<span class="number">16</span><span class="variable">.055</span>     <span class="number">0</span>     <span class="number">0</span> I CAM_DBG : CAM-ISP: <span class="number">__</span>cam_isp_ctx_send_sof_timestamp: <span class="number">666</span>: request id:<span class="number">0</span> frame number:<span class="number">213</span> SOF <span class="keyword">time</span> stamp:<span class="number">0</span>x60a64afe776</span><br><span class="line">Line <span class="number">131041</span>: <span class="number">01</span>-<span class="number">02</span> <span class="number">03</span>:<span class="number">00</span>:<span class="number">16</span><span class="variable">.055</span>     <span class="number">0</span>     <span class="number">0</span> I CAM_DBG : CAM-ISP: <span class="number">__</span>cam_isp_ctx_send_sof_timestamp: <span class="number">666</span>: request id:<span class="number">74</span> frame number:<span class="number">121</span> SOF <span class="keyword">time</span> stamp:<span class="number">0</span>x60a64b469d7</span><br></pre></td></tr></table></figure>
+
+<p>很明显没有同步，分别算一下帧率</p>
+<p>16.055 - 15.035 = 1.5s</p>
+<p>主摄 (213-193)/1.5 = 13fps</p>
+<p>辐射 (121-110)/1.5 = 7.3fps</p>
+</li>
+<li><p>解决方法</p>
+<ul>
+<li><p>方案一</p>
+<p>找Tuning的同事固定帧率，调试曝光表</p>
+</li>
 </ul>
 </li>
 </ol>
