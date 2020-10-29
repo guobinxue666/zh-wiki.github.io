@@ -17,7 +17,7 @@
 <meta property="og:description" content="Arch Linux 系统安装主要进行分区，系统的安装，图形服务和必要驱动的安装 分区 查看当前分区信息 1fdisk -l  设置分区 1cfdisk &#x2F;dev&#x2F;sda  1)首先选择分区类型 ​    MBR 选择 dos     ​    GPT  选择 gpt   2)MBR启动一般分为2个分区 ​    主分区   （选择为boot标志） ​    交换分区（内存的2倍）  格式化分区">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-31T16:00:03.000Z">
-<meta property="article:modified_time" content="2020-10-23T06:20:07.016Z">
+<meta property="article:modified_time" content="2020-10-29T01:54:00.907Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta property="article:tag" content="Arch Linux">
 <meta name="twitter:card" content="summary">
@@ -456,14 +456,14 @@
 <h3 id="编辑镜像源"><a href="#编辑镜像源" class="headerlink" title="编辑镜像源"></a>编辑镜像源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
 
 <p>将中国的源放在文件的开头</p>
-<h3 id="安装系统基本组件"><a href="#安装系统基本组件" class="headerlink" title="安装系统基本组件"></a>安装系统基本组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base linus linux-firmware</span><br></pre></td></tr></table></figure>
+<h3 id="安装系统基本组件"><a href="#安装系统基本组件" class="headerlink" title="安装系统基本组件"></a>安装系统基本组件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base linux linux-firmware</span><br></pre></td></tr></table></figure>
 
 <h3 id="安装基本开发工具包"><a href="#安装基本开发工具包" class="headerlink" title="安装基本开发工具包"></a>安装基本开发工具包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br><span class="line">pacman -S base-devel</span><br></pre></td></tr></table></figure>
 
 <h3 id="安装-sudo"><a href="#安装-sudo" class="headerlink" title="安装 sudo"></a>安装 sudo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br><span class="line">pacman -S sudo vi vim</span><br><span class="line">visudo</span><br></pre></td></tr></table></figure>
 
 <p>删除这一行注释 <strong>%wheel ALL = (ALL) ALL</strong></p>
-<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br><span class="line">useradd -G wheel -m 用户名</span><br></pre></td></tr></table></figure>
+<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br><span class="line">useradd -G wheel -m 用户名</span><br><span class="line">passwad 用户名</span><br></pre></td></tr></table></figure>
 
 <h3 id="安装-Grub"><a href="#安装-Grub" class="headerlink" title="安装 Grub"></a>安装 Grub</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br><span class="line">pacman -S grub</span><br><span class="line">grub-install --target=i386-pc /dev/sda</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
 
