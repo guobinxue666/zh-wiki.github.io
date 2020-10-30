@@ -9,13 +9,15 @@
         <meta name="keywords" content="高通 Camx Camx open camera" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="article">
+    <meta name="description" content="Open Camera 的流程简介当用户打开了相机设备之后，便会发生如下过程：  APP调用CameraManager的openCamera方法，层层调用之后最终调用到Camera Service层中的CameraService::connectDevice方法 过ICameraDevice::open()这一个HIDL接口通知Camera Provider层 在Camera Provider层内">
+<meta property="og:type" content="article">
 <meta property="og:title" content="高通 Camx Camx open camera">
 <meta property="og:url" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/index.html">
 <meta property="og:site_name" content="Zhou&#39;s Wiki">
+<meta property="og:description" content="Open Camera 的流程简介当用户打开了相机设备之后，便会发生如下过程：  APP调用CameraManager的openCamera方法，层层调用之后最终调用到Camera Service层中的CameraService::connectDevice方法 过ICameraDevice::open()这一个HIDL接口通知Camera Provider层 在Camera Provider层内">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-31T16:00:03.000Z">
-<meta property="article:modified_time" content="2020-10-29T07:26:01.993Z">
+<meta property="article:modified_time" content="2020-10-30T06:45:20.016Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta name="twitter:card" content="summary">
     
@@ -410,12 +412,22 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Open-Camera-%E7%9A%84%E6%B5%81%E7%A8%8B%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Open Camera 的流程简介</span></a></li></ol>
                 </div>
             
         
         
-            
+            <h1 id="Open-Camera-的流程简介"><a href="#Open-Camera-的流程简介" class="headerlink" title="Open Camera 的流程简介"></a>Open Camera 的流程简介</h1><p>当用户打开了相机设备之后，便会发生如下过程：</p>
+<ol>
+<li>APP调用CameraManager的openCamera方法，层层调用之后最终调用到Camera Service层中的CameraService::connectDevice方法</li>
+<li>过ICameraDevice::open()这一个HIDL接口通知Camera Provider层</li>
+<li>在Camera Provider层内部又通过调用之前获取的camera_module_t中methods的open方法来获取一个Camera 设备，对应于HAL中的camera3_device_t结构体</li>
+<li>在Camera Provider层调用获取到的camera3_device_t的initialize方法进行初始化动作</li>
+</ol>
+<p>代码大概流程走向</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//APP 端 open Camera</span></span><br><span class="line">CameraManager::openCamera() </span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+
             </div>
         
         <footer class="article-footer">
