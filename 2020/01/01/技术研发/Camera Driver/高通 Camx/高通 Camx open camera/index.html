@@ -9,15 +9,15 @@
         <meta name="keywords" content="高通 Camx Camx open camera" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Open Camera 的流程简介当用户打开了相机设备之后，便会发生如下过程：  APP调用CameraManager的openCamera方法，层层调用之后最终调用到Camera Service层中的CameraService::connectDevice方法 过ICameraDevice::open()这一个HIDL接口通知Camera Provider层 在Camera Provider层内">
+    <meta name="description" content="Open Camera 的流程简介当用户打开了相机设备之后，便会发生如下过程：  APP调用CameraManager的openCamera方法，层层调用之后最终调用到Camera Service层中的CameraService::connectDevice方法 然后通过ICameraDevice::open()这一个HIDL接口通知Camera Provider层 在Camera Provide">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高通 Camx Camx open camera">
 <meta property="og:url" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/index.html">
 <meta property="og:site_name" content="Zhou&#39;s Wiki">
-<meta property="og:description" content="Open Camera 的流程简介当用户打开了相机设备之后，便会发生如下过程：  APP调用CameraManager的openCamera方法，层层调用之后最终调用到Camera Service层中的CameraService::connectDevice方法 过ICameraDevice::open()这一个HIDL接口通知Camera Provider层 在Camera Provider层内">
+<meta property="og:description" content="Open Camera 的流程简介当用户打开了相机设备之后，便会发生如下过程：  APP调用CameraManager的openCamera方法，层层调用之后最终调用到Camera Service层中的CameraService::connectDevice方法 然后通过ICameraDevice::open()这一个HIDL接口通知Camera Provider层 在Camera Provide">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-31T16:00:03.000Z">
-<meta property="article:modified_time" content="2020-10-30T06:45:20.016Z">
+<meta property="article:modified_time" content="2020-11-03T08:36:38.488Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta name="twitter:card" content="summary">
     
@@ -412,7 +412,7 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Open-Camera-%E7%9A%84%E6%B5%81%E7%A8%8B%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Open Camera 的流程简介</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Open-Camera-%E7%9A%84%E6%B5%81%E7%A8%8B%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Open Camera 的流程简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#APP-Open-Camera-%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">APP Open Camera 流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Camera-Server-Open-%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">Camera Server Open 流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-CameraDevcieClient"><span class="toc-number">3.1.</span> <span class="toc-text">创建 CameraDevcieClient</span></a></li></ol></li></ol>
                 </div>
             
         
@@ -420,12 +420,33 @@
             <h1 id="Open-Camera-的流程简介"><a href="#Open-Camera-的流程简介" class="headerlink" title="Open Camera 的流程简介"></a>Open Camera 的流程简介</h1><p>当用户打开了相机设备之后，便会发生如下过程：</p>
 <ol>
 <li>APP调用CameraManager的openCamera方法，层层调用之后最终调用到Camera Service层中的CameraService::connectDevice方法</li>
-<li>过ICameraDevice::open()这一个HIDL接口通知Camera Provider层</li>
+<li>然后通过ICameraDevice::open()这一个HIDL接口通知Camera Provider层</li>
 <li>在Camera Provider层内部又通过调用之前获取的camera_module_t中methods的open方法来获取一个Camera 设备，对应于HAL中的camera3_device_t结构体</li>
 <li>在Camera Provider层调用获取到的camera3_device_t的initialize方法进行初始化动作</li>
 </ol>
 <p>代码大概流程走向</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//APP 端 open Camera</span></span><br><span class="line">CameraManager::openCamera() </span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//APP 端 open Camera</span></span><br><span class="line">CameraManager::openCamera() </span><br><span class="line">    <span class="comment">//Camera Server</span></span><br><span class="line">    CameraService::connectDevice()</span><br><span class="line">    	<span class="comment">//通过HIDL接口</span></span><br><span class="line">    	ICameraDevice::open()</span><br><span class="line">    		<span class="comment">//camera provider</span></span><br><span class="line">    		<span class="keyword">camera_module_t</span>::methods::open()</span><br><span class="line">    			<span class="comment">//接下来就是进行一些初始化操作</span></span><br><span class="line">    	 		<span class="keyword">camera3_device_t</span>::initialize()</span><br></pre></td></tr></table></figure>
+
+<h1 id="APP-Open-Camera-流程"><a href="#APP-Open-Camera-流程" class="headerlink" title="APP Open Camera 流程"></a>APP Open Camera 流程</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//apk端获取CameraManager 服务</span></span><br><span class="line">mCamManager = (CameraManager)getSystemService(Context.CAMERA_SERVICE);  </span><br><span class="line"><span class="comment">//打开指定camera</span></span><br><span class="line">--&gt; mCamManager.openCamera(mCameraId, mStateCallback, null);    </span><br><span class="line"><span class="comment">//frameworks/base/core/java/android/hardware/camera2/CameraManager.java</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openCamera</span><span class="params">(@NonNull String cameraId, @NonNull @CallbackExecutor Executor executor, @NonNull <span class="keyword">final</span> CameraDevice.StateCallback callback)</span></span></span><br><span class="line">   |--&gt; openCameraForUid(cameraId, callback, executor, USE_CALLING_UID)</span><br><span class="line">   |   |--&gt; openCameraDeviceUserAsync(cameraId, callback, executor, clientUid);</span><br><span class="line">   |   |   |--&gt; CameraDevice device = null; <span class="comment">//初始化CameraDevice</span></span><br><span class="line">   |   |   | <span class="comment">//实例化　new android.hardware.camera2.impl.CameraDeviceImpl</span></span><br><span class="line">   |   |   |--&gt; android.hardware.camera2.impl.CameraDeviceImpl deviceImpl = <span class="keyword">new</span> android.hardware.camera2.impl.CameraDeviceImpl(...) </span><br><span class="line">   |   |   |--&gt; ICameraDeviceCallbacks callbacks = deviceImpl.getCallbacks();   <span class="comment">//获取回调</span></span><br><span class="line">   |   |   |--&gt; ICameraService cameraService = CameraManagerGlobal.get().getCameraService();    <span class="comment">//获取CameraService 服务</span></span><br><span class="line">   |   |   |--&gt; cameraUser = cameraService.connectDevice(callbacks, cameraId, mContext.getOpPackageName(), uid);    <span class="comment">//连接打开camera</span></span><br><span class="line">   |   |   |--&gt; <span class="keyword">goto</span> CONNECTDEVICE:    <span class="comment">//跳转到下面CONNECTDEVICE处进行分析</span></span><br><span class="line">   |   |   |--&gt; deviceImpl.setRemoteDevice(cameraUser);</span><br><span class="line">   |   |   |   |--&gt; mRemoteDevice = <span class="keyword">new</span> ICameraDeviceUserWrapper(remoteDevice);</span><br><span class="line">   |   |   |   |--&gt; mDeviceExecutor.execute(mCallOnOpened); <span class="comment">//这里是一个线程池</span></span><br><span class="line">   |   |   |   |   |--&gt; sessionCallback = mSessionStateCallback;    <span class="comment">//获取session cb</span></span><br><span class="line">   |   |   |   |   |--&gt; sessionCallback.onOpened(CameraDeviceImpl.<span class="keyword">this</span>);    <span class="comment">//通过session cb 返回device</span></span><br><span class="line">   |   |   |   |   |--&gt; mDeviceCallback.onOpened(CameraDeviceImpl.<span class="keyword">this</span>);    <span class="comment">//通过device cb 返回device,这里就是返回给apk端的CameraDevice了</span></span><br></pre></td></tr></table></figure>
+
+<p>App端主要做了以下几点工作</p>
+<ol>
+<li><p>获取 CameraManager 服务</p>
+</li>
+<li><p>打开指定的 Camera</p>
+<ul>
+<li>获取 Camera Server</li>
+<li>调用 cameraService.connectDevice() 去连接打开设备，并且将上层传下来的回调传入Camera Server</li>
+<li>返回Device给App端</li>
+</ul>
+</li>
+</ol>
+<h1 id="Camera-Server-Open-流程"><a href="#Camera-Server-Open-流程" class="headerlink" title="Camera Server Open 流程"></a>Camera Server Open 流程</h1><p>对于打开相机设备动作,主要由connectDevice来实现，当CameraFramework通过调用ICameraService的connectDevice接口的时候,主要做了两件事情：</p>
+<ul>
+<li>创建CameraDeviceClient。</li>
+<li>对CameraDeviceClient进行初始化,并将其给Framework。</li>
+</ul>
+<h2 id="创建-CameraDevcieClient"><a href="#创建-CameraDevcieClient" class="headerlink" title="创建 CameraDevcieClient"></a>创建 CameraDevcieClient</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//frameworks/av/services/camera/libcameraservice/CameraService.cpp</span></span><br><span class="line"><span class="function">Status <span class="title">CameraService::connectDevice</span><span class="params">(<span class="keyword">const</span> sp&lt;hardware::camera2::ICameraDeviceCallbacks&gt;&amp; cameraCb, <span class="keyword">const</span> String16&amp; cameraId, <span class="keyword">const</span> String16&amp; clientPackageName, <span class="keyword">int</span> clientUid, sp&lt;hardware::camera2::ICameraDeviceUser&gt;* device)</span> <span class="comment">//最后一个参数是返回值</span></span></span><br><span class="line">   |--&gt; connectHelper&lt;hardware::camera2::ICameraDeviceCallbacks,CameraDeviceClient&gt;(...) //模板，CALLBACK 为hardware::camera2::ICameraDeviceCallbacks， CLIENT： CameraDeviceClient</span><br><span class="line">   |   |--&gt; validateConnectLocked(...) <span class="comment">//关于一些权限的判断，如果没有权限或者非法访问这里会直接退出</span></span><br><span class="line">   |   |--&gt; <span class="keyword">int</span> deviceVersion = getDeviceVersion(cameraId, <span class="comment">/*out*/</span>&amp;facing) <span class="comment">//获取device version, 为之后的实例化哪一个client 做准备</span></span><br><span class="line">   |   |--&gt; makeClient(..., deviceVersion, effectiveApiLevel, ...) <span class="comment">//这里主要是这两个参数决定了实例化哪一个client，</span></span><br><span class="line">   |   |--&gt; *client = <span class="keyword">new</span> CameraDeviceClient(cameraService, tmp, packageName, cameraId,facing, clientPid, clientUid, servicePid) <span class="comment">//这里是实例化了CameraDeviceClient</span></span><br><span class="line">   |   |--&gt; client = <span class="keyword">static_cast</span>&lt;CLIENT*&gt;(tmp.get()); <span class="comment">//取得makeClient中实例化好的client</span></span><br><span class="line">   |   |--&gt; client-&gt;initialize(mCameraProviderManager, mMonitorTags); <span class="comment">//开始初始化</span></span><br></pre></td></tr></table></figure>
 
 
             </div>
