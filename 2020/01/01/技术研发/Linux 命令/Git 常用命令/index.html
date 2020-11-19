@@ -6,19 +6,20 @@
     <title>Git 常用命令 | Zhou&#39;s Wiki</title>
     
     
-        <meta name="keywords" content="Git 常用命令" />
+        <meta name="keywords" content="Linux 命令" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="撤销指令 撤销工作区的修改 git checkout 文件名 git checkout 目录 -f 从暂存区撤销到工作区（可以理解为git add的反向动作） git reset HEAD 从版本库撤销到暂存区 git reset –soft HEAD^ 从版本库撤销到工作区 git reset –mixed HEAD^ 撤销到上一次提交（本地修改丢失） git reset –hard HEAD^">
+    <meta name="description" content="基本配置 所有的命令输出在同一页显示 1git config --global core.pager &amp;#x27;&amp;#x27;      撤销指令 撤销工作区的修改 git checkout 文件名 git checkout 目录 -f 从暂存区撤销到工作区（可以理解为git add的反向动作） git reset HEAD 从版本库撤销到暂存区 git reset –soft HEAD^ 从版本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 常用命令">
 <meta property="og:url" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/Git%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Zhou&#39;s Wiki">
-<meta property="og:description" content="撤销指令 撤销工作区的修改 git checkout 文件名 git checkout 目录 -f 从暂存区撤销到工作区（可以理解为git add的反向动作） git reset HEAD 从版本库撤销到暂存区 git reset –soft HEAD^ 从版本库撤销到工作区 git reset –mixed HEAD^ 撤销到上一次提交（本地修改丢失） git reset –hard HEAD^">
+<meta property="og:description" content="基本配置 所有的命令输出在同一页显示 1git config --global core.pager &amp;#x27;&amp;#x27;      撤销指令 撤销工作区的修改 git checkout 文件名 git checkout 目录 -f 从暂存区撤销到工作区（可以理解为git add的反向动作） git reset HEAD 从版本库撤销到暂存区 git reset –soft HEAD^ 从版本">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-31T16:00:01.000Z">
-<meta property="article:modified_time" content="2020-10-23T08:58:13.881Z">
+<meta property="article:modified_time" content="2020-11-19T08:59:52.084Z">
 <meta property="article:author" content="Zhoujunwei">
+<meta property="article:tag" content="Linux 命令">
 <meta name="twitter:card" content="summary">
     
 
@@ -397,6 +398,11 @@
     </div>
 
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Linux-%E5%91%BD%E4%BB%A4/" rel="tag">Linux 命令</a>
+    </div>
+
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
@@ -439,24 +445,32 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">撤销指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E6%81%A2%E5%A4%8D%E6%8C%87%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">保存恢复指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-number">3.</span> <span class="toc-text">解决冲突</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">基本配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E6%8C%87%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">撤销指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E6%81%A2%E5%A4%8D%E6%8C%87%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text">保存恢复指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-number">4.</span> <span class="toc-text">解决冲突</span></a></li></ol>
                 </div>
             
         
         
-            <h3 id="撤销指令"><a href="#撤销指令" class="headerlink" title="撤销指令"></a>撤销指令</h3><ol>
+            <h1 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h1><ol>
+<li><p>所有的命令输出在同一页显示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.pager <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h1 id="撤销指令"><a href="#撤销指令" class="headerlink" title="撤销指令"></a>撤销指令</h1><ol>
 <li>撤销工作区的修改<br> <strong>git checkout</strong> 文件名<br> <strong>git checkout</strong> 目录 -f</li>
 <li>从暂存区撤销到工作区（可以理解为<strong>git add</strong>的反向动作）<br> <strong>git reset HEAD</strong></li>
 <li>从版本库撤销到暂存区<br> <strong>git reset –soft HEAD^</strong></li>
 <li>从版本库撤销到工作区<br> <strong>git reset –mixed HEAD^</strong></li>
 <li>撤销到上一次提交（本地修改丢失）<br> <strong>git reset –hard HEAD^</strong></li>
 </ol>
-<h3 id="保存恢复指令"><a href="#保存恢复指令" class="headerlink" title="保存恢复指令"></a>保存恢复指令</h3><ol>
+<h1 id="保存恢复指令"><a href="#保存恢复指令" class="headerlink" title="保存恢复指令"></a>保存恢复指令</h1><ol>
 <li>保存本地未追踪的修改<br>  <strong>git stash save</strong> 路径</li>
 <li>将保存的内容导出<br> <strong>git stash pop stash@{index}</strong></li>
 <li>获取保存列表<br>  <strong>git stash list</strong></li>
 </ol>
-<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><p>这里我分为两种情况：</p>
+<h1 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h1><p>这里我分为两种情况：</p>
 <ol>
 <li><p>代码提到服务器上。<br> a. 首先把自己的提交reset掉。<br> b.更新代码<br> c.将自己的代码从服务器上拉下来。<br> d.冲突用code工具解决掉。然后add 修改文件，重新commit</p>
 </li>
