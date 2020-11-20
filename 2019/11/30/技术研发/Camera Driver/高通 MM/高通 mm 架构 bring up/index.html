@@ -3,23 +3,23 @@
 <head>
     <meta charset="utf-8">
     
-    <title>MarkDown 常用语法 | Zhou&#39;s Wiki</title>
+    <title>高通 mm 架构 bring up | Zhou&#39;s Wiki</title>
     
     
-        <meta name="keywords" content="MarkDown" />
+        <meta name="keywords" content="高通 mm" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="MarkDown 插入音频1&lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;330 height&#x3D;86 src&#x3D;&quot;音频地址&quot;&gt;&lt;&#x2F;iframe&gt;  MarkDown 插入视频">
+    <meta name="description" content="双摄帧同步导通 sensor setting 的配置  主摄配置  12345678910111213141516171819202122&#x2F;&#x2F;vendor&#x2F;qcom&#x2F;proprietary&#x2F;mm-camera&#x2F;mm-camera2&#x2F;media-controller&#x2F;modules&#x2F;sensors&#x2F;sensor&#x2F;libs&#x2F;hi1336_hs70_hlt&#x2F;hi1336_lib.h#define DUA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MarkDown 常用语法">
-<meta property="og:url" content="https://zh-wiki.github.io/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:title" content="高通 mm 架构 bring up">
+<meta property="og:url" content="https://zh-wiki.github.io/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/index.html">
 <meta property="og:site_name" content="Zhou&#39;s Wiki">
-<meta property="og:description" content="MarkDown 插入音频1&lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;330 height&#x3D;86 src&#x3D;&quot;音频地址&quot;&gt;&lt;&#x2F;iframe&gt;  MarkDown 插入视频">
+<meta property="og:description" content="双摄帧同步导通 sensor setting 的配置  主摄配置  12345678910111213141516171819202122&#x2F;&#x2F;vendor&#x2F;qcom&#x2F;proprietary&#x2F;mm-camera&#x2F;mm-camera2&#x2F;media-controller&#x2F;modules&#x2F;sensors&#x2F;sensor&#x2F;libs&#x2F;hi1336_hs70_hlt&#x2F;hi1336_lib.h#define DUA">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-11-11T09:25:37.173Z">
+<meta property="article:published_time" content="2019-11-29T16:00:01.000Z">
+<meta property="article:modified_time" content="2020-11-20T08:07:17.335Z">
 <meta property="article:author" content="Zhoujunwei">
-<meta property="article:tag" content="MarkDown">
+<meta property="article:tag" content="高通 mm">
 <meta name="twitter:card" content="summary">
     
 
@@ -179,9 +179,9 @@
         
         
          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             技术研发
                         </a>
@@ -195,9 +195,9 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20%E7%A0%94%E5%8F%91%E6%80%BB%E7%BB%93/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/">Android 研发总结</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             Camera Driver
                         </a>
@@ -211,13 +211,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20%E4%BB%8B%E7%BB%8D/">高通 Camx 介绍</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20camera%20server/">高通 Camx camera server</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20camera%20provider/">高通 Camx camera provider</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/">高通 Camx Camx open camera</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20config%20stream%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx config stream 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture request 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20capture%20result%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture result 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20Bring%20up/">高通 Camx Bring up</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">高通 Camx 问题总结</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             高通 MM
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%E4%BB%8B%E7%BB%8D/">高通 mm 架构介绍</a></li>  <li class="file"><a href="/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/">高通 mm 架构 bring up</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%E4%BB%8B%E7%BB%8D/">高通 mm 架构介绍</a></li>  <li class="file active"><a href="/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/">高通 mm 架构 bring up</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -260,9 +260,9 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/10/04/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/">生活学习</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             程序语言
                         </a>
@@ -276,13 +276,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/C++/c++/">c++</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             MarkDown
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/">MarkDown 常用语法</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/">MarkDown 常用语法</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -384,7 +384,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-程序语言/MarkDown/MarkDown 常用语法" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-技术研发/Camera Driver/高通 MM/高通 mm 架构 bring up" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -394,20 +394,20 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/">程序语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/">MarkDown</a>
+        <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/">技术研发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/">Camera Driver</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-Driver/%E9%AB%98%E9%80%9A-MM/">高通 MM</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/MarkDown/" rel="tag">MarkDown</a>
+        <a class="tag-link-link" href="/tags/%E9%AB%98%E9%80%9A-mm/" rel="tag">高通 mm</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/">
-            <time datetime="2019-12-31T16:00:00.000Z" itemprop="datePublished">2020-01-01</time>
+        <a href="/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/">
+            <time datetime="2019-11-29T16:00:01.000Z" itemprop="datePublished">2019-11-30</time>
         </a>
     </div>
 
@@ -418,13 +418,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/raw/zjw-dev/source/_posts/程序语言/MarkDown/MarkDown 常用语法.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/raw/zjw-dev/source/_posts/技术研发/Camera Driver/高通 MM/高通 mm 架构 bring up.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/edit/zjw-dev/source/_posts/程序语言/MarkDown/MarkDown 常用语法.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/edit/zjw-dev/source/_posts/技术研发/Camera Driver/高通 MM/高通 mm 架构 bring up.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/commits/zjw-dev/source/_posts/程序语言/MarkDown/MarkDown 常用语法.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/commits/zjw-dev/source/_posts/技术研发/Camera Driver/高通 MM/高通 mm 架构 bring up.md'> History </a>
                             </div>
                         
                     </div>
@@ -432,7 +432,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            MarkDown 常用语法
+            高通 mm 架构 bring up
         </h1>
     
 
@@ -445,17 +445,29 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MarkDown-%E6%8F%92%E5%85%A5%E9%9F%B3%E9%A2%91"><span class="toc-number">1.</span> <span class="toc-text">MarkDown 插入音频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MarkDown-%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91"><span class="toc-number">2.</span> <span class="toc-text">MarkDown 插入视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E7%89%87%E6%AE%B5"><span class="toc-number">3.</span> <span class="toc-text">插入代码折叠片段</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E6%91%84%E5%B8%A7%E5%90%8C%E6%AD%A5%E5%AF%BC%E9%80%9A"><span class="toc-number">1.</span> <span class="toc-text">双摄帧同步导通</span></a></li></ol>
                 </div>
             
         
         
-            <h3 id="MarkDown-插入音频"><a href="#MarkDown-插入音频" class="headerlink" title="MarkDown 插入音频"></a>MarkDown 插入音频</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">&quot;音频地址&quot;</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+            <h1 id="双摄帧同步导通"><a href="#双摄帧同步导通" class="headerlink" title="双摄帧同步导通"></a>双摄帧同步导通</h1><ol>
+<li><p>sensor setting 的配置</p>
+<details>
+<summary>主摄配置</summary>
 
-<h3 id="MarkDown-插入视频"><a href="#MarkDown-插入视频" class="headerlink" title="MarkDown 插入视频"></a>MarkDown 插入视频</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">height</span>=<span class="string">498</span> <span class="attr">width</span>=<span class="string">510</span> <span class="attr">src</span>=<span class="string">&quot;视频地址&quot;</span> <span class="attr">frameborder</span>=<span class="string">0</span> <span class="attr">allowfullscreen</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//vendor/qcom/proprietary/mm-camera/mm-camera2/media-controller/modules/sensors/sensor/libs/hi1336_hs70_hlt/hi1336_lib.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DUAL_CAM_MASTER_SETTINGS \</span></span><br><span class="line">&#123; \</span><br><span class="line">  &#123;<span class="number">0x0250</span>, <span class="number">0x0100</span>, <span class="number">0x0000</span>&#125;, \</span><br><span class="line">  &#123;<span class="number">0x0254</span>, <span class="number">0x1c00</span>, <span class="number">0x0000</span>&#125;, \</span><br><span class="line">  &#123;<span class="number">0x0256</span>, <span class="number">0x0000</span>, <span class="number">0x0000</span>&#125;, \</span><br><span class="line">  &#123;<span class="number">0x0258</span>, <span class="number">0x0001</span>, <span class="number">0x0000</span>&#125;, \</span><br><span class="line">  &#123;<span class="number">0x025A</span>, <span class="number">0x0000</span>, <span class="number">0x0000</span>&#125;, \</span><br><span class="line">  &#123;<span class="number">0x025C</span>, <span class="number">0x0000</span>, <span class="number">0x0000</span>&#125;, \</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">sensor_lib_t</span> sensor_lib_ptr =</span><br><span class="line">&#123;</span><br><span class="line">  .dualcam_master_settings =</span><br><span class="line">  &#123;</span><br><span class="line">    .reg_setting_a = DUAL_CAM_MASTER_SETTINGS,</span><br><span class="line">    .addr_type = CAMERA_I2C_WORD_ADDR,</span><br><span class="line">    .data_type = CAMERA_I2C_WORD_DATA,</span><br><span class="line">    .delay = <span class="number">0</span>,</span><br><span class="line">    .size = <span class="number">6</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="插入代码折叠片段"><a href="#插入代码折叠片段" class="headerlink" title="插入代码折叠片段"></a>插入代码折叠片段</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">details</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">summary</span>&gt;</span></span>标签名<span class="xml"><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="code">```</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</details>
 
+   <details>
+<summary>辅摄配置</summary>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DUAL_CAM_SLAVE_SETTINGS \</span></span><br><span class="line">&#123; \</span><br><span class="line">    &#123;<span class="number">0x3002</span>, <span class="number">0x00</span>, <span class="number">0x00</span>&#125;, \</span><br><span class="line">    &#123;<span class="number">0x3823</span>, <span class="number">0x30</span>, <span class="number">0x00</span>&#125;, \</span><br><span class="line">    &#123;<span class="number">0x3824</span>, <span class="number">0x00</span>, <span class="number">0x00</span>&#125;, \</span><br><span class="line">    &#123;<span class="number">0x3825</span>, <span class="number">0x20</span>, <span class="number">0x00</span>&#125;, \</span><br><span class="line">    &#123;<span class="number">0x3826</span>, <span class="number">0x00</span>, <span class="number">0x00</span>&#125;, \</span><br><span class="line">    &#123;<span class="number">0x3827</span>, <span class="number">0x04</span>, <span class="number">0x00</span>&#125;, \</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">sensor_lib_t</span> sensor_lib_ptr =</span><br><span class="line">&#123;</span><br><span class="line">    .dualcam_slave_settings =</span><br><span class="line">    &#123;</span><br><span class="line">      .reg_setting_a = DUAL_CAM_SLAVE_SETTINGS,</span><br><span class="line">      .addr_type = CAMERA_I2C_WORD_ADDR,</span><br><span class="line">      .data_type = CAMERA_I2C_BYTE_DATA,</span><br><span class="line">      .delay = <span class="number">0</span>,</span><br><span class="line">      .size = <span class="number">6</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+</li>
+</ol>
 
             </div>
         
@@ -468,19 +480,19 @@
     
 <nav id="article-nav">
     
-        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E5%B0%8F%E7%B1%B3J19S%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20%E4%BB%8B%E7%BB%8D/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    小米J19S项目随笔
+                    高通 Camx 介绍
                 
             </div>
         </a>
     
     
-        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20%E4%BB%8B%E7%BB%8D/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%E4%BB%8B%E7%BB%8D/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">高通 Camx 介绍</div>
+            <div class="article-nav-title">高通 mm 架构介绍</div>
         </a>
     
 </nav>
