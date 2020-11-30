@@ -9,18 +9,21 @@
         <meta name="keywords" content="高通 mm" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="OTP Dump 命令 如果camera文件夹在其他路径下 123adb rootadb remountadb shell setprop persist.camera.cal.dump 1  如果camera文件夹在vendor路径下 1adb shell setprop persist.vendor.camera.cal.dump 1  重启机器   双摄帧同步导通 sensor settin">
+    <meta name="description" content="Dump OTP 数据 如果camera文件夹在vendor路径下  1234adb rootadb remountadb shell setprop persist.vendor.camera.cal.dump 1adb reboot  dump 的数据路径如下    双摄帧同步导通 sensor setting 的配置  主摄配置  123456789101112131415161718192">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高通 mm 架构 bring up">
 <meta property="og:url" content="https://zh-wiki.github.io/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/index.html">
 <meta property="og:site_name" content="Zhou&#39;s Wiki">
-<meta property="og:description" content="OTP Dump 命令 如果camera文件夹在其他路径下 123adb rootadb remountadb shell setprop persist.camera.cal.dump 1  如果camera文件夹在vendor路径下 1adb shell setprop persist.vendor.camera.cal.dump 1  重启机器   双摄帧同步导通 sensor settin">
+<meta property="og:description" content="Dump OTP 数据 如果camera文件夹在vendor路径下  1234adb rootadb remountadb shell setprop persist.vendor.camera.cal.dump 1adb reboot  dump 的数据路径如下    双摄帧同步导通 sensor setting 的配置  主摄配置  123456789101112131415161718192">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zh-wiki.github.io/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/image-20201130153505584.png">
+<meta property="og:image" content="https://zh-wiki.github.io/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/image-20201130153815551.png">
 <meta property="article:published_time" content="2019-11-29T16:00:01.000Z">
-<meta property="article:modified_time" content="2020-11-29T11:19:30.586Z">
+<meta property="article:modified_time" content="2020-11-30T07:45:48.762Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta property="article:tag" content="高通 mm">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zh-wiki.github.io/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/image-20201130153505584.png">
     
 
     
@@ -445,19 +448,18 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OTP-Dump-%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">OTP Dump 命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E6%91%84%E5%B8%A7%E5%90%8C%E6%AD%A5%E5%AF%BC%E9%80%9A"><span class="toc-number">2.</span> <span class="toc-text">双摄帧同步导通</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Dump-OTP-%E6%95%B0%E6%8D%AE"><span class="toc-number">1.</span> <span class="toc-text">Dump OTP 数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E6%91%84%E5%B8%A7%E5%90%8C%E6%AD%A5%E5%AF%BC%E9%80%9A"><span class="toc-number">2.</span> <span class="toc-text">双摄帧同步导通</span></a></li></ol>
                 </div>
             
         
         
-            <h1 id="OTP-Dump-命令"><a href="#OTP-Dump-命令" class="headerlink" title="OTP Dump 命令"></a>OTP Dump 命令</h1><ol>
-<li><p>如果camera文件夹在其他路径下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb root</span><br><span class="line">adb remount</span><br><span class="line">adb shell setprop persist.camera.cal.dump 1</span><br></pre></td></tr></table></figure>
-</li>
+            <h1 id="Dump-OTP-数据"><a href="#Dump-OTP-数据" class="headerlink" title="Dump OTP 数据"></a>Dump OTP 数据</h1><ol>
 <li><p>如果camera文件夹在vendor路径下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell setprop persist.vendor.camera.cal.dump 1</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/image-20201130153505584.png" alt="camera 配置路径"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb root</span><br><span class="line">adb remount</span><br><span class="line">adb shell setprop persist.vendor.camera.cal.dump 1</span><br><span class="line">adb reboot</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>重启机器</p>
+<li><p>dump 的数据路径如下</p>
+<p><img src="/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/image-20201130153815551.png" alt="OTP 数据路径"></p>
 </li>
 </ol>
 <h1 id="双摄帧同步导通"><a href="#双摄帧同步导通" class="headerlink" title="双摄帧同步导通"></a>双摄帧同步导通</h1><ol>
