@@ -3,19 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Camera 成像原理和专业名词介绍 | Zhou&#39;s Wiki</title>
+    <title>Camera 成像原理和专业知识 | Zhou&#39;s Wiki</title>
     
     
         <meta name="keywords" content="Camera" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="article">
-<meta property="og:title" content="Camera 成像原理和专业名词介绍">
-<meta property="og:url" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Camera%20%E6%88%90%E5%83%8F%E5%8E%9F%E7%90%86%E5%92%8C%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/index.html">
+    <meta name="description" content="相位对焦 PDAF (Phase Detection Auto Focus) 简介 在CMOS（感光元件）上留出一些成对儿的遮蔽像素点来进行相位检测，即从像素传感器上拿出左右相对的成对像素点，分别对场景中的物体进行进光量等信息的检测，通过比对左右两侧的相关值情况，对焦系统根据判断信号波峰的位置可判断出镜头应该往前还是往后偏移，便会迅速找出准确的对焦点，之后镜间马达便会一次性将镜片推动到相应位置完成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Camera 成像原理和专业知识">
+<meta property="og:url" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Camera%20%E6%88%90%E5%83%8F%E5%8E%9F%E7%90%86%E5%92%8C%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="Zhou&#39;s Wiki">
+<meta property="og:description" content="相位对焦 PDAF (Phase Detection Auto Focus) 简介 在CMOS（感光元件）上留出一些成对儿的遮蔽像素点来进行相位检测，即从像素传感器上拿出左右相对的成对像素点，分别对场景中的物体进行进光量等信息的检测，通过比对左右两侧的相关值情况，对焦系统根据判断信号波峰的位置可判断出镜头应该往前还是往后偏移，便会迅速找出准确的对焦点，之后镜间马达便会一次性将镜片推动到相应位置完成">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-11-11T02:40:22.444Z">
+<meta property="article:modified_time" content="2020-12-03T08:20:19.004Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta property="article:tag" content="Camera">
 <meta name="twitter:card" content="summary">
@@ -226,7 +228,7 @@
                             &nbsp;
                             Camera 专业知识
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Camera%20%E6%88%90%E5%83%8F%E5%8E%9F%E7%90%86%E5%92%8C%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/">Camera 成像原理和专业名词介绍</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E9%AB%98%E9%80%9A%20ISP%20%E7%9B%B8%E5%85%B3/">高通 ISP 介绍</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Camera%20%E6%88%90%E5%83%8F%E5%8E%9F%E7%90%86%E5%92%8C%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">Camera 成像原理和专业知识</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -382,7 +384,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-技术研发/Camera 专业知识/Camera 成像原理和专业名词" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-技术研发/Camera 专业知识/Camera 成像原理和专业知识" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -404,7 +406,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Camera%20%E6%88%90%E5%83%8F%E5%8E%9F%E7%90%86%E5%92%8C%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/">
+        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Camera%20%E6%88%90%E5%83%8F%E5%8E%9F%E7%90%86%E5%92%8C%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">
             <time datetime="2019-12-31T16:00:00.000Z" itemprop="datePublished">2020-01-01</time>
         </a>
     </div>
@@ -416,13 +418,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/raw/zjw-dev/source/_posts/技术研发/Camera 专业知识/Camera 成像原理和专业名词.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/raw/zjw-dev/source/_posts/技术研发/Camera 专业知识/Camera 成像原理和专业知识.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/edit/zjw-dev/source/_posts/技术研发/Camera 专业知识/Camera 成像原理和专业名词.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/edit/zjw-dev/source/_posts/技术研发/Camera 专业知识/Camera 成像原理和专业知识.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/commits/zjw-dev/source/_posts/技术研发/Camera 专业知识/Camera 成像原理和专业名词.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/commits/zjw-dev/source/_posts/技术研发/Camera 专业知识/Camera 成像原理和专业知识.md'> History </a>
                             </div>
                         
                     </div>
@@ -430,7 +432,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Camera 成像原理和专业名词介绍
+            Camera 成像原理和专业知识
         </h1>
     
 
@@ -443,12 +445,23 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%B8%E4%BD%8D%E5%AF%B9%E7%84%A6-PDAF-Phase-Detection-Auto-Focus"><span class="toc-number">1.</span> <span class="toc-text">相位对焦 PDAF (Phase Detection Auto Focus)</span></a></li></ol>
                 </div>
             
         
         
-            
+            <h1 id="相位对焦-PDAF-Phase-Detection-Auto-Focus"><a href="#相位对焦-PDAF-Phase-Detection-Auto-Focus" class="headerlink" title="相位对焦 PDAF (Phase Detection Auto Focus)"></a>相位对焦 PDAF (Phase Detection Auto Focus)</h1><ol>
+<li><p><strong>简介</strong></p>
+<p>在CMOS（感光元件）上留出一些成对儿的遮蔽像素点来进行相位检测，即从像素传感器上拿出左右相对的成对像素点，分别对场景中的物体进行进光量等信息的检测，通过比对左右两侧的相关值情况，对焦系统根据判断信号波峰的位置可判断出镜头应该往前还是往后偏移，便会迅速找出准确的对焦点，之后镜间马达便会一次性将镜片推动到相应位置完成对焦。</p>
+</li>
+<li><p><strong>对焦的基本过程</strong></p>
+<ul>
+<li>通过左右(屏蔽像素点)shield pixel之间的差异来将被摄物映射到镜头移动距离中的某个位置。</li>
+<li>系统在进行对焦的时候，需要将检测到的相位差(phase difference)转换为离焦率(Defocus Value)，这个转换过程应用到的表单数据称为DCC(defocus conversion coefficient)离焦转换系数。</li>
+</ul>
+</li>
+</ol>
+
             </div>
         
         <footer class="article-footer">
@@ -470,9 +483,9 @@
         </a>
     
     
-        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E9%AB%98%E9%80%9A%20ISP%20%E7%9B%B8%E5%85%B3/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E5%B0%8F%E7%B1%B3J19S%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">高通 ISP 介绍</div>
+            <div class="article-nav-title">小米J19S项目随笔</div>
         </a>
     
 </nav>
