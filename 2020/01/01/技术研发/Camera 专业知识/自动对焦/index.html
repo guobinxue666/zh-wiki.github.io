@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>自动对焦专讲 | Zhou&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="Camera" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="自动对焦的工作原理  AF的对焦原理是通过电磁感应使镜头移动，改变焦距完成自动对焦。    VCM 实现对焦原理 进入自动对焦（AF）模式后，Driver IC输出电流从0到最大值，使得镜头从原始位置移动到最大位置，此时ISP通过sensor成像，计算每一副图片的MTF（Modulation transfer function）值，从而在这条MTF曲线中找到最大值（即图像最清晰的点），并通过算法，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自动对焦专讲">
+<meta property="og:url" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%87%AA%E5%8A%A8%E5%AF%B9%E7%84%A6/index.html">
+<meta property="og:site_name" content="Zhou&#39;s Wiki">
+<meta property="og:description" content="自动对焦的工作原理  AF的对焦原理是通过电磁感应使镜头移动，改变焦距完成自动对焦。    VCM 实现对焦原理 进入自动对焦（AF）模式后，Driver IC输出电流从0到最大值，使得镜头从原始位置移动到最大位置，此时ISP通过sensor成像，计算每一副图片的MTF（Modulation transfer function）值，从而在这条MTF曲线中找到最大值（即图像最清晰的点），并通过算法，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%87%AA%E5%8A%A8%E5%AF%B9%E7%84%A6/image-20201210112852132-1607571037074.png">
+<meta property="og:image" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%87%AA%E5%8A%A8%E5%AF%B9%E7%84%A6/20200802010227222.png">
+<meta property="og:image" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%87%AA%E5%8A%A8%E5%AF%B9%E7%84%A6/image-20201210114809533.png">
+<meta property="article:published_time" content="2019-12-31T16:00:01.000Z">
+<meta property="article:modified_time" content="2020-12-10T05:52:58.071Z">
+<meta property="article:author" content="Zhoujunwei">
+<meta property="article:tag" content="Camera">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%87%AA%E5%8A%A8%E5%AF%B9%E7%84%A6/image-20201210112852132-1607571037074.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Zhou&#39;s Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Zhou&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            技术研发
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Android 研发总结
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20%E7%A0%94%E5%8F%91%E6%80%BB%E7%BB%93/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/">Android 研发总结</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Camera Driver
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            高通 Camx
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20%E4%BB%8B%E7%BB%8D/">高通 Camx 介绍</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20camera%20server/">高通 Camx camera server</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20camera%20provider/">高通 Camx camera provider</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/">高通 Camx Camx open camera</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20config%20stream%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx config stream 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture request 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20capture%20result%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture result 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20Bring%20up/">高通 Camx Bring up</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            高通 MM
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%E4%BB%8B%E7%BB%8D/">高通 mm 架构介绍</a></li>  <li class="file"><a href="/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/">高通 mm 架构 bring up</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Camera 专业知识
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Camera%20%E6%88%90%E5%83%8F%E5%8E%9F%E7%90%86%E5%92%8C%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">Camera 成像原理和专业知识</a></li>  <li class="file active"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%87%AA%E5%8A%A8%E5%AF%B9%E7%84%A6/">自动对焦专讲</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux 命令
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/ADB%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">ADB 常用命令</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/Git%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Git 常用命令</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/Repo%20%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">Repo 常用命令</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            项目随笔
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E5%B0%8F%E7%B1%B3J19S%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/">小米J19S项目随笔</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E4%B8%89%E6%98%9Fo1o2o3%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/">三星o1o2o3项目随笔</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            生活学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/10/04/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/%E7%94%9F%E6%B4%BB%E5%AD%A6%E4%B9%A0/">生活学习</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            程序语言
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            C++
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            设计模式
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/C++/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">工厂模式</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MarkDown
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/">MarkDown 常用语法</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            UML
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/29/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/UML/UML/">UML</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            艺术
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/10/04/%E8%89%BA%E6%9C%AF/%E8%89%BA%E6%9C%AF/">艺术</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            计算机基础知识
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/">Ubuntu 开发环境的搭建</a></li>  <li class="file"><a href="/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Hexo%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">Hexo 博客搭建</a></li>  <li class="file"><a href="/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Centos%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/">Centos 开发环境的搭建</a></li>  <li class="file"><a href="/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Arch%20Linux%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/">Arch Linux 开发环境的搭建</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2020/10/05/index/">Welcome Zhou jun wei's Wiki Site</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-技术研发/Camera 专业知识/自动对焦" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/">技术研发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera-%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">Camera 专业知识</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Camera/" rel="tag">Camera</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%87%AA%E5%8A%A8%E5%AF%B9%E7%84%A6/">
+            <time datetime="2019-12-31T16:00:01.000Z" itemprop="datePublished">2020-01-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/raw/zjw-dev/source/_posts/技术研发/Camera 专业知识/自动对焦.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/edit/zjw-dev/source/_posts/技术研发/Camera 专业知识/自动对焦.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zh-wiki/zh-wiki.github.io/commits/zjw-dev/source/_posts/技术研发/Camera 专业知识/自动对焦.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            自动对焦专讲
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%AF%B9%E7%84%A6%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">自动对焦的工作原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8D%E5%B7%AE%E5%AF%B9%E7%84%A6-CAF"><span class="toc-number">2.</span> <span class="toc-text">反差对焦  CAF</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%B8%E4%BD%8D%E5%B7%AE%E5%AF%B9%E7%84%A6-PDAF"><span class="toc-number">3.</span> <span class="toc-text">相位差对焦 PDAF</span></a></li></ol>
+                </div>
+            
+        
+        
+            <h1 id="自动对焦的工作原理"><a href="#自动对焦的工作原理" class="headerlink" title="自动对焦的工作原理"></a>自动对焦的工作原理</h1><hr>
+<ul>
+<li>AF的对焦原理是通过电磁感应使镜头移动，改变焦距完成自动对焦。</li>
+</ul>
+<p><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%87%AA%E5%8A%A8%E5%AF%B9%E7%84%A6/image-20201210112852132-1607571037074.png" alt="自动对焦"></p>
+<ul>
+<li><p>VCM 实现对焦原理</p>
+<p>进入自动对焦（AF）模式后，Driver IC输出电流从0到最大值，使得镜头从原始位置移动到最大位置，此时ISP通过sensor成像，计算每一副图片的MTF（Modulation transfer function）值，从而在这条MTF曲线中找到最大值（<strong>即图像最清晰的点</strong>），并通过算法，得到这个点对应的电流大小，再一次指示Driver IC提供给音圈这个电流，而使镜头稳定在这个成像面，达到自动变焦效果。</p>
+<p>AF的目的是确定实现对焦的最佳镜头位置，并触发VCM将镜头移动到该位置。一般来说，AF过程如下：</p>
+<ol>
+<li>AF算法同时检测硬件和软件统计数据，以确定是否存在场景变化。</li>
+<li>如果算法检测到场景变化，则算法触发搜索。</li>
+<li>算法的粗搜索确定下一个镜头位置。</li>
+<li>VCM逐渐将镜头移动到下一个位置。</li>
+<li>精搜索找到最终的镜头位置。</li>
+<li>VCM将镜头移动到最终位置。</li>
+</ol>
+<p>AF对焦方式分为：对比度/反差对焦(CAF)、相位对焦(PDAF)、激光对焦(TOFAF)，每种算法都实现了检测和搜索功能。</p>
+</li>
+</ul>
+<h1 id="反差对焦-CAF"><a href="#反差对焦-CAF" class="headerlink" title="反差对焦  CAF"></a>反差对焦  CAF</h1><hr>
+<p>对比度对焦，也叫反差对焦。反差对焦是目前普及率最高，使用最广泛，成本相对较低的自动对焦技术。对焦的过程就是通过移动镜片来使对焦区域的图像达到最清晰的过程，所以对焦成功以后，直观的感受就是焦点的清晰度最高，而焦点以外的区域则表现为相对模糊状态。因为<strong>反差对焦的工作方式是进行对比度检测</strong>，因此相机镜片必须要前后移动完整记录所有的图像信息，然后计算出对比度最高的位置，才能最终完成对焦，所以反差对焦的一个主要缺点就是耗费的时间较长。</p>
+<p><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%87%AA%E5%8A%A8%E5%AF%B9%E7%84%A6/20200802010227222.png" alt="反差对焦"></p>
+<h1 id="相位差对焦-PDAF"><a href="#相位差对焦-PDAF" class="headerlink" title="相位差对焦 PDAF"></a>相位差对焦 PDAF</h1><hr>
+<p>相位对焦，是在像素传感器上拿出左右相对的成对像素点，分别对场景中的物体进行进光量等信息的检测，通过比对左右两侧的相关值情况，便会迅速找出准确的对焦点，之后镜间马达便会一次性将镜片推动到相应位置完成对焦。相位对焦也并不是十分完美，它对光线的要求就比较高，在弱光拍摄环境下，相位对焦就无能为力了。</p>
+<p><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E8%87%AA%E5%8A%A8%E5%AF%B9%E7%84%A6/image-20201210114809533.png" alt="相位差对焦"></p>
+<p>物体的某一个点会从各个方向发出光线通过镜片成像到snesor上面去，只有当不同方向的光线成像落到sensor的同一个位置的时候才是像差最小的时候：</p>
+<p>上图中，紫色是物体的一个点，黄色是sensor即成像面，1号蓝色镜片离sensor太远，上下两条光线所成的像没有重合；2号蓝色镜片和snesor的距离合适，上下两条光线所成的像重合了没有相差，所以对焦成功；3、4号蓝色镜片离sensor的距离太近了，上下两条光线所成的像没有重合，但是和1号不同的是相差的方向是不一样的。</p>
+<p>通过<strong>计算相位差并将其转换为defocus(离焦)值</strong>，以指示实现聚焦所需的镜头移动的大小和方向。正defocus值意味着运动由近到远，负defocus值意味着运动从远到近。当defocus值接近零时，表示目标处于焦点。</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Hexo%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Hexo 博客搭建
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Linux%20%E5%91%BD%E4%BB%A4/Git%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Git 常用命令</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
