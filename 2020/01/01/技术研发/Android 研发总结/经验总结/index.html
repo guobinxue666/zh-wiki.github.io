@@ -9,15 +9,15 @@
         <meta name="keywords" content="Android" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="在makefile中添加条件判断如果 TARGET_PRODUCT 等于 lime 或者 citrus 就走if 否则走 else 12345ifeq ($(TARGET_PRODUCT), $(filter $(TARGET_PRODUCT), lime citrus))COMPOSER_TARGET_INPUT  :&#x3D; $(CAMX_PATH)&#x2F;src&#x2F;settings&#x2F;$(TARGET_PR">
+    <meta name="description" content="在makefile中添加条件判断 如果 TARGET_PRODUCT 等于 lime 或者 citrus 就走if 否则走 else 12345ifeq ($(TARGET_PRODUCT), $(filter $(TARGET_PRODUCT), lime citrus))COMPOSER_TARGET_INPUT  :&#x3D; $(CAMX_PATH)&#x2F;src&#x2F;settings&#x2F;$(TARGET_P">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 研发总结">
 <meta property="og:url" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Android%20%E7%A0%94%E5%8F%91%E6%80%BB%E7%BB%93/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Zhou&#39;s Wiki">
-<meta property="og:description" content="在makefile中添加条件判断如果 TARGET_PRODUCT 等于 lime 或者 citrus 就走if 否则走 else 12345ifeq ($(TARGET_PRODUCT), $(filter $(TARGET_PRODUCT), lime citrus))COMPOSER_TARGET_INPUT  :&#x3D; $(CAMX_PATH)&#x2F;src&#x2F;settings&#x2F;$(TARGET_PR">
+<meta property="og:description" content="在makefile中添加条件判断 如果 TARGET_PRODUCT 等于 lime 或者 citrus 就走if 否则走 else 12345ifeq ($(TARGET_PRODUCT), $(filter $(TARGET_PRODUCT), lime citrus))COMPOSER_TARGET_INPUT  :&#x3D; $(CAMX_PATH)&#x2F;src&#x2F;settings&#x2F;$(TARGET_P">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-12-09T03:22:02.301Z">
+<meta property="article:modified_time" content="2020-12-29T03:23:09.439Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
@@ -468,12 +468,15 @@
             
         
         
-            <h1 id="在makefile中添加条件判断"><a href="#在makefile中添加条件判断" class="headerlink" title="在makefile中添加条件判断"></a>在makefile中添加条件判断</h1><p>如果 <strong>TARGET_PRODUCT</strong> 等于 <strong>lime</strong> 或者 <strong>citrus</strong> 就走<strong>if</strong> 否则走 <strong>else</strong></p>
+            <h1 id="在makefile中添加条件判断"><a href="#在makefile中添加条件判断" class="headerlink" title="在makefile中添加条件判断"></a>在makefile中添加条件判断</h1><hr>
+<p>如果 <strong>TARGET_PRODUCT</strong> 等于 <strong>lime</strong> 或者 <strong>citrus</strong> 就走<strong>if</strong> 否则走 <strong>else</strong></p>
 <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ifeq</span> (<span class="variable">$(TARGET_PRODUCT)</span>, <span class="variable">$(<span class="built_in">filter</span> <span class="variable">$(TARGET_PRODUCT)</span>, lime citrus)</span>)</span><br><span class="line">COMPOSER_TARGET_INPUT  := <span class="variable">$(CAMX_PATH)</span>/src/settings/<span class="variable">$(TARGET_PRODUCT)</span>/camxsettings.xml</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">COMPOSER_TARGET_INPUT  := <span class="variable">$(CAMX_PATH)</span>/src/settings/<span class="variable">$(TARGET_BOARD_PLATFORM)</span>/camxsettings.xml</span><br><span class="line"><span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="在makefile添加打印log"><a href="#在makefile添加打印log" class="headerlink" title="在makefile添加打印log"></a>在makefile添加打印log</h1><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#打印字符串</span></span><br><span class="line"><span class="variable">$(<span class="built_in">warning</span> &quot;wocao&quot;)</span></span><br><span class="line"><span class="comment">#打印变量</span></span><br><span class="line"><span class="variable">$(<span class="built_in">warning</span> $(变量名)</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="在makefile添加打印log"><a href="#在makefile添加打印log" class="headerlink" title="在makefile添加打印log"></a>在makefile添加打印log</h1><hr>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#打印字符串</span></span><br><span class="line"><span class="variable">$(<span class="built_in">warning</span> &quot;wocao&quot;)</span></span><br><span class="line"><span class="comment">#打印变量</span></span><br><span class="line"><span class="variable">$(<span class="built_in">warning</span> $(变量名)</span>)</span><br></pre></td></tr></table></figure>
 
-<h1 id="如何编译-selinux"><a href="#如何编译-selinux" class="headerlink" title="如何编译 selinux"></a>如何编译 selinux</h1><ol>
+<h1 id="如何编译-selinux"><a href="#如何编译-selinux" class="headerlink" title="如何编译 selinux"></a>如何编译 selinux</h1><hr>
+<ol>
 <li>编译命令</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make selinux_policy</span><br></pre></td></tr></table></figure>
@@ -483,11 +486,14 @@
 <p>path : out/target/product/lime/vendor/etc/selinux</p>
 </li>
 </ol>
-<h1 id="如何将最近指定时间-45min-内生成的文件-push-到-指定-的路径"><a href="#如何将最近指定时间-45min-内生成的文件-push-到-指定-的路径" class="headerlink" title="如何将最近指定时间(45min)内生成的文件 push 到 指定 的路径"></a>如何将最近指定时间(45min)内生成的文件 push 到 指定 的路径</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -mmin -45 -<span class="built_in">type</span> f|grep -v SHARED_LIBRARIES|grep -v STATIC_LIBRARIES|grep -Ei <span class="string">&quot;so|bin&quot;</span>|grep -v symbols|xargs -t -I <span class="string">&#x27;&#123;&#125;&#x27;</span> adb push &#123;&#125; /vendor/lib64/&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="如何将最近指定时间-45min-内生成的文件-push-到-指定-的路径"><a href="#如何将最近指定时间-45min-内生成的文件-push-到-指定-的路径" class="headerlink" title="如何将最近指定时间(45min)内生成的文件 push 到 指定 的路径"></a>如何将最近指定时间(45min)内生成的文件 push 到 指定 的路径</h1><hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -mmin -45 -<span class="built_in">type</span> f|grep -v SHARED_LIBRARIES|grep -v STATIC_LIBRARIES|grep -Ei <span class="string">&quot;so|bin&quot;</span>|grep -v symbols|xargs -t -I <span class="string">&#x27;&#123;&#125;&#x27;</span> adb push &#123;&#125; /vendor/lib64/&#123;&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="如何在安卓中自定义-log"><a href="#如何在安卓中自定义-log" class="headerlink" title="如何在安卓中自定义 log"></a>如何在安卓中自定义 log</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;android/log.h&gt;		</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GC02M1B_DBG(fmt, args...) __android_log_print(ANDROID_LOG_ERROR, <span class="meta-string">&quot;GC02M1B&quot;</span>,fmt, ##args)</span></span><br></pre></td></tr></table></figure>
+<h1 id="如何在安卓中自定义-log"><a href="#如何在安卓中自定义-log" class="headerlink" title="如何在安卓中自定义 log"></a>如何在安卓中自定义 log</h1><hr>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;android/log.h&gt;		</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GC02M1B_DBG(fmt, args...) __android_log_print(ANDROID_LOG_ERROR, <span class="meta-string">&quot;GC02M1B&quot;</span>,fmt, ##args)</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="Trace-的使用"><a href="#Trace-的使用" class="headerlink" title="Trace 的使用"></a>Trace 的使用</h1><ol>
+<h1 id="Trace-的使用"><a href="#Trace-的使用" class="headerlink" title="Trace 的使用"></a>Trace 的使用</h1><hr>
+<ol>
 <li><p>systrace.py 的路径</p>
 <p>path：项目代码/native/external/chromium-trace</p>
 </li>
@@ -507,19 +513,19 @@
     
 <nav id="article-nav">
     
-        <a href="/2020/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Ubuntu%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2020/01/01/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/MarkDown/MarkDown%20%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    Ubuntu 开发环境的搭建
+                    MarkDown 常用语法
                 
             </div>
         </a>
     
     
-        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/Camera%20%E6%88%90%E5%83%8F%E5%8E%9F%E7%90%86%E5%92%8C%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20%E4%BB%8B%E7%BB%8D/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Camera 成像原理和专业知识</div>
+            <div class="article-nav-title">高通 Camx 介绍</div>
         </a>
     
 </nav>
