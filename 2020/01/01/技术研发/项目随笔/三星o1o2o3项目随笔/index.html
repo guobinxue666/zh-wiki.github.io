@@ -9,18 +9,22 @@
         <meta name="keywords" content="项目随笔" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="项目相关 平台 高通 sdm439 mm-camera 架构  PLM 账号密码  登录网址（IE浏览器）：http:&#x2F;&#x2F;myproject.samsungmobile.com 账号：junwei2 密码：ZJWzhq1314   临时记录参考wiki  https:&#x2F;&#x2F;wiki.huaqin.com:8443&#x2F;pages&#x2F;viewpage.action?pageId&#x3D;882442563 http">
+    <meta name="description" content="(一) 项目相关  平台 高通 sdm439 mm-camera 架构  PLM 账号密码  登录网址（IE浏览器）：http:&#x2F;&#x2F;myproject.samsungmobile.com 账号：junwei2 密码：ZJWzhq1314   (二) XTS 问题相关 2.1 CTS 测试 工厂版本测试，正常版本测试只需要测试2颗摄像头，主摄和前摄，测试结果报cameraid 2, 3,4 的一律不">
 <meta property="og:type" content="article">
 <meta property="og:title" content="三星o1o2o3项目随笔">
 <meta property="og:url" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E4%B8%89%E6%98%9Fo1o2o3%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/index.html">
 <meta property="og:site_name" content="Zhou&#39;s Wiki">
-<meta property="og:description" content="项目相关 平台 高通 sdm439 mm-camera 架构  PLM 账号密码  登录网址（IE浏览器）：http:&#x2F;&#x2F;myproject.samsungmobile.com 账号：junwei2 密码：ZJWzhq1314   临时记录参考wiki  https:&#x2F;&#x2F;wiki.huaqin.com:8443&#x2F;pages&#x2F;viewpage.action?pageId&#x3D;882442563 http">
+<meta property="og:description" content="(一) 项目相关  平台 高通 sdm439 mm-camera 架构  PLM 账号密码  登录网址（IE浏览器）：http:&#x2F;&#x2F;myproject.samsungmobile.com 账号：junwei2 密码：ZJWzhq1314   (二) XTS 问题相关 2.1 CTS 测试 工厂版本测试，正常版本测试只需要测试2颗摄像头，主摄和前摄，测试结果报cameraid 2, 3,4 的一律不">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E4%B8%89%E6%98%9Fo1o2o3%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/image-20210106105826257.png">
+<meta property="og:image" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E4%B8%89%E6%98%9Fo1o2o3%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/image-20210106110327047.png">
+<meta property="og:image" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E4%B8%89%E6%98%9Fo1o2o3%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/image-20210106114048797.png">
 <meta property="article:published_time" content="2019-12-31T16:00:01.000Z">
-<meta property="article:modified_time" content="2020-12-31T09:21:57.938Z">
+<meta property="article:modified_time" content="2021-01-06T03:41:27.639Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta property="article:tag" content="项目随笔">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zh-wiki.github.io/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E4%B8%89%E6%98%9Fo1o2o3%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/image-20210106105826257.png">
     
 
     
@@ -463,12 +467,13 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3"><span class="toc-text">项目相关</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%B4%E6%97%B6%E8%AE%B0%E5%BD%95"><span class="toc-text">临时记录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#XTS-%E9%97%AE%E9%A2%98%E7%9B%B8%E5%85%B3"><span class="toc-text">XTS 问题相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CTS-%E6%B5%8B%E8%AF%95"><span class="toc-text">CTS 测试</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3"><span class="toc-text">(一) 项目相关</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-XTS-%E9%97%AE%E9%A2%98%E7%9B%B8%E5%85%B3"><span class="toc-text">(二) XTS 问题相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-CTS-%E6%B5%8B%E8%AF%95"><span class="toc-text">2.1 CTS 测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-Golden-Bin-%E7%9B%B8%E5%85%B3"><span class="toc-text">(三) Golden Bin 相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-golden-bin-%E5%AF%BC%E5%85%A5"><span class="toc-text">3.1 golden.bin 导入</span></a></li></ol></li></ol>
                 </div>
             
         
         
-            <h1 id="项目相关"><a href="#项目相关" class="headerlink" title="项目相关"></a>项目相关</h1><ol>
+            <h1 id="一-项目相关"><a href="#一-项目相关" class="headerlink" title="(一) 项目相关"></a>(一) 项目相关</h1><hr>
+<ol>
 <li><p>平台</p>
 <p>高通 sdm439 mm-camera 架构</p>
 </li>
@@ -478,14 +483,8 @@
 <p>密码：ZJWzhq1314</p>
 </li>
 </ol>
-<h1 id="临时记录"><a href="#临时记录" class="headerlink" title="临时记录"></a>临时记录</h1><p>参考wiki </p>
-<p><a target="_blank" rel="noopener" href="https://wiki.huaqin.com:8443/pages/viewpage.action?pageId=882442563">https://wiki.huaqin.com:8443/pages/viewpage.action?pageId=882442563</a></p>
-<p><a target="_blank" rel="noopener" href="https://wiki.huaqin.com:8443/pages/viewpage.action?pageId=896958493">https://wiki.huaqin.com:8443/pages/viewpage.action?pageId=896958493</a></p>
-<p>谷歌镜像可以到这个共享网址下拿：smb://10.105.73.94</p>
-<p>jira 规范  <a target="_blank" rel="noopener" href="https://wiki.huaqin.com:8443/pages/viewpage.action?pageId=948934088">https://wiki.huaqin.com:8443/pages/viewpage.action?pageId=948934088</a></p>
-<p>XTS 测试报告 <a target="_blank" rel="noopener" href="https://shimo.im/sheets/6YPCpQpjwc9vD9Qh/MODOC/">https://shimo.im/sheets/6YPCpQpjwc9vD9Qh/MODOC/</a></p>
-<p>jira lable 无法测试/无此问题/确认R已修复/生产问题 </p>
-<h1 id="XTS-问题相关"><a href="#XTS-问题相关" class="headerlink" title="XTS 问题相关"></a>XTS 问题相关</h1><h2 id="CTS-测试"><a href="#CTS-测试" class="headerlink" title="CTS 测试"></a>CTS 测试</h2><ol>
+<h1 id="二-XTS-问题相关"><a href="#二-XTS-问题相关" class="headerlink" title="(二) XTS 问题相关"></a>(二) XTS 问题相关</h1><hr>
+<h2 id="2-1-CTS-测试"><a href="#2-1-CTS-测试" class="headerlink" title="2.1 CTS 测试"></a>2.1 CTS 测试</h2><ol>
 <li><p>工厂版本测试，正常版本测试只需要测试2颗摄像头，主摄和前摄，测试结果报cameraid 2, 3,4 的一律不看。</p>
 </li>
 <li><p>如果出现测试过程中，由于某一项卡住，或者timeout 导致测试失败。有可能是没有暴露两颗摄像头给CTS. 可以参考一下修改，编译生成的库libcamera2ndk.so .push 路径：system/lib</p>
@@ -494,7 +493,26 @@
 
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//frameworks/av/camera/ndk/impl/ACameraManager.cpp</span></span><br><span class="line"><span class="keyword">camera_status_t</span></span><br><span class="line">ACameraManager::getCameraIdList(ACameraIdList** cameraIdList) &#123;</span><br><span class="line">    Mutex::Autolock _l(mLock);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;String8&gt; idList;</span><br><span class="line">    CameraManagerGlobal::getInstance().getCameraIdList(&amp;idList);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> numCameras = idList.size();</span><br><span class="line">    ACameraIdList *out = <span class="keyword">new</span> ACameraIdList;</span><br><span class="line">    <span class="keyword">if</span> (!out) &#123;</span><br><span class="line">        ALOGE(<span class="string">&quot;Allocate memory for ACameraIdList failed!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> ACAMERA_ERROR_NOT_ENOUGH_MEMORY;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//这里强制暴露2颗模组给 CTS</span></span><br><span class="line">    <span class="comment">//Expose two cameras fot CTS tests begin by zangyufei@huaqin.com</span></span><br><span class="line">    <span class="keyword">if</span>(numCameras &gt; <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        numCameras = <span class="number">2</span>;</span><br><span class="line">        ALOGE(<span class="string">&quot;Expose two cameras numCameras %d&quot;</span>,numCameras);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//Expose two cameras fot CTS tests end by zangyufei@huaqin.com</span></span><br><span class="line">    out-&gt;numCameras = numCameras;</span><br><span class="line">    out-&gt;cameraIds = <span class="keyword">new</span> <span class="keyword">const</span> <span class="keyword">char</span>*[numCameras];</span><br><span class="line">    <span class="keyword">if</span> (!out-&gt;cameraIds) &#123;</span><br><span class="line">        ALOGE(<span class="string">&quot;Allocate memory for ACameraIdList failed!&quot;</span>);</span><br><span class="line">        deleteCameraIdList(out);</span><br><span class="line">        <span class="keyword">return</span> ACAMERA_ERROR_NOT_ENOUGH_MEMORY;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numCameras; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span>* src = idList[i].<span class="built_in">string</span>();</span><br><span class="line">        <span class="keyword">size_t</span> dstSize = <span class="built_in">strlen</span>(src) + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">char</span>* dst = <span class="keyword">new</span> <span class="keyword">char</span>[dstSize];</span><br><span class="line">        <span class="keyword">if</span> (!dst) &#123;</span><br><span class="line">            ALOGE(<span class="string">&quot;Allocate memory for ACameraIdList failed!&quot;</span>);</span><br><span class="line">            deleteCameraIdList(out);</span><br><span class="line">            <span class="keyword">return</span> ACAMERA_ERROR_NOT_ENOUGH_MEMORY;</span><br><span class="line">        &#125;</span><br><span class="line">        strlcpy(dst, src, dstSize);</span><br><span class="line">        out-&gt;cameraIds[i] = dst;</span><br><span class="line">    &#125;</span><br><span class="line">    *cameraIdList = out;</span><br><span class="line">    <span class="keyword">return</span> ACAMERA_OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-</details></li>
+</details>
+
+</li>
+</ol>
+<h1 id="三-Golden-Bin-相关"><a href="#三-Golden-Bin-相关" class="headerlink" title="(三) Golden Bin 相关"></a>(三) Golden Bin 相关</h1><hr>
+<h2 id="3-1-golden-bin-导入"><a href="#3-1-golden-bin-导入" class="headerlink" title="3.1 golden.bin 导入"></a>3.1 golden.bin 导入</h2><ol>
+<li><p>在导入golden.bin的时候发现路径找不到</p>
+<p><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E4%B8%89%E6%98%9Fo1o2o3%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/image-20210106105826257.png" alt="golden.bin"></p>
+</li>
+<li><p>解决方法(通过opengrok搜索关键字 dualcali_golden_xx.bin(参考提交))</p>
+<p><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E4%B8%89%E6%98%9Fo1o2o3%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/image-20210106110327047.png" alt="路径"></p>
+</li>
+<li><p>配置golden.bin的相关xml</p>
+<p>通过以下配置发现golden.bin路径并非我们存放的位置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">path:  factory/config/HS50/sensor_config.xml</span><br><span class="line"><span class="tag">&lt;<span class="name">Item</span> <span class="attr">rear_camera</span>=<span class="string">&quot;hi1336_hs50_hlt : HQ20207953000&quot;</span>  <span class="attr">sub_camera</span>= <span class="string">&quot;gc02m1_hs50_ly : HQ20207879000&quot;</span> <span class="attr">filepath</span>=<span class="string">&quot;/vendor/lib/dualcali_golden_22.bin&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Item</span> <span class="attr">rear_camera</span>=<span class="string">&quot;hi1336_hs50_hlt : HQ20207953000&quot;</span>  <span class="attr">sub_camera</span>= <span class="string">&quot;gc2375h_hs50_sjc : HQ20200002SJC&quot;</span> <span class="attr">filepath</span>=<span class="string">&quot;/vendor/lib/dualcali_golden_23.bin&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Item</span> <span class="attr">rear_camera</span>=<span class="string">&quot;hi1336_hs50_hlt : HQ20207953000&quot;</span>  <span class="attr">sub_camera</span>= <span class="string">&quot;gc2375h_hs50_cxt : HQ20207875000&quot;</span> <span class="attr">filepath</span>=<span class="string">&quot;/vendor/lib/dualcali_golden_24.bin&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Item</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>open grok 搜关键字 <strong>LIB_GOLDEN_BASE</strong> 或者 <strong>libGoldenArc</strong> (上面的路径)</p>
+<p>会发现有个copy的过程</p>
+<p><img src="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E4%B8%89%E6%98%9Fo1o2o3%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/image-20210106114048797.png" alt="golden文件拷贝"></p>
+</li>
 </ol>
 
             </div>
