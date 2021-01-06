@@ -9,17 +9,17 @@
         <meta name="keywords" content="高通 mm" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="PDAF 调试方法 首先设置号相应的log权限 12adb shell setprop persist.camera.stats.af.debug 5adb shell setprop persist.camera.stats.haf.debug 5  使相机进入fullsweep(全扫描)模式 1adb shell setprop vendor.debug.camera.af_fullsweep">
+    <meta name="description" content="PDAF 调试方法  首先设置号相应的log权限 12adb shell setprop persist.camera.stats.af.debug 5adb shell setprop persist.camera.stats.haf.debug 5  使相机进入fullsweep(全扫描)模式 1adb shell setprop vendor.debug.camera.af_fullswee">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高通 mm 架构 bring up">
 <meta property="og:url" content="https://zh-wiki.github.io/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/index.html">
 <meta property="og:site_name" content="Zhou&#39;s Wiki">
-<meta property="og:description" content="PDAF 调试方法 首先设置号相应的log权限 12adb shell setprop persist.camera.stats.af.debug 5adb shell setprop persist.camera.stats.haf.debug 5  使相机进入fullsweep(全扫描)模式 1adb shell setprop vendor.debug.camera.af_fullsweep">
+<meta property="og:description" content="PDAF 调试方法  首先设置号相应的log权限 12adb shell setprop persist.camera.stats.af.debug 5adb shell setprop persist.camera.stats.haf.debug 5  使相机进入fullsweep(全扫描)模式 1adb shell setprop vendor.debug.camera.af_fullswee">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zh-wiki.github.io/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/image-20201130153505584.png">
 <meta property="og:image" content="https://zh-wiki.github.io/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/image-20201130153815551.png">
 <meta property="article:published_time" content="2019-11-29T16:00:01.000Z">
-<meta property="article:modified_time" content="2020-12-10T07:40:20.973Z">
+<meta property="article:modified_time" content="2021-01-06T06:01:07.655Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta property="article:tag" content="高通 mm">
 <meta name="twitter:card" content="summary">
@@ -466,12 +466,13 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PDAF-%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95"><span class="toc-text">PDAF 调试方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dump-OTP-%E6%95%B0%E6%8D%AE"><span class="toc-text">Dump OTP 数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E6%91%84%E5%B8%A7%E5%90%8C%E6%AD%A5%E5%AF%BC%E9%80%9A"><span class="toc-text">双摄帧同步导通</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PDAF-%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">PDAF 调试方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dump-OTP-%E6%95%B0%E6%8D%AE"><span class="toc-number">2.</span> <span class="toc-text">Dump OTP 数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E6%91%84%E5%B8%A7%E5%90%8C%E6%AD%A5%E5%AF%BC%E9%80%9A"><span class="toc-number">3.</span> <span class="toc-text">双摄帧同步导通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dump-MetaData"><span class="toc-number">4.</span> <span class="toc-text">Dump MetaData</span></a></li></ol>
                 </div>
             
         
         
-            <h1 id="PDAF-调试方法"><a href="#PDAF-调试方法" class="headerlink" title="PDAF 调试方法"></a>PDAF 调试方法</h1><ol>
+            <h1 id="PDAF-调试方法"><a href="#PDAF-调试方法" class="headerlink" title="PDAF 调试方法"></a>PDAF 调试方法</h1><hr>
+<ol>
 <li><p>首先设置号相应的log权限</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell setprop persist.camera.stats.af.debug 5</span><br><span class="line">adb shell setprop persist.camera.stats.haf.debug 5</span><br></pre></td></tr></table></figure>
 </li>
@@ -491,7 +492,8 @@
 </ul>
 </li>
 </ol>
-<h1 id="Dump-OTP-数据"><a href="#Dump-OTP-数据" class="headerlink" title="Dump OTP 数据"></a>Dump OTP 数据</h1><ol>
+<h1 id="Dump-OTP-数据"><a href="#Dump-OTP-数据" class="headerlink" title="Dump OTP 数据"></a>Dump OTP 数据</h1><hr>
+<ol>
 <li><p>如果camera文件夹在vendor路径下</p>
 <p><img src="/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/image-20201130153505584.png" alt="camera 配置路径"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb root</span><br><span class="line">adb remount</span><br><span class="line">adb shell setprop persist.vendor.camera.cal.dump 1</span><br><span class="line">adb reboot</span><br></pre></td></tr></table></figure>
@@ -500,7 +502,8 @@
 <p><img src="/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20MM/%E9%AB%98%E9%80%9A%20mm%20%E6%9E%B6%E6%9E%84%20bring%20up/image-20201130153815551.png" alt="OTP 数据路径"></p>
 </li>
 </ol>
-<h1 id="双摄帧同步导通"><a href="#双摄帧同步导通" class="headerlink" title="双摄帧同步导通"></a>双摄帧同步导通</h1><ol>
+<h1 id="双摄帧同步导通"><a href="#双摄帧同步导通" class="headerlink" title="双摄帧同步导通"></a>双摄帧同步导通</h1><hr>
+<ol>
 <li><p>sensor setting 的配置</p>
 <details>
 <summary>主摄配置</summary>
@@ -515,6 +518,16 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DUAL_CAM_SLAVE_SETTINGS \</span></span><br><span class="line">&#123; \</span><br><span class="line">    &#123;<span class="number">0x3002</span>, <span class="number">0x00</span>, <span class="number">0x00</span>&#125;, \</span><br><span class="line">    &#123;<span class="number">0x3823</span>, <span class="number">0x30</span>, <span class="number">0x00</span>&#125;, \</span><br><span class="line">    &#123;<span class="number">0x3824</span>, <span class="number">0x00</span>, <span class="number">0x00</span>&#125;, \</span><br><span class="line">    &#123;<span class="number">0x3825</span>, <span class="number">0x20</span>, <span class="number">0x00</span>&#125;, \</span><br><span class="line">    &#123;<span class="number">0x3826</span>, <span class="number">0x00</span>, <span class="number">0x00</span>&#125;, \</span><br><span class="line">    &#123;<span class="number">0x3827</span>, <span class="number">0x04</span>, <span class="number">0x00</span>&#125;, \</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">sensor_lib_t</span> sensor_lib_ptr =</span><br><span class="line">&#123;</span><br><span class="line">    .dualcam_slave_settings =</span><br><span class="line">    &#123;</span><br><span class="line">      .reg_setting_a = DUAL_CAM_SLAVE_SETTINGS,</span><br><span class="line">      .addr_type = CAMERA_I2C_WORD_ADDR,</span><br><span class="line">      .data_type = CAMERA_I2C_BYTE_DATA,</span><br><span class="line">      .delay = <span class="number">0</span>,</span><br><span class="line">      .size = <span class="number">6</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </details>
+
+</li>
+</ol>
+<h1 id="Dump-MetaData"><a href="#Dump-MetaData" class="headerlink" title="Dump MetaData"></a>Dump MetaData</h1><hr>
+<ol>
+<li><p>dump metadata 的命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys media.camera &gt; cameraservice_dump.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>动态查看metadata</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watch -d -n 0.1 <span class="string">&quot;adb shell dumpsys media.camera |grep &#x27;aeTargetFpsRange&#x27; -A 3&quot;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
