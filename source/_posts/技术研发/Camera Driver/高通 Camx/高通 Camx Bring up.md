@@ -446,7 +446,21 @@ pdaf 只需要配置 vendor即可。
        - sensor/lime_sunny_s5kgm1st_main/lime_sunny_s5kgm1st_main_pdaf.xml
    ```
 
-# 双摄帧同步导通
+# 五、 OPT Bring UP
+
+------
+
+## 5.1 Dump EEprom Data
+
+```bash
+adb shell "echo dumpSensorEEPROMData=1 >> /vendor/etc/camera/camxoverridesettings.txt"
+```
+
+数据存放位置： **/data/vendor/camera/xxx_kbuffer_OTP.txt**
+
+# 六、双摄帧同步导通
+
+------
 
 1. 将camx平台默认的几个属性开启
 
@@ -512,12 +526,4 @@ pdaf 只需要配置 vendor即可。
    - 主摄：masterSettings
 
    - 辐摄：slaveSettings
-
-# Dump EEprom Data
-
-```bash
-adb shell "echo dumpSensorEEPROMData=1 >> /vendor/etc/camera/camxoverridesettings.txt"
-```
-
-数据存放位置： **/data/vendor/camera/xxx_kbuffer_OTP.txt**
 
