@@ -2,12 +2,13 @@
 title: 高通 Camx Bring up
 toc: true
 date: 2020-01-01 00:00:30
-tags: 高通Camx
+tags: 高通CamxBring Up Sensor
 ---
 
-# Bring Up Sensor
+# 一、Sensor Bring Up
+------
 
-## HAL层的配置
+## 1.1 HAL层的配置
 
 1. 移植驱动代码到相应的路径
 
@@ -190,6 +191,260 @@ tags: 高通Camx
    - 配置 chromatixName 与 sensor name 保持一致
    - 配置 position 摄像头位置 前摄 后摄 或者 后辅
    - 配置 CSIInfo mipi 通道
+
+# 二、Flash Bring Up
+
+------
+
+## 2.1 kernel 端dtsi配置
+
+1. 在对应的sensor节点下应用flash的节点
+
+   ```c
+   qcom,cam-sensor0 {
+       ......
+       led-flash-src = <&led_flash_rear>;
+       ......
+   }
+   ```
+
+2. flash 的节点一般定义在 sensor节点的同文件中。
+
+   flash 工作方式有2种：flash(闪光灯)，torch(手电筒)。
+
+   这里主要调用了pmic的节点，主要是flash电流的一下配置，一般不需要修改。
+
+   ```c
+   led_flash_rear: qcom,camera-flash@0 {
+       cell-index = <0>;
+       compatible = "qcom,camera-flash";
+       flash-source  = <&pmi632_flash0 &pmi632_flash1>;
+       torch-source  = <&pmi632_torch0 &pmi632_torch1>;
+       switch-source = <&pmi632_switch0 &pmi632_switch0>;
+       status = "ok";
+   };
+   ```
+
+   ```c
+   pmi632_flash0: qcom,flash_0 {
+       label = "flash";
+       qcom,led-name = "led:flash_0";
+       qcom,max-current = <1500>;
+       qcom,default-led-trigger = "flash0_trigger";
+       qcom,id = <0>;
+       qcom,current-ma = <1200>;
+       qcom,duration-ms = <1280>;
+       qcom,ires-ua = <12500>;
+       qcom,hdrm-voltage-mv = <400>;
+       qcom,hdrm-vol-hi-lo-win-mv = <100>;
+   };
+   ```
+
+## 2.2 vendor 端配置
+
+1. 配置flash XML
+
+   ```xml
+   //chi-cdk/oem/qcom/flash/back_sensor_flash.xml
+   <flashName>back_pmic_flash</flashName>
+   <flashDriverType>PMIC</flashDriverType>
+   <numberOfFlashs range="[1,3]">1</numberOfFlashs>
+   ```
+
+2. 配置module XML 
+
+   ```xml
+   //chi-cdk/oem/qcom/module/xxx.xml
+   <flashName>back_pmic_flash</flashName>
+   ```
+
+3. 配置编译路径（在对应的项目yaml中添加以下内容）
+
+   ```yaml
+   //chi-cdk/tools/buildbins/xxx.yaml
+   sensor_drivers:
+       - com.qti.sensormodule.lime_sunny_s5kgm1st_main:
+       - sensor/lime_sunny_s5kgm1st_main/lime_sunny_s5kgm1st_main_sensor.xml
+       - module/lime_sunny_s5kgm1st_main_module.xml
+       - flash/back_sensor_flash.xml 
+   ```
+
+# 三、AF Bring UP
+
+------
+
+## 3.1 kernel 端dtsi配置
+
+1. 通过原理图查看供电方式
+
+   通过查看原理图可以得出，该AF是通过使能LOD 的EN 引脚来供电的。（GPIO控制）
+
+   ![供电方式](%E9%AB%98%E9%80%9A%20Camx%20Bring%20up/image-20210319144520798.png)
+
+2. 找到对应sensor节点调用的AF节点
+
+   ```c
+   qcom,cam-sensor0 {
+       ......
+       actuator-src = <&actuator_rear>;
+       ......
+   }
+   ```
+
+3. 找到调用的AF节点，配置供电方式
+
+   通过看下面的代码，平台默认给的是PMIC的供电方式，我们用的是GPIO控制。
+
+   ```c
+   actuator_rear: qcom,actuator0 {
+       cell-index = <0>;
+       compatible = "qcom,actuator";
+       cci-master = <0>;
+       // 我个人理解这一块是 pmic 供电配置 注释掉 start
+       //cam_vaf-supply = <&L5P>;
+       //regulator-names = "cam_vaf";
+       //rgltr-cntrl-support;
+       //rgltr-min-voltage = <2800000>;
+       //rgltr-max-voltage = <2800000>;
+       //rgltr-load-current = <100000>;
+       // 我个人理解这一块是 pmic 供电配置 注释掉 end
+       pinctrl-0 = <&cam_sensor_rear0_vaf_active>;   //调用了pinctrl 中的节点，没有的话自己定义
+       pinctrl-1 = <&cam_sensor_rear0_vaf_suspend>;  //调用了pinctrl 中的节点，没有的话自己定义
+       gpios = <&tlmm 83 0>;
+       gpio-vaf = <0>;
+       gpio-req-tbl-num = <0>;
+       gpio-req-tbl-flags = <0>;
+       gpio-req-tbl-label = "CAM_VAF";
+       status = "ok";
+   };
+   ```
+
+   如果说按照上面的配置，kernel 端dtis就已经配置完成了。如果说没有将pmic的供电方式注释掉，可能还要在sensor的节点中，加入以下配置。
+
+   ```c
+   qcom,cam-sensor0 {
+       ......
+       rgltr-min-voltage = < 0 >;
+       rgltr-max-voltage = < 0 >;
+       rgltr-load-current = < 0 >;
+       ......
+   }
+   ```
+
+4. 根据dtsi配置我们知道平台默认给的是pmic供电方式，我们现在将AF供电方式配置为GPIO供电LDO。所以说kernel 中上电代码也要修改一下
+
+   这里需要说明的是，在上电过程中，如果上电失败会有 `goto power_up_failed`,这个里面也会对gpio 和 pmic 进行操作。所以改一下。改的内容都一样。该注释注释，该新增新增。另外，上电修改ok, 下电也要修改。以下是上电的修改范例。
+
+   ```c
+   int cam_sensor_core_power_up(struct cam_sensor_power_ctrl_t *ctrl, struct cam_hw_soc_info *soc_info)
+   {
+       ......
+        //通过这一块可以看出是gpio的操作，所以所在该case中新增 SENSOR_VAF
+       case SENSOR_RESET:
+       case SENSOR_STANDBY:
+       case SENSOR_CUSTOM_GPIO1:
+       case SENSOR_CUSTOM_GPIO2:
+       case SENSOR_VAF:
+           rc = msm_cam_sensor_handle_reg_gpio(......);
+       
+       ......
+       //通过这一块可以是pmic控制器的操作，既然我们用gpio的方式，所以要注释掉
+       case SENSOR_VANA:
+       case SENSOR_VDIG:
+       case SENSOR_VIO:
+       //case SENSOR_VAF:
+       case SENSOR_VAF_PWDM:
+       case SENSOR_CUSTOM_REG1:
+       case SENSOR_CUSTOM_REG2:
+       rc =  cam_soc_util_regulator_enable(......);
+   }
+   ```
+
+   
+
+## 3.2 vendor 端配置
+
+1. 将AF驱动文件放入指定路径，配置参数
+
+   ```xml
+   //chi-cdk/oem/qcom/actuator/xxx.xml
+   <actuatorName>lime_sunny_dw9800_s5kgm1st</actuatorName>
+   <slaveAddress>0x18</slaveAddress>
+   <actuatorType>VCM</actuatorType>
+     
+       <powerUpSequence>
+         <powerSetting>
+           <!--Power configuration type Supported types are: MCLK, VANA, VDIG, VIO, VAF, RESET, STANDBY -->
+           <configType>VAF</configType>
+           <!--Configuration value for the type of configuration -->
+           <configValue>1</configValue>
+           <!--Delay in milli seconds -->
+           <delayMs>1</delayMs>
+         </powerSetting>
+       </powerUpSequence>
+   
+       <powerDownSequence>
+         <powerSetting>
+           <!--Power configuration type Supported types are: MCLK, VANA, VDIG, VIO, VAF, RESET, STANDBY -->
+           <configType>VAF</configType>
+           <!--Configuration value for the type of configuration -->
+           <configValue>0</configValue>
+           <!--Delay in milli seconds -->
+           <delayMs>1</delayMs>
+         </powerSetting>
+       </powerDownSequence>
+   ```
+
+2. 配置module XML 
+
+   ```xml
+   //chi-cdk/oem/qcom/module/xxx.xml
+   <actuatorName>lime_sunny_dw9800_s5kgm1st</actuatorName>
+   ```
+
+3. 配置编译路径（在对应的项目yaml中添加以下内容）
+
+   ```yaml
+   //chi-cdk/tools/buildbins/xxx.yaml
+   sensor_drivers:
+       - com.qti.sensormodule.lime_sunny_s5kgm1st_main:
+       - sensor/lime_sunny_s5kgm1st_main/lime_sunny_s5kgm1st_main_sensor.xml
+       - module/lime_sunny_s5kgm1st_main_module.xml
+       - flash/back_sensor_flash.xml 
+       - actuator/lime_sunny_dw9800_s5kgm1st_actuator.xml
+   ```
+
+# 四、PDAF Bring Up
+
+------
+
+## 4.1 Vendor 端配置
+
+pdaf 只需要配置 vendor即可。
+
+1. 将pdaf XML 导入到相应的路径
+
+   chi-cdk/oem/qcom/sensor/lime_sunny_s5kgm1st_main/xxx_pdaf.xml
+
+2. 配置module XML 
+
+   ```xml
+   //chi-cdk/oem/qcom/module/xxx.xml
+   <pdafName>lime_ofilm_s5kgm1st_main_pdaf</pdafName>
+   ```
+
+3. 配置编译路径（在对应的项目yaml中添加以下内容）
+
+   ```yaml
+   //chi-cdk/tools/buildbins/xxx.yaml
+   sensor_drivers:
+       - com.qti.sensormodule.lime_sunny_s5kgm1st_main:
+       - sensor/lime_sunny_s5kgm1st_main/lime_sunny_s5kgm1st_main_sensor.xml
+       - module/lime_sunny_s5kgm1st_main_module.xml
+       - flash/back_sensor_flash.xml 
+       - actuator/lime_sunny_dw9800_s5kgm1st_actuator.xml
+       - sensor/lime_sunny_s5kgm1st_main/lime_sunny_s5kgm1st_main_pdaf.xml
+   ```
 
 # 双摄帧同步导通
 

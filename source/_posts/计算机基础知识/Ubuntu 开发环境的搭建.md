@@ -5,6 +5,11 @@ date: 2020-01-01 00:00:00
 tags: Ubuntu
 ---
 
+# 安装 Chrome 浏览器
+
+1. linux 版本 [下载网址](https://www.google.cn/chrome/)
+2. window 版本 [下载网址](https://www.google.cn/chrome/?standalone=1&platform=win64)
+
 # 安装deepin下的截图工具
 
 ------
