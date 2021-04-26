@@ -8,189 +8,118 @@ tags: 高通CamxBring Up Sensor
 # 一、Sensor Bring Up
 ------
 
-## 1.1 HAL层的配置
+## 1.1 根据原理图配置硬件信息
 
-1. 移植驱动代码到相应的路径
+### 1.1.1 配置基本信息(供电除外)
 
-   vendor/qcom/proprietary/chi-cdk/oem/qcom/sensor/
+### 1.1.2 配置Sensor供电 
 
-   驱动文件名字根据项目而定
+#### 1.1.2.1 供电方式一
 
-   <img src="%E9%AB%98%E9%80%9A%20Camx%20Bring%20up/image-20201111142550122.png" alt="驱动代码" style="zoom:200%;" />
+LDO 供电 直接输出固定电压, 通过GPIO控制使能引脚进行供电
 
-2. sensor xml 相关配置
+#### 1.1.2.2 供电方式二 
+
+LDO 供电 通过GPIO控制使能引脚, 然后通过I2C设置电压值, 这种方式需要额外的LDO驱动
+
+![供电原理图](%E9%AB%98%E9%80%9A%20Camx%20Bring%20up/image-20210409163223761.png)
+
+![LDO I2C](%E9%AB%98%E9%80%9A%20Camx%20Bring%20up/image-20210409163536656.png)
+
+1. **Porting Code 到指定路径**
+
+   ![c代码路径](%E9%AB%98%E9%80%9A%20Camx%20Bring%20up/image-20210409153118807.png)
+
+   ![dtsi路径](%E9%AB%98%E9%80%9A%20Camx%20Bring%20up/image-20210409162713982.png)
+
+2. **检查code是否需要修改**
 
    <details>
-   <summary>lime_sunny_hi259_macro_sensor.xml</summary>
+   <summary>根据硬件原理图检查LDO dtsi </summary>
 
-   ```xml
-    <slaveInfo>
-       <!--Name of the sensor -->
-       <sensorName>lime_sunny_hi259_macro</sensorName>
-       <!--8-bit or 10-bit write slave address
-           For External Sensors for which camx needs not probe the slave address shoule be as 0 -->
-       <slaveAddress>0x60</slaveAddress>
-       <!--Register address / data size in bytes -->
-       <regAddrType range="[1,4]">2</regAddrType>
-       <!--Register address / data size in bytes -->
-       <regDataType range="[1,4]">2</regDataType>
-       <!--Register address for sensor Id -->
-       <sensorIdRegAddr>0x04</sensorIdRegAddr>
-       <!--Sensor Id 0xE1-->
-       <sensorId>0x113</sensorId>
-       <!--Mask for sensor id. Sensor Id may only be few bits -->
-       <sensorIdMask>4294967295</sensorIdMask>
-       <!--I2C frequency mode of slave
-           Supported modes are: STANDARD (100 KHz), FAST (400 KHz), FAST_PLUS (1 MHz), CUSTOM (Custom frequency in DTSI) -->
-       <i2cFrequencyMode>FAST</i2cFrequencyMode>
-       <!--Sequence of power configuration type and configuration value required to control power to the device -->
+   ```c
+   //定义了pinctrl 用来控制LDO 使能引脚, 这里我只举例了一种引脚状态
+   &tlmm {
+   	wl2864c_pins_enp1: wl2864c_pins_enp1 {
+   		mux {
+   			pins = "gpio58";
+   			function = "gpio";
+   		};
    
-      <powerUpSequence>
-         <powerSetting>
-           <configType>RESET</configType>
-           <configValue>1</configValue>
-           <delayMs>1</delayMs>
-         </powerSetting>
-         <powerSetting>
-           <configType>CUSTOM_GPIO1</configType>
-           <configValue>1</configValue>
-           <delayMs>0</delayMs>
-         </powerSetting>
-         <powerSetting>
-           <configType>CUSTOM_GPIO2</configType>
-           <configValue>1</configValue>
-           <delayMs>2</delayMs>
-         </powerSetting>
-         <powerSetting>
-           <configType>MCLK</configType>
-           <configValue>24000000</configValue>
-           <delayMs>8</delayMs>
-         </powerSetting>
-         <powerSetting>
-           <configType>RESET</configType>
-           <configValue>0</configValue>
-           <delayMs>1</delayMs>
-         </powerSetting>
-       </powerUpSequence>
-       <!--Sequence of power configuration type and configuration value required to control power to the device -->
-       <powerDownSequence>
-         <!--Power setting configuration
-             Contains: configType, configValue and delay in milli seconds -->
-         <powerSetting>
-   		  <configType>RESET</configType>
-           <configValue>1</configValue>
-           <delayMs>1</delayMs>
-         </powerSetting>
-         <powerSetting>
-           <configType>MCLK</configType>
-           <configValue>0</configValue>
-           <delayMs>0</delayMs>
-         </powerSetting>
-         <powerSetting>
-           <configType>CUSTOM_GPIO1</configType>
-           <configValue>0</configValue>
-           <delayMs>0</delayMs>
-         </powerSetting>
-         <powerSetting>
-           <configType>CUSTOM_GPIO2</configType>
-           <configValue>0</configValue>
-           <delayMs>1</delayMs>
-         </powerSetting>
-       </powerDownSequence>
-     </slaveInfo>
+   		config {
+   			pins = "gpio58";
+   			bias-pull-up;
+   			output-high;
+   			drive-strength = <2>;
+   		};
+   	};
+   };
+   
+   //定义了LDO用到的I2C, 根据上面的原理图得知把GPIO4和GPIO5复用为了I2C. 怎么确认我们选的这组对不对?
+   &qupv3_se10_i2c {
+   	#address-cells = <1>;
+   	#size-cells = <0>;
+   
+   	i2c_wl2864c@29{
+   		compatible = "qualcomm,i2c_wl2864c";
+   		reg = <0x29>;
+   		status = "okay";
+   	};
+   };
+   
+   //vendor/qcom/proprietary/devicetree/qcom/holi-qupv3.dtsi
+   //以下配置是GPIO复用为I2C的配置
+   //我们 check 一下 qupv3_se10_i2c_active 该引脚是否正确
+   qupv3_se10_i2c: i2c@4c90000 {
+       compatible = "qcom,i2c-geni";
+       reg = <0x4c90000 0x4000>;
+       #address-cells = <1>;
+       #size-cells = <0>;
+       interrupts = <GIC_SPI 511 IRQ_TYPE_LEVEL_HIGH>;
+       clock-names = "se-clk", "m-ahb", "s-ahb";
+       clocks = <&gcc GCC_QUPV3_WRAP1_S4_CLK>,
+       <&gcc GCC_QUPV3_WRAP_1_M_AHB_CLK>,
+       <&gcc GCC_QUPV3_WRAP_1_S_AHB_CLK>;
+       pinctrl-names = "default", "sleep";
+       pinctrl-0 = <&qupv3_se10_i2c_active>;
+       pinctrl-1 = <&qupv3_se10_i2c_sleep>;
+       dmas = <&gpi_dma1 0 4 3 64 0>,
+       <&gpi_dma1 1 4 3 64 0>;
+       dma-names = "tx", "rx";
+       qcom,shared;
+       qcom,wrapper-core = <&qupv3_1>;
+       status = "disabled";
+   };
+   
+   // qupv3_se10_i2c_active 引脚定义
+   qupv3_se10_i2c_pins: qupv3_se10_i2c_pins {
+       qupv3_se10_i2c_active: qupv3_se10_i2c_active {
+           mux {
+               pins = "gpio4", "gpio5";
+               function = "qup14";
+           };
+   
+           config {
+               pins = "gpio4", "gpio5";
+               drive-strength = <2>;
+               bias-pull-up;
+           };
+       };
+   
+       //以上确认没有什么问题,在代码中调用就好了.
+       //vendor/qcom/proprietary/devicetree/qcom/holi-qrd.dtsi
+       //因为在这个文件中调用了 该I2C .dtsi 具有继承的功能. 所以我们只要将 ldo 的dtsi 在该dtsi中 include 一下就行.
+       &qupv3_se10_i2c {
+   	status = "ok";
+   	#include "smb1398.dtsi"
+   };
    ```
 
    </details>
 
-   - sensor name 跟sensor  文件夹名字一致
-   - slaveAddress IIC 从机地址
-   - sensor id 寄存器地址 以及 sensor id
-   - 上下电时序 (为了保险首先将reset引脚设置为禁止状态)
+3. **设置编译路径**
 
-3. module xml 配置
-
-   <details>
-   <summary>lime_sunny_hi259_macro_module.xml</summary>
-
-   ```xml
-   <?xml version="1.0" encoding="utf-8" ?>
-   <!--========================================================================-->
-   <!-- Copyright (c) 2018 Qualcomm Technologies, Inc.                         -->
-   <!-- All Rights Reserved.                                                   -->
-   <!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
-   <!--========================================================================-->
-   <cameraModuleData
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:noNamespaceSchemaLocation="..\..\..\api\sensor\camxmoduleconfig.xsd">
-     <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
-   
-       <!--Module group can contain either 1 module or 2 modules
-         Dual camera, stereo camera use cases contain 2 modules in the group -->
-     <moduleGroup>
-       <!--Module configuration -->
-       <moduleConfiguration description="Module configuration">
-         <!--CameraId is the id to which DTSI node is mapped.
-             Typically CameraId is the slot Id for non combo mode. -->
-         <cameraId>3</cameraId>
-         <!--Name of the module integrator -->
-         <moduleName>sunny</moduleName>
-         <!--Name of the sensor in the image sensor module -->
-         <sensorName>lime_sunny_hi259_macro</sensorName>
-         <!--Actuator name in the image sensor module
-             This is an optional element. Skip this element if actuator is not present -->
-         <actuatorName></actuatorName>
-         <oisName></oisName>
-         <!--EEPROM name in the image sensor module
-             This is an optional element. Skip this element if EEPROM is not present -->
-         <eepromName></eepromName>
-         <!--Flash name is used to used to open binary.
-             Binary name is of form flashName_flash.bin Ex:- pmic_flash.bin -->
-         <flashName></flashName>
-         <!--Chromatix name is used to used to open binary.
-             Binary name is of the form sensor_model_chromatix.bin -->
-         <chromatixName>lime_sunny_hi259_macro</chromatixName>
-         <!--Position of the sensor module.
-             Valid values are: REAR, FRONT, REAR_AUX, FRONT_AUX, EXTERNAL -->
-         <position>REAR_AUX</position>
-         <!--CSI Information -->
-         <CSIInfo description="CSI Information">
-             <laneAssign>2</laneAssign>
-             <isComboMode>1</isComboMode>
-         </CSIInfo>
-         <!--Lens information -->
-         <lensInfo description="Lens Information">
-           <!--Focal length of the lens in millimeters. -->
-           <focalLength>4.71</focalLength>
-           <!--F-Number of the optical system. -->
-           <fNumber>1.79</fNumber>
-           <!--Minimum focus distance in meters. -->
-           <minFocusDistance>0.1</minFocusDistance>
-           <!--Total focus distance in meters. -->
-           <maxFocusDistance>1.9</maxFocusDistance>
-           <!--Horizontal view angle in degrees. -->
-           <horizontalViewAngle>67</horizontalViewAngle>
-           <!--Vertical view angle in degrees. -->
-           <verticalViewAngle>53</verticalViewAngle>
-           <!--Maximum Roll Degree. Valid values are: 0, 90, 180, 270, 360 -->
-           <maxRollDegree>270</maxRollDegree>
-           <!--Maximum Pitch Degree. Valid values are: 0 to 359 -->
-           <maxPitchDegree>360</maxPitchDegree>
-           <!--Maximum Yaw Degree. Valid values are: 0 to 359 -->
-           <maxYawDegree>360</maxYawDegree>
-         </lensInfo>
-         <pdafName></pdafName>
-       </moduleConfiguration>
-     </moduleGroup>
-   </cameraModuleData>
-   ```
-
-   </details>
-
-   - 配置 CameraId 与kernel dts 相对应
-   - 配置sensorname 与 sensor xml 保持一致
-   - 配置 chromatixName 与 sensor name 保持一致
-   - 配置 position 摄像头位置 前摄 后摄 或者 后辅
-   - 配置 CSIInfo mipi 通道
+#### 1.2.2.3 供电方式三 (PMIC 系统供电)
 
 # 二、Flash Bring Up
 
