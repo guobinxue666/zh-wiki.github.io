@@ -9,12 +9,12 @@
         <meta name="keywords" content="Camera">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Camera Sensor 数据格式 Sensor 出图简介外部光线穿过lens后，经过color filter滤波后照射到Sensor面上， Sensor将从lens上传导过来的光线转换为电信号，再通过内部的DA转换为数字信号。  如果sensor内部集成ISP, 那么sensor可以直接生成支持的格式，如 YUV , JPEG ,RGB 。 如果Sensor没有集成ISP，则传输到baseba">
+    <meta name="description" content="一、Camera Sensor 数据格式 1.1 Sensor 出图简介外部光线穿过lens后，经过color filter滤波后照射到Sensor面上， Sensor将从lens上传导过来的光线转换为电信号，再通过内部的DA转换为数字信号。  如果sensor内部集成ISP, 那么sensor可以直接生成支持的格式，如 YUV , JPEG ,RGB 。 如果Sensor没有集成ISP，则传输到">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图片数据格式与转换">
 <meta property="og:url" content="https://zh-wiki.github.io/2021/01/21/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E5%9B%BE%E7%89%87%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E4%B8%8E%E8%BD%AC%E6%8D%A2/index.html">
 <meta property="og:site_name" content="Zhou&#39;s Wiki">
-<meta property="og:description" content="Camera Sensor 数据格式 Sensor 出图简介外部光线穿过lens后，经过color filter滤波后照射到Sensor面上， Sensor将从lens上传导过来的光线转换为电信号，再通过内部的DA转换为数字信号。  如果sensor内部集成ISP, 那么sensor可以直接生成支持的格式，如 YUV , JPEG ,RGB 。 如果Sensor没有集成ISP，则传输到baseba">
+<meta property="og:description" content="一、Camera Sensor 数据格式 1.1 Sensor 出图简介外部光线穿过lens后，经过color filter滤波后照射到Sensor面上， Sensor将从lens上传导过来的光线转换为电信号，再通过内部的DA转换为数字信号。  如果sensor内部集成ISP, 那么sensor可以直接生成支持的格式，如 YUV , JPEG ,RGB 。 如果Sensor没有集成ISP，则传输到">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zh-wiki.github.io/2021/01/21/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E5%9B%BE%E7%89%87%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E4%B8%8E%E8%BD%AC%E6%8D%A2/image-20210122105424166.png">
 <meta property="og:image" content="https://zh-wiki.github.io/2021/01/21/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E5%9B%BE%E7%89%87%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E4%B8%8E%E8%BD%AC%E6%8D%A2/image-20210122142524656.png">
@@ -27,8 +27,9 @@
 <meta property="og:image" content="https://zh-wiki.github.io/2021/01/21/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E5%9B%BE%E7%89%87%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E4%B8%8E%E8%BD%AC%E6%8D%A2/image-20210122162410022.png">
 <meta property="og:image" content="https://zh-wiki.github.io/2021/01/21/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E5%9B%BE%E7%89%87%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E4%B8%8E%E8%BD%AC%E6%8D%A2/image-20210122162551543.png">
 <meta property="og:image" content="https://zh-wiki.github.io/2021/01/21/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E5%9B%BE%E7%89%87%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E4%B8%8E%E8%BD%AC%E6%8D%A2/image-20210122162620551.png">
+<meta property="og:image" content="https://zh-wiki.github.io/2021/01/21/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E5%9B%BE%E7%89%87%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E4%B8%8E%E8%BD%AC%E6%8D%A2/image-20210426173949605.png">
 <meta property="article:published_time" content="2021-01-21T01:52:03.000Z">
-<meta property="article:modified_time" content="2021-04-26T09:41:46.103Z">
+<meta property="article:modified_time" content="2021-04-26T09:50:04.610Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta property="article:tag" content="Camera">
 <meta name="twitter:card" content="summary">
@@ -515,13 +516,13 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Camera-Sensor-%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">Camera Sensor 数据格式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sensor-%E5%87%BA%E5%9B%BE%E7%AE%80%E4%BB%8B"><span class="toc-text">Sensor 出图简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RAW-RGB-%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">RAW RGB 数据格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RGB-%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">RGB 数据格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#YUV-%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">YUV 数据格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#YUV-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%9C%E7%94%A8"><span class="toc-text">YUV 的基本概念以及作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#YUV-%E7%9A%84%E9%87%87%E6%A0%B7%E6%A0%BC%E5%BC%8F"><span class="toc-text">YUV 的采样格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#YUV-%E7%9A%84%E5%AD%98%E5%82%A8%E6%A0%BC%E5%BC%8F"><span class="toc-text">YUV 的存储格式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RGB-%E4%B8%8E-YUV%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-text">RGB 与 YUV的转换</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81Camera-Sensor-%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">一、Camera Sensor 数据格式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Sensor-%E5%87%BA%E5%9B%BE%E7%AE%80%E4%BB%8B"><span class="toc-text">1.1 Sensor 出图简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-RAW-RGB-%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">1.2 RAW RGB 数据格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-RGB-%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">1.3 RGB 数据格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-YUV-%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">1.4 YUV 数据格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-1-YUV-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%9C%E7%94%A8"><span class="toc-text">1.4.1 YUV 的基本概念以及作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-2-YUV-%E7%9A%84%E9%87%87%E6%A0%B7%E6%A0%BC%E5%BC%8F"><span class="toc-text">1.4.2 YUV 的采样格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-3-YUV-%E7%9A%84%E5%AD%98%E5%82%A8%E6%A0%BC%E5%BC%8F"><span class="toc-text">1.4.3 YUV 的存储格式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81RAW%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">二、RAW数据格式</span></a></li></ol>
                 </div>
             
         
         
-            <h1 id="Camera-Sensor-数据格式"><a href="#Camera-Sensor-数据格式" class="headerlink" title="Camera Sensor 数据格式"></a>Camera Sensor 数据格式</h1><hr>
-<h2 id="Sensor-出图简介"><a href="#Sensor-出图简介" class="headerlink" title="Sensor 出图简介"></a>Sensor 出图简介</h2><p>外部光线穿过lens后，经过color filter滤波后照射到Sensor面上， Sensor将从lens上传导过来的光线转换为电信号，再通过内部的DA转换为数字信号。</p>
+            <h1 id="一、Camera-Sensor-数据格式"><a href="#一、Camera-Sensor-数据格式" class="headerlink" title="一、Camera Sensor 数据格式"></a>一、Camera Sensor 数据格式</h1><hr>
+<h2 id="1-1-Sensor-出图简介"><a href="#1-1-Sensor-出图简介" class="headerlink" title="1.1 Sensor 出图简介"></a>1.1 Sensor 出图简介</h2><p>外部光线穿过lens后，经过color filter滤波后照射到Sensor面上， Sensor将从lens上传导过来的光线转换为电信号，再通过内部的DA转换为数字信号。</p>
 <ul>
 <li>如果sensor内部集成ISP, 那么sensor可以直接生成支持的格式，如 YUV , JPEG ,RGB 。</li>
 <li>如果Sensor没有集成ISP，则传输到baseband（基带=未经处理的电信号），此时的数据格式是RAW RGB data。</li>
@@ -564,12 +565,12 @@
 </tbody>
 </table>
 
-<h2 id="RAW-RGB-数据格式"><a href="#RAW-RGB-数据格式" class="headerlink" title="RAW RGB 数据格式"></a>RAW RGB 数据格式</h2><p>通过上面的介绍，可以指导 raw RGB 是通过内部的DA转换为数字信号。因为sensor上每个像素只采集特定颜色的光的强度，因此sensor每个像素只能为R或G或B，形成的数据就成为了rawRGB数据。</p>
+<h2 id="1-2-RAW-RGB-数据格式"><a href="#1-2-RAW-RGB-数据格式" class="headerlink" title="1.2 RAW RGB 数据格式"></a>1.2 RAW RGB 数据格式</h2><p>通过上面的介绍，可以指导 raw RGB 是通过内部的DA转换为数字信号。因为sensor上每个像素只采集特定颜色的光的强度，因此sensor每个像素只能为R或G或B，形成的数据就成为了rawRGB数据。</p>
 <p>rawRGB数据是sensor的经过光电转换后通过ADC采样后直接输出数据，是未经处理过的数据，表示sensor接受到的各种光的强度。</p>
 <p>rawRGB数据排列格式有四种</p>
 <p><img src="/2021/01/21/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E5%9B%BE%E7%89%87%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E4%B8%8E%E8%BD%AC%E6%8D%A2/image-20210122105424166.png" alt="rawRGB数据排列格式"></p>
 <p>由上图可以看出，每一种格式的rawRGB数据的G分量都是B、R分量的两倍，是因为人眼对于绿色的更加敏感，所以加重了其在感光点的权重，增加了对绿色信息的采样。</p>
-<h2 id="RGB-数据格式"><a href="#RGB-数据格式" class="headerlink" title="RGB 数据格式"></a>RGB 数据格式</h2><p> 在数字化的时代，需要一种标准来量化自然界的各种颜色。RGB就是一种在数字化领域表示颜色的标准，也称作一种色彩空间，通过用三原色R、G、B的不同的亮度值组合来表示某一种具体的颜色。</p>
+<h2 id="1-3-RGB-数据格式"><a href="#1-3-RGB-数据格式" class="headerlink" title="1.3 RGB 数据格式"></a>1.3 RGB 数据格式</h2><p> 在数字化的时代，需要一种标准来量化自然界的各种颜色。RGB就是一种在数字化领域表示颜色的标准，也称作一种色彩空间，通过用三原色R、G、B的不同的亮度值组合来表示某一种具体的颜色。</p>
 <p>注意：<font color="red">RGB里面存的是颜色的亮度值，而不是色度值</font></p>
 <p> 目前人类发明的所有彩色的输入输出设备，本质上都只支持RGB数据。哪怕设备允许YUV的输入输出，那也是经过内部的数据转换而间接支持。</p>
 <p>常用的RGB格式如下表所示</p>
@@ -614,7 +615,7 @@
 </tbody>
 </table>
 
-<h2 id="YUV-数据格式"><a href="#YUV-数据格式" class="headerlink" title="YUV 数据格式"></a>YUV 数据格式</h2><h3 id="YUV-的基本概念以及作用"><a href="#YUV-的基本概念以及作用" class="headerlink" title="YUV 的基本概念以及作用"></a>YUV 的基本概念以及作用</h3><ol>
+<h2 id="1-4-YUV-数据格式"><a href="#1-4-YUV-数据格式" class="headerlink" title="1.4 YUV 数据格式"></a>1.4 YUV 数据格式</h2><h3 id="1-4-1-YUV-的基本概念以及作用"><a href="#1-4-1-YUV-的基本概念以及作用" class="headerlink" title="1.4.1 YUV 的基本概念以及作用"></a>1.4.1 YUV 的基本概念以及作用</h3><ol>
 <li><p>YUV 的基本介绍</p>
 <ul>
 <li>YUV是一种色彩编码方法，Y表示亮度，U和V表示色度。只有Y就是黑白图像，再加上UV就是彩色图像了。YUV的一个好处就是让彩色系统和传统黑白系统很好的兼容，同时利用了人类视觉系统对亮度的敏感度比对色度高。</li>
@@ -632,7 +633,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="YUV-的采样格式"><a href="#YUV-的采样格式" class="headerlink" title="YUV 的采样格式"></a>YUV 的采样格式</h3><style type="text/css">
+<h3 id="1-4-2-YUV-的采样格式"><a href="#1-4-2-YUV-的采样格式" class="headerlink" title="1.4.2 YUV 的采样格式"></a>1.4.2 YUV 的采样格式</h3><style type="text/css">
 .tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
 .tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
   font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
@@ -665,7 +666,7 @@
 </tbody>
 </table>
 
-<h3 id="YUV-的存储格式"><a href="#YUV-的存储格式" class="headerlink" title="YUV 的存储格式"></a>YUV 的存储格式</h3><p> YUV存储格式通常有两大类：打包（packed）格式和平面（planar）格式。前者将YUV分量存放在同一个数组中，通常是几个相邻的像素组成一个宏像素(macro-pixel)；而后者使用三个数组分开放 YUV 三个分量，就像是一个三维平面一样。</p>
+<h3 id="1-4-3-YUV-的存储格式"><a href="#1-4-3-YUV-的存储格式" class="headerlink" title="1.4.3 YUV 的存储格式"></a>1.4.3 YUV 的存储格式</h3><p> YUV存储格式通常有两大类：打包（packed）格式和平面（planar）格式。前者将YUV分量存放在同一个数组中，通常是几个相邻的像素组成一个宏像素(macro-pixel)；而后者使用三个数组分开放 YUV 三个分量，就像是一个三维平面一样。</p>
 <ol>
 <li><p>YUV422 Planar (YUV422P 也称为I422)</p>
 <p>这里，Y\U\V数据是分开存放的，每两个水平Y采样点，有一个U和一个V采样点，如下</p>
@@ -717,7 +718,13 @@
 </ul>
 </li>
 </ol>
-<h1 id="RGB-与-YUV的转换"><a href="#RGB-与-YUV的转换" class="headerlink" title="RGB 与 YUV的转换"></a>RGB 与 YUV的转换</h1><hr>
+<h1 id="二、RAW数据格式"><a href="#二、RAW数据格式" class="headerlink" title="二、RAW数据格式"></a>二、RAW数据格式</h1><hr>
+<p>Raw格式是sensor的输出格式，是未经处理过的数据，表示sensor接受 到的各种光的强度。</p>
+<p>Raw数据在输出的时候是有一定的顺序的，一般为以下四种: GRBG , RGGB , BGGR , GBRG</p>
+<p>G分量多一个是因为人眼对绿光敏感度更高，GRBG代表四个piexl，在物理sensor上就表示4个晶体管，用一个晶体管只采样一个颜色分量，然后通过插值计算得到每个piexl，这样做的主要目的是降低功耗。</p>
+<p>sensor输出的数据一般要送到ISP中处理才会得到一个好的效果，这就需要ISP知道sensor输出的raw数据的顺序与大小，其中顺序一般通过配置ISP的pattern寄存器来实现，大小一般配置在ISP的输入格式控制寄存器中。</p>
+<p>对于一个4K的图像3840x2160以GRBG为例说明如下：</p>
+<p><img src="/2021/01/21/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/%E5%9B%BE%E7%89%87%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E4%B8%8E%E8%BD%AC%E6%8D%A2/image-20210426173949605.png" alt="GRBG"></p>
 <blockquote>
 <p>参考文献</p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/qq_29575685/article/details/103954096">https://blog.csdn.net/qq_29575685/article/details/103954096</a></p>
