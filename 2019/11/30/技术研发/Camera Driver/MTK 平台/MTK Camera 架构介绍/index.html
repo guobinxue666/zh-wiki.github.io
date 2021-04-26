@@ -9,13 +9,15 @@
         <meta name="keywords" content="MTK Camera">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:type" content="article">
+    <meta name="description" content="MTK Camera 简介 Android Camera 代码架构大概分为3层。  Camera Service Camera HAL Kernel  Camera Service 谷歌已经帮我们做好了，并给我们提供了 Interface  供 Vendor 进行客制化。用来与 service 进行通信。 Camera Hal 层去实做了这些 Interface。实做部分就是：Camera Pro">
+<meta property="og:type" content="article">
 <meta property="og:title" content="MTK Camera 架构介绍">
 <meta property="og:url" content="https://zh-wiki.github.io/2019/11/30/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/MTK%20%E5%B9%B3%E5%8F%B0/MTK%20Camera%20%E6%9E%B6%E6%9E%84%E4%BB%8B%E7%BB%8D/index.html">
 <meta property="og:site_name" content="Zhou&#39;s Wiki">
+<meta property="og:description" content="MTK Camera 简介 Android Camera 代码架构大概分为3层。  Camera Service Camera HAL Kernel  Camera Service 谷歌已经帮我们做好了，并给我们提供了 Interface  供 Vendor 进行客制化。用来与 service 进行通信。 Camera Hal 层去实做了这些 Interface。实做部分就是：Camera Pro">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-11-29T16:00:01.000Z">
-<meta property="article:modified_time" content="2021-02-25T05:40:27.714Z">
+<meta property="article:modified_time" content="2021-04-26T09:45:27.864Z">
 <meta property="article:author" content="Zhoujunwei">
 <meta property="article:tag" content="MTK Camera">
 <meta name="twitter:card" content="summary">
@@ -219,7 +221,7 @@
                             &nbsp;
                             高通 Camx
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20%E4%BB%8B%E7%BB%8D/">高通 Camx 介绍</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20camera%20server/">高通 Camx camera server</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20camera%20provider/">高通 Camx camera provider</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/">高通 Camx Camx open camera</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20config%20stream%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx config stream 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture request 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20capture%20result%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture result 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20Bring%20up/">高通 Camx Bring up</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20%E4%BB%8B%E7%BB%8D/">高通 Camx 介绍</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20camera%20server/">高通 Camx camera server</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20camera%20provider/">高通 Camx camera provider</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20open%20camera/">高通 Camx Camx open camera</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20pdaf/">高通 Camx PDAF</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20config%20stream%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx config stream 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20capture%20request%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture request 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20capture%20result%20%E4%BB%A3%E7%A0%81%E6%B5%81%E7%A8%8B/">高通 Camx capture result 代码流程</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/Camera%20Driver/%E9%AB%98%E9%80%9A%20Camx/%E9%AB%98%E9%80%9A%20Camx%20Bring%20up/">高通 Camx Bring up</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -293,7 +295,7 @@
                             &nbsp;
                             项目随笔
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E5%B0%8F%E7%B1%B3J19S%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/">小米J19S项目随笔</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E4%B8%89%E6%98%9Fo1o2o3%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/">三星o1o2o3项目随笔</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E5%B0%8F%E7%B1%B3J19S%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/">小米J19S项目随笔</a></li>  <li class="file"><a href="/2020/01/01/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E4%B8%89%E6%98%9Fo1o2o3%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/">三星o1o2o3项目随笔</a></li>  <li class="file"><a href="/2020/04/20/%E6%8A%80%E6%9C%AF%E7%A0%94%E5%8F%91/%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/%E7%B4%A2%E5%B0%BCPDX26%E9%A1%B9%E7%9B%AE%E9%9A%8F%E7%AC%94/">索尼PDX226项目随笔</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -501,12 +503,56 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MTK-Camera-%E7%AE%80%E4%BB%8B"><span class="toc-text">MTK Camera 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Camera-Provider-HAL"><span class="toc-text">Camera Provider HAL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Camera-Device-HAL3"><span class="toc-text">Camera Device HAL3</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MTK-Debug-%E6%8C%87%E5%8D%97"><span class="toc-text">MTK Debug 指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AF%E5%90%84%E4%B8%AA%E6%A8%A1%E5%9D%97%E7%9A%84Log"><span class="toc-text">如何开启各个模块的Log</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MTK-Camera2-APP-Log"><span class="toc-text">MTK Camera2 APP Log</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Camera-Device-Hal3-Log"><span class="toc-text">Camera Device Hal3 Log</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AppStreamMgr-%E7%9A%84-Log"><span class="toc-text">AppStreamMgr 的 Log</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pipeline-Log"><span class="toc-text">Pipeline Log</span></a></li></ol></li></ol></li></ol>
                 </div>
             
         
         
-            
+            <h1 id="MTK-Camera-简介"><a href="#MTK-Camera-简介" class="headerlink" title="MTK Camera 简介"></a>MTK Camera 简介</h1><hr>
+<p>Android Camera 代码架构大概分为3层。</p>
+<ul>
+<li>Camera Service</li>
+<li>Camera HAL</li>
+<li>Kernel</li>
+</ul>
+<p>Camera Service 谷歌已经帮我们做好了，并给我们提供了 <strong>Interface</strong>  供 <strong>Vendor</strong> 进行客制化。用来与 service 进行通信。</p>
+<p>Camera Hal 层去实做了这些 Interface。实做部分就是：Camera Provider Hal 和 Camera Device Hal3 。</p>
+<ul>
+<li>ICameraProvider</li>
+<li>ICameraDevice</li>
+<li>ICameraDeviceSession</li>
+<li>ICameraDeviceCallback</li>
+</ul>
+<h2 id="Camera-Provider-HAL"><a href="#Camera-Provider-HAL" class="headerlink" title="Camera Provider HAL"></a>Camera Provider HAL</h2><p>ICameraProvider 的实做。对应的类名： CameraProviderImpl。</p>
+<p>包在 camera device manager 外围，只是一个 adapter, 适配不同版本的 camera device interface。 </p>
+<p>Camera Service(指的是camera android层的进程: cameraserver ) 可以通过 ICameraProvider 去拿到 ICameraDevice 。</p>
+<h2 id="Camera-Device-HAL3"><a href="#Camera-Device-HAL3" class="headerlink" title="Camera Device HAL3"></a>Camera Device HAL3</h2><p>ICameraDevice 和 ICameraDeviceSession 的实做。</p>
+<p>对应的类名： CameraDevice3Impl, CameraDevice3SessionImpl 。</p>
+<p>用于Camera Service 去操作每一个 camera。 比如: open, close, configureStreams, processCaptureRequest 。</p>
+<p>还包含了 IVirtualDevice 的实做。用于 camera device manager 去跟camera device 交互。</p>
+<h1 id="MTK-Debug-指南"><a href="#MTK-Debug-指南" class="headerlink" title="MTK Debug 指南"></a>MTK Debug 指南</h1><hr>
+<h2 id="如何开启各个模块的Log"><a href="#如何开启各个模块的Log" class="headerlink" title="如何开启各个模块的Log"></a>如何开启各个模块的Log</h2><p>开各模块log前，建议先关闭selinux权限，并确定camera logD是已经有打印的，如果没有打印可以用如下命令开启：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell setenforce 0</span><br><span class="line">adb shell setprop persist.vendor.mtk.camera.log_level 3 </span><br><span class="line">adb shell pkill camera*</span><br></pre></td></tr></table></figure>
+
+<h3 id="MTK-Camera2-APP-Log"><a href="#MTK-Camera2-APP-Log" class="headerlink" title="MTK Camera2 APP Log"></a>MTK Camera2 APP Log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb root</span><br><span class="line">adb shell setprop vendor.debug.mtkcam.loglevel 3  </span><br></pre></td></tr></table></figure>
+
+<h3 id="Camera-Device-Hal3-Log"><a href="#Camera-Device-Hal3-Log" class="headerlink" title="Camera Device Hal3 Log"></a>Camera Device Hal3 Log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># log tag: mtkcam-dev3</span></span><br><span class="line">adb root</span><br><span class="line">adb shell setprop debug.camera.log.CameraDevice3 2</span><br><span class="line">ð  dump session param <span class="keyword">in</span> configure stage</span><br><span class="line">ð  <span class="built_in">log</span> requests from framework</span><br><span class="line">ð  <span class="built_in">log</span> results from pipeline</span><br></pre></td></tr></table></figure>
+
+<h3 id="AppStreamMgr-的-Log"><a href="#AppStreamMgr-的-Log" class="headerlink" title="AppStreamMgr 的 Log"></a>AppStreamMgr 的 Log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># log tag:  mtkcam-AppStreamMgr</span></span><br><span class="line">adb root</span><br><span class="line">adb shell setprop vendor.debug.camera.log.AppStreamMgr X</span><br><span class="line">ð  X&gt;=1, dump per-frame callback image/meta/shutter/error message</span><br><span class="line">ð  X&gt;=2, dump per-frame control metadata</span><br><span class="line">ð  X&gt;=3, dump per-frame result metadata  </span><br><span class="line">打开后，会有关键 <span class="built_in">log</span>:   mtkcam-AppStreamMgr: [x-CallbackHandler::performCallback]</span><br></pre></td></tr></table></figure>
+
+<h3 id="Pipeline-Log"><a href="#Pipeline-Log" class="headerlink" title="Pipeline Log"></a>Pipeline Log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># log tag: mtkcam-PipelineFrameBuilder</span></span><br><span class="line">adb root</span><br><span class="line">adb shell setprop persist.vendor.debug.camera.log X</span><br><span class="line">adb reboot</span><br><span class="line">ð  X&gt;=2, Log every IPipelineFrame settings</span><br><span class="line"> ð  X&gt;=3, Log every IPipelineFrame settings and its PipelineContext</span><br><span class="line">打开后，会有关键 <span class="built_in">log</span>:   mtkcam-PipelineFrameBuilder: App image stream buffers=</span><br></pre></td></tr></table></figure>
+
+
+
+
+<blockquote>
+<p>参考博客</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/taylorpotter/article/details/105707181">https://blog.csdn.net/taylorpotter/article/details/105707181</a></p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.freesion.com/article/9752721066/">https://www.freesion.com/article/9752721066/</a></p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/coppa/article/details/108067432">https://blog.csdn.net/coppa/article/details/108067432</a></p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/Coppa/article/details/108553449?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control">https://blog.csdn.net/Coppa/article/details/108553449?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control</a></p>
+</blockquote>
+
             </div>
         
         <footer class="article-footer">
